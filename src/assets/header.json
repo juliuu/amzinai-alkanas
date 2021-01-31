@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Pagrindinis",
+    "link": "/",
+    "selected": true
+  },
+  {
+    "id": 2,
+    "title": "Apie mane",
+    "link": "/apie",
+    "selected": false
+  },
+  {
+    "id": 3,
+    "title": "Restoranų apžvalgos",
+    "link": "/apzvalgos",
+    "selected": false
+  },
+  {
+    "id": 4,
+    "title": "Receptai",
+    "link": "/receptai",
+    "selected": false
+  },
+  {
+    "id": 5,
+    "title": "Kontaktai",
+    "link": "/kontaktai",
+    "selected": false
+  }
+]
