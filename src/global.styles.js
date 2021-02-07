@@ -6,6 +6,6 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
     }
 `;

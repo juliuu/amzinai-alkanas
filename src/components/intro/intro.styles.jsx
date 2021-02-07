@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const IntroContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 650px;
+  height: 720px;
   justify-content: center;
   align-items: center;
 `;

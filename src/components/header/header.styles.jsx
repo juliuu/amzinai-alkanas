@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
-  height: 70px;
+  height: 47px;
   width: 100%;
   background: #000000;
   align-items: center;
@@ -13,9 +13,9 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LogoContainer = styled(Link)`
-  width: 86px;
-  height: 42px;
-  padding-left: 25px;
+  width: 58px;
+  height: 28px;
+  padding-left: 29px;
 `;
 
 export const TitleContainer = styled.div`
@@ -32,7 +32,7 @@ export const TitleLink = styled(Link)`
   color: ${(props) => (props.selected ? "#FF9B00" : "#FFFFFF")};
   height: 100%;
   padding: 0px 25px;
-  margin: 0 2px;
+  margin: 0 1px;
   text-decoration: none;
 
   &:hover {
@@ -40,6 +40,6 @@ export const TitleLink = styled(Link)`
   }
 
   &:first-child {
-    padding-left: 50px;
+    padding-left: 60px;
   }
 `;
