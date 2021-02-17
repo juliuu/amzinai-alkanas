@@ -13,10 +13,23 @@ import {
 
 const Header = () => {
   const location = useLocation();
+  // TODO: LogoContainer to="/" throwing non-breaking-errors
   const [selectedItem, setSelectedItem] = useState(location.pathname);
+  const [isHeaderTop, setIsHeaderTop] = useState(true);
+
+  window.onscroll = () => {
+    if (
+      document.body.scrollTop > 50 ||
+      document.documentElement.scrollTop > 50
+    ) {
+      setIsHeaderTop(false);
+    } else {
+      setIsHeaderTop(true);
+    }
+  };
 
   return (
-    <HeaderContainer>
+    <HeaderContainer isHeaderTop={isHeaderTop}>
       <LogoContainer to="/" onClick={() => setSelectedItem("/")}>
         <Logo />
       </LogoContainer>

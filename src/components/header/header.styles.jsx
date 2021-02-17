@@ -6,10 +6,12 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   height: 47px;
   width: 100%;
-  background: #000000;
+  background: ${(props) => (props.isHeaderTop ? "transparent" : "#000000")};
+  transition: all 0.5s ease;
   align-items: center;
   justify-content: space-between;
   position: fixed;
+  z-index: 100;
 `;
 
 export const LogoContainer = styled(Link)`
@@ -36,7 +38,7 @@ export const TitleLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: #FF9B00;
+    color: #ff9b00;
   }
 
   &:first-child {
