@@ -5,7 +5,6 @@ import { GlobalStyle } from "./global.styles";
 
 import Spinner from "./components/spinner/spinner.component";
 import Header from "./components/header/header.component";
-import Footer from "./components/footer/footer.component";
 
 const HomePage = React.lazy(() => import("./pages/home/home.component"));
 const AboutPage = React.lazy(() => import("./pages/about/about.component"));
@@ -18,6 +17,7 @@ const RecipesPage = React.lazy(() =>
 const ContactsPage = React.lazy(() =>
   import("./pages/contacts/contacts.component")
 );
+const Top10Page = React.lazy(() => import("./pages/top10/top10.component"));
 
 const App = () => {
   return (
@@ -29,13 +29,11 @@ const App = () => {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/apie" component={AboutPage} />
           <Route exact path="/apzvalgos" component={ReviewsPage} />
+          <Route exact path="/top" component={Top10Page} />
           <Route exact path="/receptai" component={RecipesPage} />
-          <Route exact path="/kontaktai" component={ContactsPage} />
+          <Route exact path="/susisiekime" component={ContactsPage} />
         </Suspense>
       </Switch>
-      <Footer />
-      <Footer />
-      <Footer />
     </div>
   );
 };

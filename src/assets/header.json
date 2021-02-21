@@ -7,14 +7,14 @@
   },
   {
     "id": 2,
-    "title": "Apie mane",
-    "link": "/apie",
+    "title": "Restoranų apžvalgos",
+    "link": "/apzvalgos",
     "selected": false
   },
   {
     "id": 3,
-    "title": "Restoranų apžvalgos",
-    "link": "/apzvalgos",
+    "title": "Restoranų top 10",
+    "link": "/top",
     "selected": false
   },
   {
@@ -25,8 +25,14 @@
   },
   {
     "id": 5,
-    "title": "Kontaktai",
-    "link": "/kontaktai",
+    "title": "Apie mane",
+    "link": "/apie",
+    "selected": false
+  },
+  {
+    "id": 6,
+    "title": "Susisiekime",
+    "link": "/susisiekime",
     "selected": false
   }
 ]

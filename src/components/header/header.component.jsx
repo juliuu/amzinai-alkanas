@@ -13,10 +13,10 @@ import {
 
 const Header = () => {
   const location = useLocation();
-  // TODO: LogoContainer to="/" throwing non-breaking-errors
   const [selectedItem, setSelectedItem] = useState(location.pathname);
   const [isHeaderTop, setIsHeaderTop] = useState(true);
 
+  // TODO: header is transparent on different pages, should not.
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
