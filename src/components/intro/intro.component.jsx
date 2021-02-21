@@ -5,18 +5,20 @@ import {
   IntroContainer,
   Heading,
   SubHeading,
-  AboutLink,
 } from "./intro.styles";
 
-const Intro = () => (
-  <IntroContainer>
-    <IntroWrapper>
-      <Heading>Labas! Nori išbandyti naujus, patikimus restoranus ar atrasti naujų receptų?</Heading>
-      <SubHeading>Sveikas atvykęs į mano tinklaraštį!</SubHeading>
-      {/* TODO: extract AboutLink to a separate button component */}
-      <AboutLink to="/apie">Apie mane</AboutLink>
-    </IntroWrapper>
-  </IntroContainer>
-);
+import Button from "../button/button.component";
+
+const Intro = ({ 0: props }) => {
+  return (
+    <IntroContainer>
+      <IntroWrapper>
+        <Heading>{props.heading}</Heading>
+        <SubHeading>{props.subheading}</SubHeading>
+        <Button to={props.linkTo}>{props.buttonText}</Button>
+      </IntroWrapper>
+    </IntroContainer>
+  );
+};
 
 export default Intro;

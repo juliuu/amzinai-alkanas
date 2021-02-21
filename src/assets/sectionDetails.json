@@ -1,0 +1,12 @@
+[
+  {
+    "sectionId": "introSection",
+    "heading": "Labas! Nori išbandyti naujus, patikimus restoranus ar atrasti naujų receptų?",
+    "subheading": "Sveikas atvykęs į mano tinklaraštį!",
+    "buttonText": "Apie mane",
+    "linkTo": "/apie"
+  },
+  {
+    "sectionId": "something else"
+  }
+]

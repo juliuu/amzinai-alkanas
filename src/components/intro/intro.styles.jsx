@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import image from "../../assets/intro-image.jpg";
 
 export const IntroContainer = styled.div`
@@ -32,17 +31,4 @@ export const Heading = styled.div`
 export const SubHeading = styled.div`
   font-size: 22px;
   margin: 0 30px 40px;
-`;
-
-export const AboutLink = styled(Link)`
-  display: flex;
-  width: 132px;
-  height: 46px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 23px;
-  background: red;
-  font-size: 18px;
-  color: white;
-  text-decoration: none;
 `;
