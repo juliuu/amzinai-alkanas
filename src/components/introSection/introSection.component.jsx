@@ -5,11 +5,11 @@ import {
   IntroContainer,
   Heading,
   SubHeading,
-} from "./intro.styles";
+} from "./introSection.styles";
 
 import Button from "../button/button.component";
 
-const Intro = ({ 0: props }) => {
+const IntroSection = ({ 0: props }) => {
   return (
     <IntroContainer>
       <IntroWrapper>
@@ -21,4 +21,4 @@ const Intro = ({ 0: props }) => {
   );
 };
 
-export default Intro;
+export default IntroSection;

@@ -1,0 +1,61 @@
+[
+  {
+    "sectionId": "introSection",
+    "heading": "Labas! Nori išbandyti naujus, patikimus restoranus ar atrasti naujų receptų?",
+    "subheading": "Sveikas atvykęs į mano tinklaraštį!",
+    "buttonText": "Apie mane",
+    "linkTo": "/apie"
+  },
+  {
+    "sectionId": "reviewSection",
+    "title": "restoranų apžvalgos",
+    "linkTo": "/apzvalgos",
+    "linkText": "Skaityti apžvalgą",
+    "articles": [
+      {
+        "id": 1,
+        "imgUrl": "image-1-url",
+        "heading": "Sushi City",
+        "intro": "BLAH blah blah"
+      },
+      {
+        "id": 2,
+        "imgUrl": "image-2-url",
+        "heading": "Gan bei",
+        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up"
+      },
+      {
+        "id": 3,
+        "imgUrl": "image-3-url",
+        "heading": "Komodonomondofda",
+        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up"
+      }
+    ]
+  },
+  {
+    "sectionId": "recipesSection",
+    "title": "receptai",
+    "linkTo": "/recipes",
+    "linkText": "Skaityti receptą",
+    "articles": [
+      {
+        "id": 1,
+        "imgUrl": "image-1-url",
+        "heading": "Neapolietiška pica",
+        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up"
+      },
+      {
+        "id": 2,
+        "imgUrl": "image-2-url",
+        "heading": "Greitasis ramen",
+        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up"
+      },
+      {
+        "id": 3,
+        "imgUrl": "image-3-url",
+        "heading": "Amerikietiški blyneliai",
+        "intro": "BLAH blah blah"
+      }
+    ]
+  }
+]
