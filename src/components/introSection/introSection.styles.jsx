@@ -2,7 +2,7 @@ import styled from "styled-components";
 import image from "../../assets/intro-image.jpg";
 
 export const IntroContainer = styled.div`
-  height: 720px;
+  height: 51.43rem;
   background-image: url(${image});
   background-size: cover;
   background-position: center right;
@@ -24,11 +24,15 @@ export const IntroWrapper = styled.div`
 `;
 
 export const Heading = styled.div`
-  font-size: 42px;
+  font-size: 3rem;
+  font-weight: 900;
+  width: 40ch;
   margin: 0 30px 20px;
 `;
 
 export const SubHeading = styled.div`
-  font-size: 22px;
+  font-size: 1.57rem;
+  font-style: italic;
+  letter-spacing: 0.11rem;
   margin: 0 30px 40px;
 `;

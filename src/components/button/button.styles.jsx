@@ -7,9 +7,11 @@ export const StyledLink = styled(Link)`
   height: 46px;
   align-items: center;
   justify-content: center;
-  border-radius: 23px;
+  /* TODO: to set radius independant of height, just set very large */
+  border-radius: 10000rem;
   background: red;
-  font-size: 18px;
+  font-size: 1.143rem;
+  font-weight: 900;
   color: white;
   text-decoration: none;
 `;

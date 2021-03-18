@@ -15,6 +15,11 @@ export const CardContainer = styled(Link)`
   border: 1px solid #e3e3e3;
   box-shadow: 0px 3px 6px #00000029;
   text-decoration: none;
+  margin-right: 3rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
 `;
 
 export const SomePicture = styled.div`
@@ -29,7 +34,7 @@ export const SomePicture = styled.div`
   margin-bottom: 10px;
 `;
 
-export const CardHeading = styled.div`
+export const CardHeading = styled.h3`
   display: flex;
   justify-content: start;
   width: 100%;
@@ -44,7 +49,8 @@ export const CardIntroduction = styled.div`
   height: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 18px;
+  font-size: 1.143rem;
+  font-weight: 300;
   margin-bottom: 14px;
 `;
 
@@ -52,7 +58,8 @@ export const CardLink = styled.div`
   display: flex;
   justify-content: start;
   width: 100%;
-  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 900;
   color: #7A7A7A;
   text-decoration: underline;
 `;

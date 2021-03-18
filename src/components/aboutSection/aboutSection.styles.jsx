@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const AboutContainer = styled.div`
-  height: 800px;
+  display: flex;
+  justify-content: center;
+  height: 57.143rem;
   color: white;
   background: black;
 `;
@@ -9,18 +11,20 @@ export const AboutContainer = styled.div`
 export const AboutWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 125px 340px;
+  padding: 125px 0;
+  width: 1260px;
 `;
 
 export const AuthorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 50ch;
 
   p {
     text-align: center;
-    font-size: 18px;
+    font-size: 1.286rem;
+    font-weight: 300;
   }
 `;
 
@@ -70,10 +74,10 @@ export const ContactInputText = styled.input`
   margin-bottom: 20px;
   padding-left: 20px;
   color: white;
-  font-size: 18px;
+  font-size: 1.286rem;
 
   ::placeholder {
-    font-size: 18px;
+    font-size: 1.286rem;
     text-align: start;
     color: #7a7a7a;
     opacity: 1;
@@ -96,10 +100,10 @@ export const ContactInputTextarea = styled.textarea`
   padding-top: 15px;
   color: white;
   font-family: inherit;
-  font-size: 18px;
+  font-size: 1.286rem;
 
   ::placeholder {
-    font-size: 18px;
+    font-size: 1.286rem;
     text-align: start;
     color: #7a7a7a;
     opacity: 1;
@@ -119,7 +123,7 @@ export const ContactInputSubmit = styled.input`
   justify-content: center;
   border-radius: 23px;
   background: red;
-  font-size: 18px;
+  font-size: 1.286rem;
   color: white;
   border: 0;
 
@@ -132,8 +136,7 @@ export const ContactInputSubmit = styled.input`
   }
 `;
 
-export const AboutTitle = styled.div`
-  font-size: 24px;
+export const AboutTitle = styled.h1`
   text-align: center;
   margin-bottom: 70px;
 `;

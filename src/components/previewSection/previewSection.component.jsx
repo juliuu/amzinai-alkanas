@@ -1,6 +1,6 @@
 import React from "react";
 
-import { PreviewContainer } from "./previewSection.styles";
+import { PreviewContainer, PreviewWrapper } from "./previewSection.styles";
 import SectionHeading from "../sectionHeading/sectionHeading.component";
 import SectionCardCarousel from "../sectionCardCarousel/sectionCardCarousel.component";
 import Button from "../button/button.component";
@@ -11,9 +11,11 @@ const PreviewSection = ({ 0: props }) => {
   const heading = { title, linkTo };
   return (
     <PreviewContainer>
-      <SectionHeading {...heading} />
-      <SectionCardCarousel {...carousel} />
-      <Button to={linkTo}>Daugiau</Button>
+      <PreviewWrapper>
+        <SectionHeading {...heading} />
+        <SectionCardCarousel {...carousel} />
+        <Button to={linkTo}>Daugiau</Button>
+      </PreviewWrapper>
     </PreviewContainer>
   );
 };

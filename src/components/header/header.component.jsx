@@ -41,7 +41,7 @@ const Header = () => {
             selected={selectedItem === headerItem.link}
             onClick={() => setSelectedItem(headerItem.link)}
           >
-            {headerItem.title.toUpperCase()}
+            <h5>{headerItem.title.toUpperCase()}</h5>
           </TitleLink>
         ))}
       </TitleContainer>

@@ -50,9 +50,34 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4, h5 {
         font-family: 'Secular One', Helvetica, sans-serif;
         margin: 0;
         padding: 0;
+    }
+
+    h1 {
+        /* 24px */
+        font-size: 1.714rem;
+    }
+
+    h2 {
+        /* 22px */
+        font-size: 1.571rem;
+    }
+
+    h3 {
+        /* 20px */
+        font-size: 1.429rem;
+    }
+
+    h4 {
+        /* 18px */
+        font-size: 1.286rem;
+    }
+
+    h5 {
+        /* 14px */
+        font-size: 1rem;
     }
 `;

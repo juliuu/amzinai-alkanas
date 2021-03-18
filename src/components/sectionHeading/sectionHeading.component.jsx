@@ -11,7 +11,7 @@ const SectionHeading = ({ title, linkTo }) => (
     <ButtonWrapper>
       <Button to={linkTo}>Test Button</Button>
     </ButtonWrapper>
-    {title.toUpperCase()}
+    <h1>{title.toUpperCase()}</h1>
   </SectionHeadingContainer>
 );
 
