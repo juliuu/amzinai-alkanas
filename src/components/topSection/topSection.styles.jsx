@@ -18,6 +18,7 @@ export const TopWrapper = styled.div`
 export const TopList = styled.div`
   display: flex;
   flex-flow: column wrap;
+  height: 30rem; // TODO: remove this;
   font-size: 1.571rem;
 `;
 
