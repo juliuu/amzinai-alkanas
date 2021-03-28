@@ -9,7 +9,7 @@ import {
 
 import Button from "../button/button.component";
 
-const IntroSection = ({ 0: props }) => {
+const IntroSection = (props) => {
   return (
     <IntroContainer>
       <IntroWrapper>

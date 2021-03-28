@@ -9,23 +9,17 @@ import AboutContainer from "../../components/aboutSection/aboutSection.component
 
 import homepageDetails from "../../assets/homepageDetails.json";
 
+const getDetails = (id) => {
+  return homepageDetails.find((item) => item.sectionId === id);
+};
+
 const HomePage = () => {
   return (
     <HomePageContainer>
-      <IntroSection
-        {...homepageDetails.filter((item) => item.sectionId === "introSection")}
-      />
-      <PeviewSection
-        {...homepageDetails.filter(
-          (item) => item.sectionId === "reviewSection"
-        )}
-      />
-      <TopSection />
-      <PeviewSection
-        {...homepageDetails.filter(
-          (item) => item.sectionId === "recipesSection"
-        )}
-      />
+      <IntroSection {...getDetails("introSection")} />
+      <PeviewSection {...getDetails("reviewSection")} />
+      <TopSection {...getDetails("topSection")} />
+      <PeviewSection {...getDetails("recipesSection")} />
       <AboutContainer />
     </HomePageContainer>
   );
