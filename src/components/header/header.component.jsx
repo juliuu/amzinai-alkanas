@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import headerItems from "../../assets/header.json";
-import { ReactComponent as Logo } from "../../assets/amzinai-alkanas.red.svg";
 
 import {
   HeaderContainer,
   LogoContainer,
   TitleContainer,
   TitleLink,
+  Logo
 } from "./header.styles";
 
 const Header = () => {

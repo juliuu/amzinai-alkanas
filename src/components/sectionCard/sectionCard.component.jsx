@@ -9,7 +9,6 @@ import {
 } from "./sectionCard.styles";
 
 const SectionCard = (props) => {
-  // TODO: add default values if children are missing
   const { imgUrl, heading, intro, to, linkText } = props;
   return (
     <CardContainer to={to}>

@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const AboutContainer = styled.div`
   display: flex;
   justify-content: center;
-  height: 57.143rem;
   color: white;
   background: black;
 `;
@@ -11,8 +10,13 @@ export const AboutContainer = styled.div`
 export const AboutWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 125px 0;
-  width: 1260px;
+  padding: 11.4rem 0;
+  width: 1260px; // TODO: don't know if I should leave it like this...
+`;
+
+export const AboutTitle = styled.h1`
+  text-align: center;
+  margin-bottom: 5rem;
 `;
 
 export const AuthorContainer = styled.div`
@@ -25,45 +29,40 @@ export const AuthorContainer = styled.div`
     text-align: center;
     font-size: 1.286rem;
     font-weight: 300;
+    margin: 0;
   }
 `;
 
 export const AuthorPortrait = styled.img`
-  width: 175px;
-  height: 175px;
+  width: 12.5rem;
+  height: 12.5rem;
   border-radius: 50%;
   background: red;
-  margin-bottom: 20px;
+  margin-bottom: 1.4rem;
 `;
 
 export const SocialsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
   height: 100%;
 `;
 
-export const SocialIcon = styled.div`
-  width: 67px;
-  height: 67px;
-  background-image: url("../../assets/facebook.png"); // TODO: work on adding pictures
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: white;
-  border: 3px solid red;
-  border-radius: 50%;
-  margin-bottom: 40px;
+export const SocialIconWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 export const ContactContainer = styled.div`
-  width: 400px;
+  width: 50ch;
   height: 100%;
 `;
 
-export const ContactFormWrapper = styled.form``;
+export const ContactForm = styled.form``;
 
+// TODO: fix this mess...
 export const ContactInputText = styled.input`
   width: 100%;
   height: ${(props) => (props.inputType === "title" ? "60px" : "230px")};
@@ -101,6 +100,7 @@ export const ContactInputTextarea = styled.textarea`
   color: white;
   font-family: inherit;
   font-size: 1.286rem;
+  resize: none;
 
   ::placeholder {
     font-size: 1.286rem;
@@ -134,9 +134,4 @@ export const ContactInputSubmit = styled.input`
   :hover {
     cursor: pointer;
   }
-`;
-
-export const AboutTitle = styled.h1`
-  text-align: center;
-  margin-bottom: 70px;
 `;

@@ -7,7 +7,7 @@ export const SectionHeadingContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-items: center;
-  padding-bottom: 4rem;
+  margin-bottom: 4rem;
 `;
 
 export const ButtonWrapper = styled.div`

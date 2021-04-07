@@ -6,14 +6,16 @@ import {
   AuthorContainer,
   AuthorPortrait,
   SocialsContainer,
-  SocialIcon,
+  SocialIconWrapper,
   ContactContainer,
-  ContactFormWrapper,
+  ContactForm,
   ContactInputText,
   ContactInputTextarea,
   ContactInputSubmit,
   AboutTitle,
 } from "./aboutSection.styles";
+
+import SocialIcon from "../socialIcon/socialIcon.component";
 
 const AboutSection = () => (
   <AboutContainer>
@@ -32,14 +34,16 @@ const AboutSection = () => (
       </AuthorContainer>
       <SocialsContainer>
         <AboutTitle>SUSISIEKIME</AboutTitle>
-        <SocialIcon />
-        <SocialIcon />
-        <SocialIcon />
-        <SocialIcon />
+        <SocialIconWrapper>
+          <SocialIcon icon="facebook" link="https://facebook.com" />
+          <SocialIcon icon="gmail" link="https://gmail.com" />
+          <SocialIcon icon="instagram" link="https://instagram.com" />
+          <SocialIcon icon="youtube" link="https://youtube.com" />
+        </SocialIconWrapper>
       </SocialsContainer>
       <ContactContainer>
-        <AboutTitle>PARAŠYK MAN:</AboutTitle>
-        <ContactFormWrapper>
+        <AboutTitle>PARAŠYK MAN</AboutTitle>
+        <ContactForm>
           <ContactInputText
             inputType="title"
             type="text"
@@ -53,7 +57,7 @@ const AboutSection = () => (
             name="message"
           />
           <ContactInputSubmit type="submit" value="Siųsti" />
-        </ContactFormWrapper>
+        </ContactForm>
       </ContactContainer>
     </AboutWrapper>
   </AboutContainer>

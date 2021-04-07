@@ -7,13 +7,14 @@ import {
   ListItem,
   ItemNumber,
   ItemName,
-  ItemRating,
+  HonorableMentions,
 } from "./topSection.styles";
+
 import SectionHeading from "../sectionHeading/sectionHeading.component";
+import StarRating from "../starRating/starRating.component";
 
 const TopSection = (props) => {
   const { title, linkTo, topList } = props;
-  console.log("TOP LIST --> ", topList);
   const heading = { title, linkTo };
 
   return (
@@ -25,10 +26,11 @@ const TopSection = (props) => {
             <ListItem key={item.id}>
               <ItemNumber>{item.id}.</ItemNumber>
               <ItemName>{item.name.toUpperCase()}</ItemName>
-              <ItemRating>{item.rating}</ItemRating>
+              <StarRating>{item.rating}</StarRating>
             </ListItem>
           ))}
         </TopList>
+        <HonorableMentions to="/apzvalgos">Į sąrašą nepatekę restoranai</HonorableMentions>
       </TopWrapper>
     </TopContainer>
   );

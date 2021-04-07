@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
+import { ReactComponent as ReactLogo } from "../../assets/amzinai-alkanas.svg";
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -15,9 +16,16 @@ export const HeaderContainer = styled.div`
 `;
 
 export const LogoContainer = styled(Link)`
-  width: 79px;
-  height: 38px;
+  display: flex;
+  align-items: center;
+  height: 100%;
   padding-left: 22px;
+`;
+
+export const Logo = styled(ReactLogo)`
+  width: auto;
+  height: 38px;
+  fill: red;
 `;
 
 export const TitleContainer = styled.div`
