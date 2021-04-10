@@ -2,7 +2,7 @@ import styled from "styled-components";
 import image from "../../assets/intro-image.jpg";
 
 export const IntroContainer = styled.div`
-  height: 51.43rem;
+  height: var(--introSection-height);
   background-image: url(${image});
   background-size: cover;
   background-position: center right;
@@ -24,15 +24,15 @@ export const IntroWrapper = styled.div`
 `;
 
 export const Heading = styled.div`
-  font-size: 3rem;
+  font-size: var(--heading-font-size);
   font-weight: 900;
-  width: 40ch;
-  margin: 0 30px 20px;
+  max-width: 40ch;
+  margin: var(--heading-margins);
 `;
 
-export const SubHeading = styled.div`
-  font-size: 1.57rem;
+export const SubHeading = styled.span`
+  font-size: var(--subheading-font-size);
   font-style: italic;
-  letter-spacing: 0.11rem;
-  margin: 0 30px 40px;
+  letter-spacing: 0.086rem;
+  margin: var(--subheading-margins);
 `;
