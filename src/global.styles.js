@@ -52,6 +52,7 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         /* General params */
+        --page-layout-width: 1300px;
         --button-font-size: 16px;
         --button-padding: 12px 20px;
 
@@ -73,6 +74,7 @@ export const GlobalStyle = createGlobalStyle`
             /* General params */
             --button-font-size: 12px;
             --button-padding: 11px 15px;
+            --page-layout-width: 100%;
 
             /* Home Page --> Intro Section params */
             --introSection-height: 21.875rem;

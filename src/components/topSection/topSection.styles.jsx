@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const TopContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
+  align-items: center;
   color: white;
   background: black;
 `;
@@ -12,26 +13,36 @@ export const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 4.6rem;
-  width: 90rem; // TODO: remove this later
+  width: 100%;
+  max-width: var(--page-layout-width);
   height: fit-content;
   padding-bottom: 13rem;
+  margin: 0 1rem;
 `;
 
-export const TopList = styled.ul`
-  column-count: 2;
-  font-size: 1.571rem;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  margin-top: 6.43rem;
-`;
-
-export const ListItem = styled.li`
+export const ListWrapper = styled.div`
   display: flex;
-  width: fit-content;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const TopList = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50ch;
+`;
+
+export const ListItem = styled.span`
+  display: flex;
+  width: 100%;
   align-items: center;
-  padding-bottom: 1.429rem;
-  margin-right: 1.5rem;
+  padding-bottom: 1.111rem;
+
+  > :last-child {
+    margin-left: auto;
+  }
 `;
 
 export const ItemNumber = styled.span`
@@ -41,12 +52,7 @@ export const ItemNumber = styled.span`
 `;
 
 export const ItemName = styled.span`
-  width: 30ch;
-`;
-
-export const HonorableMentions = styled(Link)`
-  align-self: flex-end;
-  color: red;
-  font-size: 16px;
-  width: fit-content;
+  width: 100%;
+  max-width: 37ch;
+  padding-right: 1rem;
 `;

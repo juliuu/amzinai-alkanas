@@ -1,25 +1,35 @@
-import styled from "styled-components/macro";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ReactComponent as ReactLogo } from "../../assets/amzinai-alkanas.svg";
 
 export const HeaderContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  height: 66px;
   width: 100%;
+  height: 66px;
+  justify-content: center;
+  align-items: center;
   background: ${(props) => (props.isHeaderTop ? "transparent" : "#000000")};
   transition: all 0.5s ease;
-  align-items: center;
-  justify-content: space-between;
   position: fixed;
-  z-index: 100;
+  z-index: 9999;
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  max-width: var(--page-layout-width);
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 1rem;
 `;
 
 export const LogoContainer = styled(Link)`
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding-right: 0.833rem;
   height: 100%;
-  padding-left: 22px;
 `;
 
 export const Logo = styled(ReactLogo)`
@@ -32,7 +42,16 @@ export const TitleContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
-  justify-content: start;
+  justify-content: space-between;
+
+  > span {
+    display: flex;
+    justify-content: space-between;
+
+    > :last-child {
+      padding-right: 0;
+    }
+  }
 `;
 
 export const TitleLink = styled(Link)`
@@ -41,24 +60,10 @@ export const TitleLink = styled(Link)`
   justify-content: center;
   color: ${(props) => (props.selected ? "#FF9B00" : "#FFFFFF")};
   height: 100%;
-  padding: 0px 15px;
+  padding: 0 0.833rem;
   text-decoration: none;
 
   &:hover {
     color: #ff9b00;
-  }
-
-  &:first-child {
-    padding-left: 30px;
-  }
-
-  &:last-child {
-    padding-right: 0;
-    margin-right: 188px;
-  }
-
-  &:nth-last-child(2) {
-    padding-left: 0;
-    margin-left: auto;
   }
 `;
