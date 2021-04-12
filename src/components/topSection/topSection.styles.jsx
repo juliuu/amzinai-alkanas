@@ -12,18 +12,20 @@ export const TopContainer = styled.div`
 export const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 4.6rem;
+  align-items: center;
+  padding: 3.5rem 0;
   width: 100%;
   max-width: var(--page-layout-width);
   height: fit-content;
-  padding-bottom: 13rem;
   margin: 0 1rem;
 `;
 
 export const ListWrapper = styled.div`
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: var(--topSection-flex-direction);
   justify-content: space-between;
+  align-items: center;
+  margin: 8rem 0;
   width: 100%;
 `;
 
@@ -32,6 +34,10 @@ export const TopList = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 50ch;
+
+  &:first-child {
+    margin-right: var(--firstChild-margin-right);
+  }
 `;
 
 export const ListItem = styled.span`

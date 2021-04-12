@@ -62,6 +62,11 @@ export const GlobalStyle = createGlobalStyle`
         --heading-margins: 0 1.667rem 1.111rem;
         --subheading-font-size: 1.222rem;
         --subheading-margins: 0 1.667rem 2.222rem;
+
+        /* Home Page --> Top Section params */
+        --topSection-flex-direction: row;
+        --topSection-justify: space-between;
+        --firstChild-margin-right: 3rem;
     }
 
     /* Support only for mobile/tablet sizes */
@@ -82,6 +87,11 @@ export const GlobalStyle = createGlobalStyle`
             --heading-margins: 0 1.667rem 0.75rem;
             --subheading-font-size: 0.5rem;
             --subheading-margins: 0 1.667rem 1.063rem;
+
+            /* Home Page --> Top Section params */
+            --topSection-flex-direction: column;
+            --topSection-justify: center;
+            --firstChild-margin-right: 0;
         }
     }
 

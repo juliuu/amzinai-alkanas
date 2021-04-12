@@ -12,6 +12,7 @@ import {
 
 import SectionHeading from "../sectionHeading/sectionHeading.component";
 import StarRating from "../starRating/starRating.component";
+import Button from "../button/button.component";
 
 const TopSection = (props) => {
   const { title, linkTo, topList } = props;
@@ -44,6 +45,7 @@ const TopSection = (props) => {
             ))}
           </TopList>
         </ListWrapper>
+        <Button to="/apzvalgos">Daugiau</Button>
       </TopWrapper>
     </TopContainer>
   );

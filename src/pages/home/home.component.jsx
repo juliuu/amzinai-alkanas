@@ -19,8 +19,8 @@ const HomePage = () => {
       <IntroSection {...getDetails("introSection")} />
       {/* <PeviewSection {...getDetails("reviewSection")} /> */}
       <TopSection {...getDetails("topSection")} />
-      {/* <PeviewSection {...getDetails("recipesSection")} />
-      <AboutContainer /> */}
+      {/* <PeviewSection {...getDetails("recipesSection")} /> */}
+      {/* <AboutContainer /> */}
     </HomePageContainer>
   );
 };
