@@ -11,6 +11,8 @@ export const IconBackground = styled.a`
   border: 3px solid red;
   border-radius: 50%;
 
+  margin: 0 1.5rem 1.5rem;
+
   > * {
     width: 100%;
     height: 100%;

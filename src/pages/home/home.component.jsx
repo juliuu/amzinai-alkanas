@@ -20,7 +20,7 @@ const HomePage = () => {
       {/* <PeviewSection {...getDetails("reviewSection")} /> */}
       <TopSection {...getDetails("topSection")} />
       {/* <PeviewSection {...getDetails("recipesSection")} /> */}
-      {/* <AboutContainer /> */}
+      <AboutContainer />
     </HomePageContainer>
   );
 };

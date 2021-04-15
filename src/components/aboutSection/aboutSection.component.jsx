@@ -35,10 +35,14 @@ const AboutSection = () => (
       <SocialsContainer>
         <AboutTitle>SUSISIEKIME</AboutTitle>
         <SocialIconWrapper>
-          <SocialIcon icon="facebook" link="https://facebook.com" />
-          <SocialIcon icon="gmail" link="https://gmail.com" />
-          <SocialIcon icon="instagram" link="https://instagram.com" />
-          <SocialIcon icon="youtube" link="https://youtube.com" />
+          <div>
+            <SocialIcon icon="facebook" link="https://facebook.com" />
+            <SocialIcon icon="gmail" link="https://gmail.com" />
+          </div>
+          <div>
+            <SocialIcon icon="instagram" link="https://instagram.com" />
+            <SocialIcon icon="youtube" link="https://youtube.com" />
+          </div>
         </SocialIconWrapper>
       </SocialsContainer>
       <ContactContainer>

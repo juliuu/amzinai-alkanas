@@ -9,9 +9,13 @@ export const AboutContainer = styled.div`
 
 export const AboutWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  padding: 11.4rem 0;
-  width: 1260px; // TODO: don't know if I should leave it like this...
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 7rem 0;
+  width: 100%;
+  max-width: var(--page-layout-width);
+  height: fit-content;
+  margin: 0 1rem;
 `;
 
 export const AboutTitle = styled.h1`
@@ -23,7 +27,10 @@ export const AuthorContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50ch;
+  width: 100%;
+  max-width: 50ch;
+
+  margin-bottom: 4rem;
 
   p {
     text-align: center;
@@ -44,15 +51,23 @@ export const AuthorPortrait = styled.img`
 export const SocialsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
   align-items: center;
-  height: 100%;
+  padding-bottom: 2.5rem;
+  margin: 0 2rem;
 `;
 
 export const SocialIconWrapper = styled.div`
-  height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: space-between;
+
+  div {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
 `;
 
 export const ContactContainer = styled.div`
