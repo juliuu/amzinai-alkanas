@@ -6,14 +6,23 @@ import {
   CardHeading,
   CardIntroduction,
   CardLink,
+  CardRating,
 } from "./sectionCard.styles";
 
+import StarRating from "../starRating/starRating.component";
+
 const SectionCard = (props) => {
-  const { imgUrl, heading, intro, to, linkText } = props;
+  const { imgUrl, heading, intro, rating, to, linkText } = props;
   return (
     <CardContainer to={to}>
+      <CardRating>
+        <StarRating>{rating}</StarRating>
+      </CardRating>
       <SomePicture>{imgUrl}</SomePicture>
-      <CardHeading>{heading.toUpperCase()}</CardHeading>
+      <CardHeading>
+        <h3>{heading.toUpperCase()}</h3>
+        <span>2021-07-24</span>
+      </CardHeading>
       <CardIntroduction>{intro}</CardIntroduction>
       <CardLink>{linkText}</CardLink>
     </CardContainer>

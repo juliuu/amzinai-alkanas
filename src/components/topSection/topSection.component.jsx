@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   TopContainer,
@@ -14,31 +14,44 @@ import SectionHeading from "../sectionHeading/sectionHeading.component";
 import StarRating from "../starRating/starRating.component";
 import Button from "../button/button.component";
 
-const TopSection = (props) => {
-  const { title, linkTo, topList } = props;
-  const heading = { title, linkTo };
+const TopSection = ({ title, dropdown, topList }) => {
+  const heading = { title, dropdown };
 
-  const firstPart = topList.slice(0, 5);
-  const secondPart = topList.slice(5, 10);
+  const [firstPart, setFirstPart] = useState([]);
+  const [secondPart, setSecondPart] = useState([]);
+
+  const [filter, setFilter] = useState(dropdown[0].id);
+
+  useEffect(() => {
+    const result = topList
+      .filter((item) => item.type === filter)
+      .sort((a, b) => b.rating - a.rating);
+
+    setFirstPart(result.slice(0, 5));
+    setSecondPart(result.slice(5, 10));
+  }, [filter, topList]);
 
   return (
     <TopContainer>
       <TopWrapper>
-        <SectionHeading {...heading} />
+        <SectionHeading
+          {...heading}
+          onFilterChange={(value) => setFilter(value)}
+        />
         <ListWrapper>
           <TopList>
-            {firstPart.map((item) => (
+            {firstPart.map((item, index) => (
               <ListItem key={item.id}>
-                <ItemNumber>{item.id}.</ItemNumber>
+                <ItemNumber>{index + 1}.</ItemNumber>
                 <ItemName>{item.name.toUpperCase()}</ItemName>
                 <StarRating>{item.rating}</StarRating>
               </ListItem>
             ))}
           </TopList>
           <TopList>
-            {secondPart.map((item) => (
+            {secondPart.map((item, index) => (
               <ListItem key={item.id}>
-                <ItemNumber>{item.id}.</ItemNumber>
+                <ItemNumber>{index + 6}.</ItemNumber>
                 <ItemName>{item.name.toUpperCase()}</ItemName>
                 <StarRating>{item.rating}</StarRating>
               </ListItem>

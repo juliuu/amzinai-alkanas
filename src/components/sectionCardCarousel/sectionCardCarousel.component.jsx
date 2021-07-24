@@ -14,6 +14,7 @@ const SectionCardCarousel = (props) => {
           imgUrl={article.imgUrl}
           heading={article.heading}
           intro={article.intro}
+          rating={article.rating}
           to={linkTo}
           linkText={linkText}
         />

@@ -17,9 +17,9 @@ const HomePage = () => {
   return (
     <HomePageContainer>
       <IntroSection {...getDetails("introSection")} />
-      {/* <PeviewSection {...getDetails("reviewSection")} /> */}
+      <PeviewSection {...getDetails("reviewSection")} />
       <TopSection {...getDetails("topSection")} />
-      {/* <PeviewSection {...getDetails("recipesSection")} /> */}
+      <PeviewSection {...getDetails("recipesSection")} />
       <AboutContainer />
     </HomePageContainer>
   );

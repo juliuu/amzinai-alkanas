@@ -16,6 +16,7 @@ export const CardContainer = styled(Link)`
   box-shadow: 0px 3px 6px #00000029;
   text-decoration: none;
   margin-right: 3rem;
+  position: relative;
 
   &:last-child {
     margin-right: 0;
@@ -34,12 +35,32 @@ export const SomePicture = styled.div`
   margin-bottom: 10px;
 `;
 
-export const CardHeading = styled.h3`
+export const CardRating = styled.div`
+  top: 0%;
+  right: 5%;
+  transform: translateY(30%);
+  color: white;
+  position: absolute;
+`;
+
+export const CardHeading = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
   width: 100%;
-  font-size: 20px;
   margin-bottom: 7px;
+
+  > :first-child {
+    font-size: 20px;
+    width: 18ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  > :last-child {
+    color: hsl(0, 0%, 50%);
+  }
 `;
 
 export const CardIntroduction = styled.div`
@@ -60,6 +81,6 @@ export const CardLink = styled.div`
   width: 100%;
   font-size: 1rem;
   font-weight: 900;
-  color: #7A7A7A;
+  color: #7a7a7a;
   text-decoration: underline;
 `;
