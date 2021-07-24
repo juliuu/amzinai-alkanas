@@ -17,10 +17,10 @@ import {
 
 import SocialIcon from "../socialIcon/socialIcon.component";
 
-const AboutSection = () => (
+const AboutSection = ({ refs }) => (
   <AboutContainer>
     <AboutWrapper>
-      <AuthorContainer>
+      <AuthorContainer ref={refs.aboutRef}>
         <AboutTitle>APIE MANE</AboutTitle>
         <AuthorPortrait />
         <p>
@@ -32,7 +32,7 @@ const AboutSection = () => (
           bičiuli!
         </p>
       </AuthorContainer>
-      <SocialsContainer>
+      <SocialsContainer ref={refs.contactRef}>
         <AboutTitle>SUSISIEKIME</AboutTitle>
         <SocialIconWrapper>
           <div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import {
@@ -10,25 +10,45 @@ import {
   Logo,
 } from "./header.styles";
 
-const Header = () => {
-  const location = useLocation();
-  const [selectedItem, setSelectedItem] = useState(location.pathname);
-  const [isHeaderTop, setIsHeaderTop] = useState(true);
+const handleScroll = (ref) => {
+  ref.current.scrollIntoView();
+};
 
-  // TODO: header is transparent on different pages, should not.
+const Header = ({ refs }) => {
+  const { pathname, hash } = useLocation();
+  const [selectedItem, setSelectedItem] = useState(pathname);
+  const [isHeaderTransparent, setIsHeaderTransparent] = useState(true);
+
+  useEffect(() => {
+    if (pathname !== "/" || hash) setIsHeaderTransparent(false);
+    else setIsHeaderTransparent(true);
+
+    switch (hash) {
+      case "#about":
+        handleScroll(refs.aboutRef);
+        break;
+      case "#contact":
+        handleScroll(refs.contactRef);
+        break;
+      default:
+        window.scrollTo(0, 0);
+        break;
+    }
+  }, [pathname, hash, refs]);
+
   window.onscroll = () => {
     if (
       document.body.scrollTop > 50 ||
       document.documentElement.scrollTop > 50
     ) {
-      setIsHeaderTop(false);
+      setIsHeaderTransparent(false);
     } else {
-      setIsHeaderTop(true);
+      setIsHeaderTransparent(true);
     }
   };
 
   return (
-    <HeaderContainer isHeaderTop={isHeaderTop}>
+    <HeaderContainer isHeaderTransparent={isHeaderTransparent}>
       <HeaderWrapper>
         <LogoContainer to="/" onClick={() => setSelectedItem("/")}>
           <Logo />
@@ -64,20 +84,11 @@ const Header = () => {
               <h5>RECEPTAI</h5>
             </TitleLink>
           </span>
-          {/* Coudn't find a better way to separate these sections without repeating code */}
           <span>
-            <TitleLink
-              to="/apie"
-              selected={selectedItem === "/apie"}
-              onClick={() => setSelectedItem("/apie")}
-            >
+            <TitleLink to="/#about" onClick={() => setSelectedItem("/")}>
               <h5>APIE MANE</h5>
             </TitleLink>
-            <TitleLink
-              to="/susisiekime"
-              selected={selectedItem === "/susisiekime"}
-              onClick={() => setSelectedItem("/susisiekime")}
-            >
+            <TitleLink to="/#contact" onClick={() => setSelectedItem("/")}>
               <h5>SUSISIEKIME</h5>
             </TitleLink>
           </span>

@@ -8,7 +8,8 @@ export const HeaderContainer = styled.div`
   height: 66px;
   justify-content: center;
   align-items: center;
-  background: ${(props) => (props.isHeaderTop ? "transparent" : "#000000")};
+  background: ${(props) =>
+    props.isHeaderTransparent ? "transparent" : "#000000"};
   transition: all 0.5s ease;
   position: fixed;
   z-index: 9999;
