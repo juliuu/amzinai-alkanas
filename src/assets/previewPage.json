@@ -1,0 +1,48 @@
+{
+  "/apzvalgos": {
+    "title": "restoranų apžvalgos",
+    "linkText": "Skaityti apžvalgą",
+    "to": "/apzvalgos",
+    "sidebar": {
+      "title": "Populiariausi receptai:",
+      "linkTo": "/receptai",
+      "linkText": "Skaityti receptą"
+    },
+    "dropdowns": {
+      "sorting": [
+        { "id": "rating", "title": "Populiariausios" },
+        { "id": "timestamp", "title": "Naujausios" }
+      ],
+      "filtering": [
+        { "id": "pizza", "title": "Picerijos" },
+        { "id": "asian", "title": "Azijietiška virtuvė" },
+        { "id": "kebab", "title": "Kebabinės" },
+        { "id": "lithuanian", "title": "Lietuviška virtuvė" },
+        { "id": "fastFood", "title": "Greitas maistas" }
+      ]
+    }
+  },
+  "/receptai": {
+    "title": "RECEPTŲ APŽVALGOS",
+    "linkText": "Skaityti receptą",
+    "to": "/receptai",
+    "sidebar": {
+      "title": "Populiariausios apžvalgos",
+      "linkTo": "/apzvalgos",
+      "linkText": "Skaityti apžvalgą"
+    },
+    "dropdowns": {
+      "sorting": [
+        { "id": "rating", "title": "Populiariausios" },
+        { "id": "timestamp", "title": "Naujausios" }
+      ],
+      "filtering": [
+        { "id": "pizza", "title": "Picerijos" },
+        { "id": "asian", "title": "Azijietiška virtuvė" },
+        { "id": "kebab", "title": "Kebabinės" },
+        { "id": "lithuanian", "title": "Lietuviška virtuvė" },
+        { "id": "fastFood", "title": "Greitas maistas" }
+      ]
+    }
+  }
+}

@@ -15,12 +15,7 @@ export const CardContainer = styled(Link)`
   border: 1px solid #e3e3e3;
   box-shadow: 0px 3px 6px #00000029;
   text-decoration: none;
-  margin-right: 3rem;
   position: relative;
-
-  &:last-child {
-    margin-right: 0;
-  }
 `;
 
 export const SomePicture = styled.div`
@@ -29,7 +24,6 @@ export const SomePicture = styled.div`
   align-items: center;
   background: gray;
   width: 100%;
-  /* height: 200px; */
   min-height: 200px;
   border-radius: 30px;
   margin-bottom: 10px;

@@ -89,7 +89,7 @@
   {
     "sectionId": "topSection",
     "title": "restoranų top 10",
-    "linkTo": "/top",
+    "linkTo": "/apzvalgos",
     "dropdown": [
       { "id": "pizza", "title": "Picerijos" },
       { "id": "asian", "title": "Azijietiška virtuvė" },

@@ -14,7 +14,7 @@ import SectionHeading from "../sectionHeading/sectionHeading.component";
 import StarRating from "../starRating/starRating.component";
 import Button from "../button/button.component";
 
-const TopSection = ({ title, dropdown, topList }) => {
+const TopSection = ({ refs, title, dropdown, topList }) => {
   const heading = { title, dropdown };
 
   const [firstPart, setFirstPart] = useState([]);
@@ -32,7 +32,7 @@ const TopSection = ({ title, dropdown, topList }) => {
   }, [filter, topList]);
 
   return (
-    <TopContainer>
+    <TopContainer ref={refs.topRef}>
       <TopWrapper>
         <SectionHeading
           {...heading}

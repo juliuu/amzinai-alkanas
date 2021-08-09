@@ -17,18 +17,21 @@ const handleScroll = (ref) => {
 const Header = ({ refs }) => {
   const { pathname, hash } = useLocation();
   const [selectedItem, setSelectedItem] = useState(pathname);
-  const [isHeaderTransparent, setIsHeaderTransparent] = useState(true);
+  const [isHeaderTransparent, setIsHeaderTransparent] = useState(false);
 
   useEffect(() => {
     if (pathname !== "/" || hash) setIsHeaderTransparent(false);
     else setIsHeaderTransparent(true);
 
     switch (hash) {
-      case "#about":
+      case "#apie":
         handleScroll(refs.aboutRef);
         break;
-      case "#contact":
+      case "#susisiekime":
         handleScroll(refs.contactRef);
+        break;
+      case "#top":
+        handleScroll(refs.topRef);
         break;
       default:
         window.scrollTo(0, 0);
@@ -37,13 +40,17 @@ const Header = ({ refs }) => {
   }, [pathname, hash, refs]);
 
   window.onscroll = () => {
-    if (
-      document.body.scrollTop > 50 ||
-      document.documentElement.scrollTop > 50
-    ) {
-      setIsHeaderTransparent(false);
+    if (pathname === "/") {
+      if (
+        document.body.scrollTop > 50 ||
+        document.documentElement.scrollTop > 50
+      ) {
+        setIsHeaderTransparent(false);
+      } else {
+        setIsHeaderTransparent(true);
+      }
     } else {
-      setIsHeaderTransparent(true);
+      setIsHeaderTransparent(false);
     }
   };
 
@@ -69,11 +76,7 @@ const Header = ({ refs }) => {
             >
               <h5>RESTORANŲ APŽVALGOS</h5>
             </TitleLink>
-            <TitleLink
-              to="/top"
-              selected={selectedItem === "/top"}
-              onClick={() => setSelectedItem("/top")}
-            >
+            <TitleLink to="/#top" onClick={() => setSelectedItem("/")}>
               <h5>RESTORANŲ TOP 10</h5>
             </TitleLink>
             <TitleLink
@@ -85,10 +88,10 @@ const Header = ({ refs }) => {
             </TitleLink>
           </span>
           <span>
-            <TitleLink to="/#about" onClick={() => setSelectedItem("/")}>
+            <TitleLink to="/#apie" onClick={() => setSelectedItem("/")}>
               <h5>APIE MANE</h5>
             </TitleLink>
-            <TitleLink to="/#contact" onClick={() => setSelectedItem("/")}>
+            <TitleLink to="/#susisiekime" onClick={() => setSelectedItem("/")}>
               <h5>SUSISIEKIME</h5>
             </TitleLink>
           </span>

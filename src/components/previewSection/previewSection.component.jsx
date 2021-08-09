@@ -12,7 +12,7 @@ const PreviewSection = ({ title, linkTo, linkText, articles, dropdown }) => {
   const [filter, setFilter] = useState(dropdown[0].id);
 
   useEffect(() => {
-    const size = 3; // TODO: set to 10 and limit front ent to show 3 elements, hide the rest
+    const size = 3; // TODO: set to 9 and limit front ent to show 3 elements, hide the rest
     const result = articles
       .sort((a, b) => b[filter] - a[filter])
       .slice(0, size);

@@ -18,7 +18,7 @@ const HomePage = ({ refs }) => {
     <HomePageContainer>
       <IntroSection {...getDetails("introSection")} />
       <PeviewSection {...getDetails("reviewSection")} />
-      <TopSection {...getDetails("topSection")} />
+      <TopSection refs={refs} {...getDetails("topSection")} />
       <PeviewSection {...getDetails("recipesSection")} />
       <AboutSection refs={refs} />
     </HomePageContainer>
