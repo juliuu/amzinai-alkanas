@@ -1,0 +1,184 @@
+[
+  {
+    "id": "1",
+    "imgUrl": "image-1-url",
+    "heading": "Sushi City",
+    "intro": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo.",
+    "dishes": [
+      {
+        "name": "Itališka pica",
+        "url": "italian-url"
+      },
+      {
+        "name": "Saliamio pica",
+        "url": "salami-url"
+      }
+    ],
+    "foodScore": [
+      {
+        "category": "picos padas",
+        "comment": "Padas puikus, ne per daug priskrudęs bei ne per daug minkštas.",
+        "rating": 10
+      },
+      {
+        "category": "padažas",
+        "comment": "Padažo Itališkoje picoje kiek pasigedau, jo buvo labai mažai ir tik link kraštų, tad pati pica iš karto tapo kiek sausoka.",
+        "rating": 8
+      },
+      {
+        "category": "ingredientai",
+        "comment": "Saliamio picoje jautėsi kiek perkepęs saliamis, bei labai menkai pabarstyti pievagrybiai - meniu picos nuotrauka atrodė kiek kitokia, ten buvo daug gausiau pridėta grybų. Itališkoje picoje skonį persmelkė didelis siūrio kiekis - jo norėtųsi bent jau ant pusės mažiau.",
+        "rating": 8
+      },
+      {
+        "category": "patiekalo paruošimo greitis",
+        "comment": "Picas atnešė labai gretai, tad jos dar buvo puikios temperatūros, pirmi gabaliukai netgi buvo karštoki.",
+        "rating": 3
+      }
+    ],
+    "restaurantScore": [
+      {
+        "category": "aplinka",
+        "comment": "Restorano aplinka yra jauki, moderni Restorano aplinka yra jauki, moderni Restorano aplinka yra jauki, moderni Restorano aplinka yra jauki, moderni.",
+        "rating": 8
+      },
+      {
+        "category": "aptarnavimas",
+        "comment": "Aptarnavimas labai patiko, padavėjas priėjo greitai, pasiteiravus pasiūlė populiariausius patiekalus, bei greitai atnešė sąskaitą.",
+        "rating": 7
+      },
+      {
+        "category": "patogumas rasti restoraną",
+        "comment": "Restorano vieta yra labai patogioje vietoje, iškaba matoma iš gatvės, prie pat restorano yra didelė parkavimosi aikštelė, kuriuoje dienos metu, bent jau, labai patogu rasti vietos prisiparkuoti, na, o važiuojantiems su viešuoju transportu, prie pat restorano yra dvi stotelės.",
+        "rating": 9
+      },
+      {
+        "category": "meniu internete",
+        "comment": "Deja, bet šis restoranas neturi savo meniu internete, arba nebent yra labai sunku jį atrasti, kas yra didelis minusas.",
+        "rating": 2
+      }
+    ],
+    "review": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur.",
+    "finalRemarks": "Restoranas tikrai neblogas, jauki aplinka, visai geros picos, jaučiasi atvykus geras vaibas, yra galimybė valgyti lauke, aptarnavimas yra tikrai puikus. Aišku, truputį reikėtų patobulinti kai kurių picų receptūrą, bet all in all, vienas geresnių restoranų Vilniuje!",
+    "rating": 10,
+    "timestamp": 1626747433,
+    "type": "pizza"
+  },
+  {
+    "id": "2",
+    "imgUrl": "image-2-url",
+    "heading": "Gan bei",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 9.5,
+    "timestamp": 1626750348,
+    "type": "pizza"
+  },
+  {
+    "id": "3",
+    "imgUrl": "image-3-url",
+    "heading": "Komodonomondofda",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 8,
+    "timestamp": 1626761171,
+    "type": "pizza"
+  },
+  {
+    "id": "4",
+    "imgUrl": "image-4-url",
+    "heading": "KETVIRTAS pavadinimas",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 7.5,
+    "timestamp": 1626761178,
+    "type": "pizza"
+  },
+  {
+    "id": "5",
+    "imgUrl": "image-1-url",
+    "heading": "Sushi City",
+    "intro": "BLAH blah blah",
+    "rating": 7,
+    "timestamp": 1626747433,
+    "type": "pizza"
+  },
+  {
+    "id": "6",
+    "imgUrl": "image-2-url",
+    "heading": "Gan bei",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 6.5,
+    "timestamp": 1626750348,
+    "type": "pizza"
+  },
+  {
+    "id": "7",
+    "imgUrl": "image-3-url",
+    "heading": "Komodonomondofda",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 5.5,
+    "timestamp": 1626761171,
+    "type": "fastFood"
+  },
+  {
+    "id": "8",
+    "imgUrl": "image-4-url",
+    "heading": "KETVIRTAS pavadinimas",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 5,
+    "timestamp": 1626761178,
+    "type": "pizza"
+  },
+  {
+    "id": "9",
+    "imgUrl": "image-1-url",
+    "heading": "Sushi City",
+    "intro": "BLAH blah blah",
+    "rating": 4.5,
+    "timestamp": 1626747433,
+    "type": "lithuanian"
+  },
+  {
+    "id": "10",
+    "imgUrl": "image-2-url",
+    "heading": "Gan bei",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 3.5,
+    "timestamp": 1626750348,
+    "type": "kebab"
+  },
+  {
+    "id": "11",
+    "imgUrl": "image-3-url",
+    "heading": "Komodonomondofda",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 2,
+    "timestamp": 1626761171,
+    "type": "asian"
+  },
+  {
+    "id": "12",
+    "imgUrl": "image-4-url",
+    "heading": "KETVIRTAS pavadinimas",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 1,
+    "timestamp": 1626761178,
+    "type": "pizza"
+  },
+  {
+    "id": "13",
+    "imgUrl": "image-4-url",
+    "heading": "KETVIRTAS pavadinimas",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 5,
+    "timestamp": 1626761178,
+    "type": "pizza"
+  },
+  {
+    "id": "14",
+    "imgUrl": "image-4-url",
+    "heading": "KETVIRTAS pavadinimas",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 8,
+    "timestamp": 1626761178,
+    "type": "pizza"
+  }
+]

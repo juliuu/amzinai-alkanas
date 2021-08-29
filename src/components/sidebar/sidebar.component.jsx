@@ -14,7 +14,7 @@ const SideBar = ({ children, title, linkTo, linkText }) => {
           heading={item.heading}
           intro={item.intro}
           rating={item.rating}
-          to={linkTo} // TODO: attach item ID to link to exactly
+          to={`${linkTo}/${item.id}`}
           linkText={linkText}
         />
       ))}

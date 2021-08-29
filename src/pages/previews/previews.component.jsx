@@ -14,8 +14,9 @@ import SideBar from "../../components/sidebar/sidebar.component";
 import PageSelector from "../../components/pageSelector/pageSelector.component";
 import Footer from "../../components/footer/footer.component";
 
-import { reviews, recipes } from "../../assets/reviewpageDetails.json"; // TODO: data to be extracted from db
-import previewPageDetails from "../../assets/previewPage.json";
+import reviews from "../../assets/reviews.json"; // TODO: replace with data coming from DB
+import recipes from "../../assets/recipes.json"; // TODO: replace with data coming from DB
+import previewPageDetails from "../../assets/previewPage.json"; // TODO: decide if should come from DB
 
 const PreviewsPage = (props) => {
   const {
@@ -67,7 +68,7 @@ const PreviewsPage = (props) => {
                 heading={article.heading}
                 intro={article.intro}
                 rating={article.rating}
-                to={pageDetails.to} // TODO: attach article ID
+                to={`${pageDetails.to}/${article.id}`}
                 linkText={pageDetails.linkText}
               />
             ))}
@@ -81,7 +82,7 @@ const PreviewsPage = (props) => {
         <SideBar
           title={pageDetails.sidebar.title}
           linkTo={pageDetails.sidebar.linkTo}
-          linkText={pageDetails.sidebar.linkText} // TODO: pass as items data based on pathname
+          linkText={pageDetails.sidebar.linkText}
         >
           {recipes}
         </SideBar>

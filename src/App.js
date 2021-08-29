@@ -10,6 +10,7 @@ const HomePage = React.lazy(() => import("./pages/home/home.component"));
 const PreviewPage = React.lazy(() =>
   import("./pages/previews/previews.component")
 );
+const ReviewPage = React.lazy(() => import("./pages/review/review.component"));
 
 const App = () => {
   const [refs, setRefs] = useState({
@@ -30,6 +31,7 @@ const App = () => {
         <Suspense fallback={<Spinner />}>
           <Route exact path="/" component={() => <HomePage refs={refs} />} />
           <Route exact path="/apzvalgos" component={PreviewPage} />
+          <Route exact path="/apzvalgos/:id" component={ReviewPage} />
           <Route exact path="/receptai" component={PreviewPage} />
         </Suspense>
       </Switch>

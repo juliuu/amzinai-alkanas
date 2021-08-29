@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "imgUrl": "image-1-url",
+    "heading": "Neapolietiška pica",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 9.5,
+    "timestamp": 1626747433
+  },
+  {
+    "id": 2,
+    "imgUrl": "image-2-url",
+    "heading": "Greitasis ramen",
+    "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
+    "rating": 8.5,
+    "timestamp": 1626750348
+  },
+  {
+    "id": 3,
+    "imgUrl": "image-3-url",
+    "heading": "Amerikietiški blyneliai",
+    "intro": "BLAH blah blah",
+    "rating": 6,
+    "timestamp": 1626761178
+  }
+]

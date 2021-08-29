@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Star } from "../../assets/rating-star.svg";
 
 export const StarWrapper = styled.div`
+  flex-shrink: 0;
   width: 3.7rem;
   height: 3.36rem;
   position: relative;
