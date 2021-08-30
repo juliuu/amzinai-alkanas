@@ -103,6 +103,11 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
     }
 
+    h1, h2, h3, h4, h5, p, ul {
+        margin: 0;
+        padding: 0;
+    }
+
     h1 {
         /* 24px */
         font-size: 1.333rem;

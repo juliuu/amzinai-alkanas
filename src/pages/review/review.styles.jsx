@@ -4,7 +4,6 @@ export const ReviewContainer = styled.div`
   padding-top: 6rem;
   width: 100%;
   height: 100%;
-  background-color: yellow;
 `;
 
 export const ReviewWrapper = styled.div`
