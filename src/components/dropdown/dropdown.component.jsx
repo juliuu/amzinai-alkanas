@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { DropdownSelector, DropdownOption } from "./dropdown.styles";
+import { DropdownSelector, DropdownOption } from './dropdown.styles';
 
 const Dropdown = ({ options, onFilterChange }) => {
   const [selected, setSelected] = useState(options[0].id);

@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import {
-  SelectorWrapper,
-  ArrowPrevious,
-  PageNumber,
-  ArrowNext,
-} from "./pageSelector.styles.jsx";
+import { SelectorWrapper, ArrowPrevious, PageNumber, ArrowNext } from './pageSelector.styles.jsx';
 
 const PageSelector = ({ selectedPage, pageCount, onPageChange }) => {
   const [selected, setSelected] = useState(selectedPage);

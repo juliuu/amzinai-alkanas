@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { SectionHeadingContainer } from "./sectionHeading.styles";
-import Dropdown from "../../components/dropdown/dropdown.component";
+import { SectionHeadingContainer } from './sectionHeading.styles';
+import Dropdown from '../../components/dropdown/dropdown.component';
 
 const SectionHeading = ({ title, dropdown, onFilterChange }) => {
   return (

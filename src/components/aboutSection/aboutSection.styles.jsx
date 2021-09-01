@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AboutContainer = styled.div`
   display: flex;
@@ -80,7 +80,7 @@ export const ContactForm = styled.form``;
 // TODO: fix this mess...
 export const ContactInputText = styled.input`
   width: 100%;
-  height: ${(props) => (props.inputType === "title" ? "60px" : "230px")};
+  height: ${(props) => (props.inputType === 'title' ? '60px' : '230px')};
   border: 3px solid white;
   border-radius: 15px;
   box-sizing: border-box;

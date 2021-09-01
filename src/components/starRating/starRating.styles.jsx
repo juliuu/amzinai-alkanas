@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ReactComponent as Star } from "../../assets/rating-star.svg";
+import styled from 'styled-components';
+import { ReactComponent as Star } from '../../assets/svg/rating-star.svg';
 
 export const StarWrapper = styled.div`
   flex-shrink: 0;

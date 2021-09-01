@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const InstructionWrapper = styled.div`
   display: flex;
   margin-top: 1.1rem;
 
   :last-of-type {
-      margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
   }
 `;
 

@@ -6,14 +6,7 @@
     "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
     "rating": 9.5,
     "timestamp": 1626747433,
-    "ingredients": [
-      "1 kg miltų",
-      "5gr. sviesto",
-      "500 ml pieno",
-      "100 gr. mocarelos sūrio",
-      "Pakelio peperoni dešros",
-      "Pomidorų pastos"
-    ],
+    "ingredients": ["1 kg miltų", "5gr. sviesto", "500 ml pieno", "100 gr. mocarelos sūrio", "Pakelio peperoni dešros", "Pomidorų pastos"],
     "instructions": [
       {
         "step": 1,

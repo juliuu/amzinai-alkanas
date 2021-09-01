@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import image from "../../assets/intro-image.jpg";
+import styled from 'styled-components';
+import image from '../../assets/img/intro-image.jpg';
 
 export const IntroContainer = styled.div`
   height: var(--introSection-height);

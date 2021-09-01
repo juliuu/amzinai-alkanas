@@ -1,15 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import {
-  CardContainer,
-  SomePicture,
-  CardHeading,
-  CardIntroduction,
-  CardLink,
-  CardRating,
-} from "./sectionCard.styles";
+import { CardContainer, SomePicture, CardHeading, CardIntroduction, CardLink, CardRating } from './sectionCard.styles';
 
-import StarRating from "../starRating/starRating.component";
+import StarRating from '../starRating/starRating.component';
 
 const SectionCard = (props) => {
   const { imgUrl, heading, intro, rating, to, linkText } = props;

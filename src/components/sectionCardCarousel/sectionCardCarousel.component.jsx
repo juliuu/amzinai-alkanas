@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { SectionCardContainer } from "./sectionCardCarousel.styles";
-import SectionCard from "../sectionCard/sectionCard.component";
+import { SectionCardContainer } from './sectionCardCarousel.styles';
+import SectionCard from '../sectionCard/sectionCard.component';
 
 const SectionCardCarousel = (props) => {
   const { articles, linkTo, linkText } = props;

@@ -1,16 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import {
-  FooterContainer,
-  FooterLogo,
-  NavContainer,
-  NavWrapper,
-  NavItem,
-  SocialContainer,
-  SocialIconWrapper,
-} from "./footer.styles";
+import { FooterContainer, FooterLogo, NavContainer, NavWrapper, NavItem, SocialContainer, SocialIconWrapper } from './footer.styles';
 
-import SocialIcon from "../socialIcon/socialIcon.component";
+import SocialIcon from '../socialIcon/socialIcon.component';
 
 //TODO: finish with the styles
 const Footer = () => {

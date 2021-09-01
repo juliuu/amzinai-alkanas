@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { StarWrapper, StarIcon, Rating } from "./starRating.styles";
+import { StarWrapper, StarIcon, Rating } from './starRating.styles';
 
 const StarRating = (props) => (
   <StarWrapper>

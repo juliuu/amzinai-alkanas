@@ -1,26 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import {
-  ReviewContainer,
-  ReviewWrapper,
-  ReviewMainSection,
-  ReviewHeadingWrapper,
-  ImageCardWrapper,
-} from "./review.styles";
+import { ReviewContainer, ReviewWrapper, ReviewMainSection, ReviewHeadingWrapper, ImageCardWrapper } from './review.styles';
 
-import Footer from "../../components/footer/footer.component";
-import ImageCard from "../../components/imageCard/imageCard.component";
-import SideBar from "../../components/sidebar/sidebar.component";
-import ReviewScore from "../../components/reviewScore/reviewScore.component";
+import Footer from '../../components/footer/footer.component';
+import ImageCard from '../../components/imageCard/imageCard.component';
+import SideBar from '../../components/sidebar/sidebar.component';
+import ReviewScore from '../../components/reviewScore/reviewScore.component';
 
-import reviews from "../../assets/reviews.json"; // TODO: remove rating field from json when there is no need
-import recipes from "../../assets/recipes.json";
+import reviews from '../../assets/data/reviews.json'; // TODO: remove rating field from json when there is no need
+import recipes from '../../assets/data/recipes.json';
 
 const ReviewPage = () => {
   const { id } = useParams();
 
-  const embedId = "05UQzZVd3SM"; // TODO: remove and add normal Id comng from youtube
+  const embedId = '05UQzZVd3SM'; // TODO: remove and add normal Id comng from youtube
 
   const [review, setReview] = useState({
     dishes: [],
@@ -33,19 +27,12 @@ const ReviewPage = () => {
   useEffect(() => {
     const result = reviews.find((review) => review.id === id);
     setReview(result);
-    const averageFoodScore = 
-      result.foodScore.reduce((acc, curr) => acc + curr.rating, 0) /
-        result.foodScore.length
-    ;
-    const averageRestaurantScore = 
-      result.restaurantScore.reduce((acc, curr) => acc + curr.rating, 0) /
-        result.restaurantScore.length
-    ;
-
+    const averageFoodScore = result.foodScore.reduce((acc, curr) => acc + curr.rating, 0) / result.foodScore.length;
+    const averageRestaurantScore = result.restaurantScore.reduce((acc, curr) => acc + curr.rating, 0) / result.restaurantScore.length;
     setAverageRating(Math.round((averageFoodScore + averageRestaurantScore) / 2));
   }, [id]);
 
-  console.log("REVIEW --> ", review);
+  console.log('REVIEW --> ', review);
   return (
     <ReviewContainer>
       <ReviewWrapper>
@@ -63,9 +50,9 @@ const ReviewPage = () => {
             allowFullScreen
             title="Embedded youtube"
             style={{
-              width: "50.7rem",
-              height: "26.2rem",
-              "padding-bottom": "1.1rem",
+              width: '50.7rem',
+              height: '26.2rem',
+              paddingBottom: '1.1rem',
             }} // TODO: border-radius: 1.5rem not really working
           />
           {review.intro}
@@ -89,11 +76,7 @@ const ReviewPage = () => {
           <h3>GALUTINIS ĮVERTINIMAS</h3>
           <ReviewScore rating={averageRating} comment={review.finalRemarks} />
         </ReviewMainSection>
-        <SideBar
-          title="Populiariausi receptai"
-          linkTo="/receptai"
-          linkText="Skaityti receptą"
-        >
+        <SideBar title="Populiariausi receptai" linkTo="/receptai" linkText="Skaityti receptą">
           {recipes}
         </SideBar>
       </ReviewWrapper>

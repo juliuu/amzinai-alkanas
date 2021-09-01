@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { CardWrapper, Image } from "./imageCard.styles";
+import { CardWrapper, Image } from './imageCard.styles';
 
 const ImageCard = ({ name, url }) => {
   return (

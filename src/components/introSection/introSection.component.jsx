@@ -1,13 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import {
-  IntroWrapper,
-  IntroContainer,
-  Heading,
-  SubHeading,
-} from "./introSection.styles";
+import { IntroWrapper, IntroContainer, Heading, SubHeading } from './introSection.styles';
 
-import Button from "../button/button.component";
+import Button from '../button/button.component';
 
 const IntroSection = (props) => {
   return (

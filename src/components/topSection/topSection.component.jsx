@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import {
-  TopContainer,
-  TopWrapper,
-  ListWrapper,
-  TopList,
-  ListItem,
-  ItemNumber,
-  ItemName,
-} from "./topSection.styles";
+import { TopContainer, TopWrapper, ListWrapper, TopList, ListItem, ItemNumber, ItemName } from './topSection.styles';
 
-import SectionHeading from "../sectionHeading/sectionHeading.component";
-import StarRating from "../starRating/starRating.component";
-import Button from "../button/button.component";
+import SectionHeading from '../sectionHeading/sectionHeading.component';
+import StarRating from '../starRating/starRating.component';
+import Button from '../button/button.component';
 
 const TopSection = ({ refs, title, dropdown, topList }) => {
   const heading = { title, dropdown };
@@ -23,9 +15,7 @@ const TopSection = ({ refs, title, dropdown, topList }) => {
   const [filter, setFilter] = useState(dropdown[0].id);
 
   useEffect(() => {
-    const result = topList
-      .filter((item) => item.type === filter)
-      .sort((a, b) => b.rating - a.rating);
+    const result = topList.filter((item) => item.type === filter).sort((a, b) => b.rating - a.rating);
 
     setFirstPart(result.slice(0, 5));
     setSecondPart(result.slice(5, 10));
@@ -34,10 +24,7 @@ const TopSection = ({ refs, title, dropdown, topList }) => {
   return (
     <TopContainer ref={refs.topRef}>
       <TopWrapper>
-        <SectionHeading
-          {...heading}
-          onFilterChange={(value) => setFilter(value)}
-        />
+        <SectionHeading {...heading} onFilterChange={(value) => setFilter(value)} />
         <ListWrapper>
           <TopList>
             {firstPart.map((item, index) => (

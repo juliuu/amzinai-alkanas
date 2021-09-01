@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ReactComponent as Logo } from "../../assets/amzinai-alkanas.svg";
+import styled from 'styled-components';
+import { ReactComponent as Logo } from '../../assets/svg/amzinai-alkanas.svg';
 
 export const FooterContainer = styled.div`
   display: flex;

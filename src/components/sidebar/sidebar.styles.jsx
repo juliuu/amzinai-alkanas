@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const SidebarContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const SidebarContainer = styled.div`
   height: auto;
   padding: 0 3.8rem;
   margin-top: 130px;
-  border-left: 1px solid #7A7A7A;
+  border-left: 1px solid #7a7a7a;
 
   > * {
     width: 13.8rem;

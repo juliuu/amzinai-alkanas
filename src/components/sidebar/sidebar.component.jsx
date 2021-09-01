@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { SidebarContainer } from "./sidebar.styles";
-import SidebarCard from "../sectionCard/sectionCard.component";
+import { SidebarContainer } from './sidebar.styles';
+import SidebarCard from '../sectionCard/sectionCard.component';
 
 const SideBar = ({ children, title, linkTo, linkText }) => {
   return (

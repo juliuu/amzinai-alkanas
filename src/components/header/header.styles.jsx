@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { ReactComponent as ReactLogo } from "../../assets/amzinai-alkanas.svg";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { ReactComponent as ReactLogo } from '../../assets/svg/amzinai-alkanas.svg';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -8,8 +8,7 @@ export const HeaderContainer = styled.div`
   height: 66px;
   justify-content: center;
   align-items: center;
-  background: ${(props) =>
-    props.isHeaderTransparent ? "transparent" : "#000000"};
+  background: ${(props) => (props.isHeaderTransparent ? 'transparent' : '#000000')};
   transition: all 0.5s ease;
   position: fixed;
   z-index: 9999;
@@ -59,7 +58,7 @@ export const TitleLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => (props.selected ? "#FF9B00" : "#FFFFFF")};
+  color: ${(props) => (props.selected ? '#FF9B00' : '#FFFFFF')};
   height: 100%;
   padding: 0 0.833rem;
   text-decoration: none;

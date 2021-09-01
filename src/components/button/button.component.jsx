@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { StyledLink } from "./button.styles";
+import { StyledLink } from './button.styles';
 
 const Button = (props) => {
   return <StyledLink to={props.to}>{props.children}</StyledLink>;
