@@ -20,17 +20,16 @@ import Instruction from '../../components/instruction/instruction.component';
 import reviews from '../../assets/data/reviews.json'; // TODO: remove rating field from json when there is no need
 import recipes from '../../assets/data/recipes.json';
 
-const ReviewPage = () => {
+const RecipePage = () => {
   const { id } = useParams();
 
   const [recipe, setRecipe] = useState({ heading: '', ingredients: [], instructions: [] });
 
   useEffect(() => {
-    const result = recipes.find((recipe) => recipe.id === id);
+    const result = recipes.find((recipe) => recipe._id === id);
     setRecipe(result);
   }, [id]);
 
-  console.log('RECIPE --> ', recipe);
   return (
     <RecipeContainer>
       <RecipeWrapper>
@@ -70,4 +69,4 @@ const ReviewPage = () => {
   );
 };
 
-export default ReviewPage;
+export default RecipePage;

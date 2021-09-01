@@ -4,17 +4,17 @@ import { SectionCardContainer } from './sectionCardCarousel.styles';
 import SectionCard from '../sectionCard/sectionCard.component';
 
 const SectionCardCarousel = (props) => {
-  const { articles, linkTo, linkText } = props;
+  const { data, linkTo, linkText } = props;
 
   return (
     <SectionCardContainer>
-      {articles.map((article) => (
+      {data.map((item) => (
         <SectionCard
-          key={article.id}
-          imgUrl={article.imgUrl}
-          heading={article.heading}
-          intro={article.intro}
-          rating={article.rating}
+          key={item._id}
+          imgUrl={item.imgUrl}
+          heading={item.heading}
+          intro={item.intro}
+          rating={item.rating}
           to={linkTo}
           linkText={linkText}
         />

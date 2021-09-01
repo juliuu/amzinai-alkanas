@@ -12,42 +12,8 @@
     "linkTo": "/apzvalgos",
     "linkText": "Skaityti apžvalgą",
     "dropdown": [
-      { "id": "rating", "title": "Populiariausios" },
-      { "id": "timestamp", "title": "Naujausios" }
-    ],
-    "articles": [
-      {
-        "id": 1,
-        "imgUrl": "image-1-url",
-        "heading": "Sushi City",
-        "intro": "BLAH blah blah",
-        "rating": 9.5,
-        "timestamp": 1626747433
-      },
-      {
-        "id": 2,
-        "imgUrl": "image-2-url",
-        "heading": "Gan bei",
-        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
-        "rating": 8.5,
-        "timestamp": 1626750348
-      },
-      {
-        "id": 3,
-        "imgUrl": "image-3-url",
-        "heading": "Komodonomondofda",
-        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
-        "rating": 7,
-        "timestamp": 1626761171
-      },
-      {
-        "id": 4,
-        "imgUrl": "image-4-url",
-        "heading": "KETVIRTAS pavadinimas",
-        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
-        "rating": 10,
-        "timestamp": 1626761178
-      }
+      { "_id": "rating", "title": "Populiariausios" },
+      { "_id": "timestamp", "title": "Naujausios" }
     ]
   },
   {
@@ -56,34 +22,8 @@
     "linkTo": "/recipes",
     "linkText": "Skaityti receptą",
     "dropdown": [
-      { "id": "rating", "title": "Populiariausi" },
-      { "id": "timestamp", "title": "Naujausi" }
-    ],
-    "articles": [
-      {
-        "id": 1,
-        "imgUrl": "image-1-url",
-        "heading": "Neapolietiška pica",
-        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself upthis is some very long introduction text, that should not overflow over the box and wrathis is some very long introduction text, that should not overflow over the bopp itself upthis is some very long introduction text, that should not overflow over the box and wrapp itself up",
-        "rating": 9.5,
-        "timestamp": 1626747433
-      },
-      {
-        "id": 2,
-        "imgUrl": "image-2-url",
-        "heading": "Greitasis ramen",
-        "intro": "this is some very long introduction text, that should not overflow over the box and wrapp itself up",
-        "rating": 8.5,
-        "timestamp": 1626750348
-      },
-      {
-        "id": 3,
-        "imgUrl": "image-3-url",
-        "heading": "Amerikietiški blyneliai",
-        "intro": "BLAH blah blah",
-        "rating": 6,
-        "timestamp": 1626761178
-      }
+      { "_id": "rating", "title": "Populiariausi" },
+      { "_id": "timestamp", "title": "Naujausi" }
     ]
   },
   {
@@ -91,85 +31,11 @@
     "title": "restoranų top 10",
     "linkTo": "/apzvalgos",
     "dropdown": [
-      { "id": "pizza", "title": "Picerijos" },
-      { "id": "asian", "title": "Azijietiška virtuvė" },
-      { "id": "kebab", "title": "Kebabinės" },
-      { "id": "lithuanian", "title": "Lietuviška virtuvė" },
-      { "id": "fastFood", "title": "Greitas maistas" }
-    ],
-    "topList": [
-      {
-        "id": 1,
-        "name": "double pizza",
-        "rating": 10,
-        "type": "pizza"
-      },
-      {
-        "id": 2,
-        "name": "jurgis ir drakonas",
-        "rating": 9,
-        "type": "asian"
-      },
-      {
-        "id": 3,
-        "name": "pizza max",
-        "rating": 2,
-        "type": "kebab"
-      },
-      {
-        "id": 4,
-        "name": "pomodoro",
-        "rating": 1,
-        "type": "lithuanian"
-      },
-      {
-        "id": 5,
-        "name": "pizza & nachos pub",
-        "rating": 10,
-        "type": "pizza"
-      },
-      {
-        "id": 6,
-        "name": "double pizza",
-        "rating": 4,
-        "type": "pizza"
-      },
-      {
-        "id": 7,
-        "name": "brooklyn brothers",
-        "rating": 8,
-        "type": "pizza"
-      },
-      {
-        "id": 8,
-        "name": "katpedėlė",
-        "rating": 10,
-        "type": "lithuanian"
-      },
-      {
-        "id": 9,
-        "name": "beatos veranda",
-        "rating": 7,
-        "type": "lithuanian"
-      },
-      {
-        "id": 10,
-        "name": "pizza & nachos pubmax long te",
-        "rating": 5,
-        "type": "fastFood"
-      },
-      {
-        "id": 11,
-        "name": "Moarr pizzzaaa",
-        "rating": 5,
-        "type": "pizza"
-      },
-      {
-        "id": 12,
-        "name": "Other pica",
-        "rating": 1,
-        "type": "pizza"
-      }
+      { "_id": "pizza", "title": "Picerijos" },
+      { "_id": "asian", "title": "Azijietiška virtuvė" },
+      { "_id": "kebab", "title": "Kebabinės" },
+      { "_id": "lithuanian", "title": "Lietuviška virtuvė" },
+      { "_id": "fastFood", "title": "Greitas maistas" }
     ]
   }
 ]

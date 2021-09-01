@@ -25,14 +25,13 @@ const ReviewPage = () => {
   const [averageRating, setAverageRating] = useState(0);
 
   useEffect(() => {
-    const result = reviews.find((review) => review.id === id);
+    const result = reviews.find((review) => review._id === id);
     setReview(result);
     const averageFoodScore = result.foodScore.reduce((acc, curr) => acc + curr.rating, 0) / result.foodScore.length;
     const averageRestaurantScore = result.restaurantScore.reduce((acc, curr) => acc + curr.rating, 0) / result.restaurantScore.length;
     setAverageRating(Math.round((averageFoodScore + averageRestaurantScore) / 2));
   }, [id]);
 
-  console.log('REVIEW --> ', review);
   return (
     <ReviewContainer>
       <ReviewWrapper>

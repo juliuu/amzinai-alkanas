@@ -9,12 +9,12 @@ const SideBar = ({ children, title, linkTo, linkText }) => {
       <h2>{title.toUpperCase()}</h2>
       {children.map((item) => (
         <SidebarCard
-          key={item.id}
+          key={item._id}
           imgUrl={item.imgUrl}
           heading={item.heading}
           intro={item.intro}
           rating={item.rating}
-          to={`${linkTo}/${item.id}`}
+          to={`${linkTo}/${item._id}`}
           linkText={linkText}
         />
       ))}

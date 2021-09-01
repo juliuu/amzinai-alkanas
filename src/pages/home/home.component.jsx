@@ -8,18 +8,23 @@ import TopSection from '../../components/topSection/topSection.component';
 import AboutSection from '../../components/aboutSection/aboutSection.component';
 
 import homepageDetails from '../../assets/data/homepageDetails.json';
+import reviews from '../../assets/data/reviews.json';
+import recipes from '../../assets/data/recipes.json';
 
-const getDetails = (id) => {
-  return homepageDetails.find((item) => item.sectionId === id);
+const getDetails = (id, data = null) => {
+  const result = { ...homepageDetails.find((item) => item.sectionId === id) };
+
+  if (data) result.data = data;
+  return result;
 };
 
 const HomePage = ({ refs }) => {
   return (
     <HomePageContainer>
       <IntroSection {...getDetails('introSection')} />
-      <PeviewSection {...getDetails('reviewSection')} />
-      <TopSection refs={refs} {...getDetails('topSection')} />
-      <PeviewSection {...getDetails('recipesSection')} />
+      <PeviewSection {...getDetails('reviewSection', reviews)} />
+      <TopSection refs={refs} {...getDetails('topSection', reviews)} />
+      <PeviewSection {...getDetails('recipesSection', recipes)} />
       <AboutSection refs={refs} />
     </HomePageContainer>
   );

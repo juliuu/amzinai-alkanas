@@ -18,21 +18,32 @@ const PreviewsPage = (props) => {
   } = props;
 
   const pageDetails = previewPageDetails[pathname];
-  const [filteredReviews, setFilteredReviews] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [sidebarContent, setSidebarContent] = useState([]);
   const [filter, setFilter] = useState(null);
   const [sort, setSort] = useState('rating');
   const [selectedPage, setSelectedPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
-
+  
   useEffect(() => {
+    let mainContent;
     // TODO: pull data from db
     const size = 9;
     const offset = selectedPage * size - size;
-    const result = reviews.sort((a, b) => b[sort] - a[sort]).filter((review) => (filter ? review.type === filter : true));
+
+    if (pathname === '/apzvalgos') {
+      mainContent = reviews;
+      setSidebarContent(recipes);
+    } else {
+      mainContent = recipes;
+      setSidebarContent(reviews);
+    }
+
+    const result = mainContent.sort((a, b) => b[sort] - a[sort]).filter((item) => ((filter && item.type) ? item.type === filter : true));
 
     setPageCount(Math.ceil(result.length / size));
-    setFilteredReviews(result.slice(offset, selectedPage * size));
-  }, [filter, sort, selectedPage]);
+    setFilteredData(result.slice(offset, selectedPage * size));
+  }, [filter, sort, selectedPage, pathname]);
 
   return (
     <PreviewPageContainer>
@@ -50,14 +61,14 @@ const PreviewsPage = (props) => {
             />
           </PreviewHeadingWrapper>
           <CardWrapper>
-            {filteredReviews.map((article) => (
+            {filteredData.map((article) => (
               <Card
-                key={article.id}
+                key={article._id}
                 imgUrl={article.imgUrl}
                 heading={article.heading}
                 intro={article.intro}
                 rating={article.rating}
-                to={`${pageDetails.to}/${article.id}`}
+                to={`${pageDetails.to}/${article._id}`}
                 linkText={pageDetails.linkText}
               />
             ))}
@@ -65,7 +76,7 @@ const PreviewsPage = (props) => {
           <PageSelector onPageChange={(value) => setSelectedPage(value)} selectedPage={selectedPage} pageCount={pageCount} />
         </PreviewMainSection>
         <SideBar title={pageDetails.sidebar.title} linkTo={pageDetails.sidebar.linkTo} linkText={pageDetails.sidebar.linkText}>
-          {recipes}
+          {sidebarContent}
         </SideBar>
       </PreviewWrapper>
       <Footer />

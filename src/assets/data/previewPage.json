@@ -10,15 +10,15 @@
     },
     "dropdowns": {
       "sorting": [
-        { "id": "rating", "title": "Populiariausios" },
-        { "id": "timestamp", "title": "Naujausios" }
+        { "_id": "rating", "title": "Populiariausios" },
+        { "_id": "timestamp", "title": "Naujausios" }
       ],
       "filtering": [
-        { "id": "pizza", "title": "Picerijos" },
-        { "id": "asian", "title": "Azijietiška virtuvė" },
-        { "id": "kebab", "title": "Kebabinės" },
-        { "id": "lithuanian", "title": "Lietuviška virtuvė" },
-        { "id": "fastFood", "title": "Greitas maistas" }
+        { "_id": "pizza", "title": "Picerijos" },
+        { "_id": "asian", "title": "Azijietiška virtuvė" },
+        { "_id": "kebab", "title": "Kebabinės" },
+        { "_id": "lithuanian", "title": "Lietuviška virtuvė" },
+        { "_id": "fastFood", "title": "Greitas maistas" }
       ]
     }
   },
@@ -33,15 +33,15 @@
     },
     "dropdowns": {
       "sorting": [
-        { "id": "rating", "title": "Populiariausios" },
-        { "id": "timestamp", "title": "Naujausios" }
+        { "_id": "rating", "title": "Populiariausios" },
+        { "_id": "timestamp", "title": "Naujausios" }
       ],
       "filtering": [
-        { "id": "pizza", "title": "Picerijos" },
-        { "id": "asian", "title": "Azijietiška virtuvė" },
-        { "id": "kebab", "title": "Kebabinės" },
-        { "id": "lithuanian", "title": "Lietuviška virtuvė" },
-        { "id": "fastFood", "title": "Greitas maistas" }
+        { "_id": "pizza", "title": "Picerijos" },
+        { "_id": "asian", "title": "Azijietiška virtuvė" },
+        { "_id": "kebab", "title": "Kebabinės" },
+        { "_id": "lithuanian", "title": "Lietuviška virtuvė" },
+        { "_id": "fastFood", "title": "Greitas maistas" }
       ]
     }
   }
