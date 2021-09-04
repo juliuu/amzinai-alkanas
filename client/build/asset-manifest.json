@@ -1,0 +1,41 @@
+{
+  "files": {
+    "static/js/0.96a0fd31.chunk.js": "/static/js/0.96a0fd31.chunk.js",
+    "static/js/0.96a0fd31.chunk.js.map": "/static/js/0.96a0fd31.chunk.js.map",
+    "main.css": "/static/css/main.9f31a381.chunk.css",
+    "main.js": "/static/js/main.5ddde238.chunk.js",
+    "main.js.map": "/static/js/main.5ddde238.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.e97b82b3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.e97b82b3.js.map",
+    "static/js/3.8a683fa4.chunk.js": "/static/js/3.8a683fa4.chunk.js",
+    "static/js/3.8a683fa4.chunk.js.map": "/static/js/3.8a683fa4.chunk.js.map",
+    "static/js/4.43011c4a.chunk.js": "/static/js/4.43011c4a.chunk.js",
+    "static/js/4.43011c4a.chunk.js.map": "/static/js/4.43011c4a.chunk.js.map",
+    "static/js/5.6f1eb749.chunk.js": "/static/js/5.6f1eb749.chunk.js",
+    "static/js/5.6f1eb749.chunk.js.map": "/static/js/5.6f1eb749.chunk.js.map",
+    "static/js/6.43060006.chunk.js": "/static/js/6.43060006.chunk.js",
+    "static/js/6.43060006.chunk.js.map": "/static/js/6.43060006.chunk.js.map",
+    "static/js/7.62d52148.chunk.js": "/static/js/7.62d52148.chunk.js",
+    "static/js/7.62d52148.chunk.js.map": "/static/js/7.62d52148.chunk.js.map",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.map": "/service-worker.js.map",
+    "static/css/main.9f31a381.chunk.css.map": "/static/css/main.9f31a381.chunk.css.map",
+    "static/js/3.8a683fa4.chunk.js.LICENSE.txt": "/static/js/3.8a683fa4.chunk.js.LICENSE.txt",
+    "static/media/amzinai-alkanas.svg": "/static/media/amzinai-alkanas.2c98443f.svg",
+    "static/media/arrow-next.0553baa2.svg": "/static/media/arrow-next.0553baa2.svg",
+    "static/media/arrow-previous.8cfcd810.svg": "/static/media/arrow-previous.8cfcd810.svg",
+    "static/media/facebook.ce2f93b2.svg": "/static/media/facebook.ce2f93b2.svg",
+    "static/media/gmail.183fcfc4.svg": "/static/media/gmail.183fcfc4.svg",
+    "static/media/instagram.a71e5b09.svg": "/static/media/instagram.a71e5b09.svg",
+    "static/media/intro-image.6ba60f3b.jpg": "/static/media/intro-image.6ba60f3b.jpg",
+    "static/media/rating-star.0274e9a0.svg": "/static/media/rating-star.0274e9a0.svg",
+    "static/media/youtube.c0caa1a9.svg": "/static/media/youtube.c0caa1a9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e97b82b3.js",
+    "static/js/3.8a683fa4.chunk.js",
+    "static/css/main.9f31a381.chunk.css",
+    "static/js/main.5ddde238.chunk.js"
+  ]
+}
