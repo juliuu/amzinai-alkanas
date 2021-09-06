@@ -49,6 +49,9 @@ class MongoDb {
       },
       findTotal: async (params) => {
         return reviews.findTotal(this.reviewsCollection, params);
+      },
+      findTop: async (params) => {
+        return reviews.findTop(this.reviewsCollection, params);
       }
     };
   }

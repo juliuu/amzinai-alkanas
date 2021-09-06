@@ -26,7 +26,17 @@ const findTotal = async (reviewsCollection, params) => {
   }
 };
 
+const findTop = async (reviewsCollection, params) => {
+  try {
+    const result = await reviewsCollection.find({ type: params.type }).sort({ rating: -1 }).limit(10).toArray();
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][FIND_TOP] Failed to fetch data. ERROR --> ${error}`);
+  }
+};
+
 module.exports = {
   findMany,
   findTotal,
+  findTop,
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { TopContainer, TopWrapper, ListWrapper, TopList, ListItem, ItemNumber, ItemName } from './topSection.styles';
 
@@ -6,25 +6,20 @@ import SectionHeading from '../sectionHeading/sectionHeading.component';
 import StarRating from '../starRating/starRating.component';
 import Button from '../button/button.component';
 
-const TopSection = ({ refs, title, dropdown, data }) => {
+const TopSection = ({ refs, title, dropdown, data, onChange }) => {
   const heading = { title, dropdown };
 
-  const [firstPart, setFirstPart] = useState([]);
-  const [secondPart, setSecondPart] = useState([]);
+  const firstPart = data.slice(0, 5);
+  const secondPart = data.slice(5, 10);
 
-  const [filter, setFilter] = useState(dropdown[0]._id);
-
-  useEffect(() => {
-    const result = data.filter((item) => item.type === filter).sort((a, b) => b.rating - a.rating);
-
-    setFirstPart(result.slice(0, 5));
-    setSecondPart(result.slice(5, 10));
-  }, [filter, data]);
+  const handleFilterChange = (value) => {
+    onChange(value);
+  };
 
   return (
     <TopContainer ref={refs.topRef}>
       <TopWrapper>
-        <SectionHeading {...heading} onFilterChange={(value) => setFilter(value)} />
+        <SectionHeading {...heading} onFilterChange={handleFilterChange} />
         <ListWrapper>
           <TopList>
             {firstPart.map((item, index) => (

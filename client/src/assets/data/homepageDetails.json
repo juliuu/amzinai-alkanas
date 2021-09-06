@@ -1,13 +1,11 @@
-[
-  {
-    "sectionId": "introSection",
+{
+  "introSection": {
     "heading": "Labas! Nori išbandyti naujus, patikimus restoranus ar atrasti naujų receptų?",
     "subheading": "Sveikas atvykęs į mano tinklaraštį!",
     "buttonText": "Apie mane",
     "linkTo": "/apie"
   },
-  {
-    "sectionId": "reviewSection",
+  "reviewSection": {
     "title": "restoranų apžvalgos",
     "linkTo": "/apzvalgos",
     "linkText": "Skaityti apžvalgą",
@@ -16,8 +14,7 @@
       { "_id": "timestamp", "title": "Naujausios" }
     ]
   },
-  {
-    "sectionId": "recipesSection",
+  "recipeSection": {
     "title": "receptai",
     "linkTo": "/recipes",
     "linkText": "Skaityti receptą",
@@ -26,8 +23,7 @@
       { "_id": "timestamp", "title": "Naujausi" }
     ]
   },
-  {
-    "sectionId": "topSection",
+  "topSection": {
     "title": "restoranų top 10",
     "linkTo": "/apzvalgos",
     "dropdown": [
@@ -38,4 +34,4 @@
       { "_id": "fastFood", "title": "Greitas maistas" }
     ]
   }
-]
+}

@@ -12,7 +12,14 @@ const findTotal = async (req, res) => {
   return res.json(result);
 };
 
+const findTop = async (req, res) => {
+  const params = req.query;
+  const result = await MongoDbService.reviews.findTop(params);
+  return res.json(result);
+};
+
 module.exports = {
   findMany,
   findTotal,
+  findTop,
 };
