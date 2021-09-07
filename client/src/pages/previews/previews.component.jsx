@@ -33,18 +33,14 @@ const PreviewsPage = (props) => {
     const fetchData = async () => {
       try {
         const offset = selectedPage * pageSize - pageSize;
-        const sidebarPathname = pathname === '/apzvalgos' ? '/receptai' : '/apzvalgos';
 
-        const [data, count, sidebarData] = await Promise.all([
+        const [data, count] = await Promise.all([
           fetch(`/api${pathname}/?sort=${sort}&offset=${offset}&size=${pageSize}${type ? '&type=' + type : ''}`).then((res) => res.json()), // TODO: rename filter
           fetch(`/api${pathname}/total/${type ? '?type=' + type : ''}`).then((res) => res.json()),
-          fetch(`/api${sidebarPathname}/?sort=rating&offset=0&size=${sidebarSize}`).then((res) => res.json()),
         ]);
 
         setPageCount(Math.ceil(count / pageSize));
         setData(data);
-        setSidebarData(sidebarData);
-        setIsLoaded(true);
       } catch (error) {
         setIsLoaded(true);
         setError(error);
@@ -53,6 +49,27 @@ const PreviewsPage = (props) => {
 
     fetchData();
   }, [type, sort, selectedPage, pathname]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const sidebarPathname = pathname === '/apzvalgos' ? '/receptai' : '/apzvalgos';
+
+        const data = await fetch(`/api${sidebarPathname}/?sort=rating&offset=0&size=${sidebarSize}`).then((res) => res.json());
+
+        setSidebarData(data);
+      } catch (error) {
+        setIsLoaded(true);
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, [pathname]);
+
+  useEffect(() => {
+    if (data && sidebarData) setIsLoaded(true);
+  }, [data, sidebarData]);
 
   if (error) {
     return <div>Error: {error.message}</div>; // TODO: make a simple error page
@@ -66,13 +83,15 @@ const PreviewsPage = (props) => {
             <PreviewHeadingWrapper>
               <Dropdown options={pageDetails.dropdowns.sorting} onFilterChange={(value) => setSort(value)} />
               <h2>{pageDetails.title.toUpperCase()}</h2>
-              <Dropdown
-                options={pageDetails.dropdowns.filtering}
-                onFilterChange={(value) => {
-                  setType(value);
-                  setSelectedPage(1);
-                }}
-              />
+              {pathname === '/apzvalgos' ? (
+                <Dropdown
+                  options={pageDetails.dropdowns.filtering}
+                  onFilterChange={(value) => {
+                    setType(value);
+                    setSelectedPage(1);
+                  }}
+                />
+              ) : null}
             </PreviewHeadingWrapper>
             <CardWrapper>
               {data.map((article) => (

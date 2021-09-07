@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { __getSort } = require('../utils');
 
 const findMany = async (reviewsCollection, params) => {
@@ -35,8 +36,23 @@ const findTop = async (reviewsCollection, params) => {
   }
 };
 
+const findOne = async (reviewsCollection, params) => {
+  try {
+    const data = await reviewsCollection.findOne({ _id: ObjectId(params.id) });
+
+    const averageFoodScore = data.foodScore.reduce((acc, curr) => acc + curr.rating, 0) / data.foodScore.length;
+    const averageRestaurantScore = data.restaurantScore.reduce((acc, curr) => acc + curr.rating, 0) / data.restaurantScore.length;
+    const averageRating = Math.round((averageFoodScore + averageRestaurantScore) / 2);
+
+    return { data, averageRating };
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][FIND_ONE] Failed to fetch data. ERROR --> ${error}`);
+  }
+};
+
 module.exports = {
   findMany,
   findTotal,
   findTop,
+  findOne,
 };

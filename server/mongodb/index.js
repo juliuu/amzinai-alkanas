@@ -52,6 +52,9 @@ class MongoDb {
       },
       findTop: async (params) => {
         return reviews.findTop(this.reviewsCollection, params);
+      },
+      findOne: async (params) => {
+        return reviews.findOne(this.reviewsCollection, params);
       }
     };
   }
@@ -64,6 +67,9 @@ class MongoDb {
       findTotal: async (params) => {
         return recipes.findTotal(this.recipesCollection, params);
       },
+      findOne: async (params) => {
+        return recipes.findOne(this.recipesCollection, params);
+      }
     };
   }
 }

@@ -18,8 +18,15 @@ const findTop = async (req, res) => {
   return res.json(result);
 };
 
+const findOne = async (req, res) => {
+  const params = req.params;
+  const result = await MongoDbService.reviews.findOne(params);
+  return res.json(result);
+};
+
 module.exports = {
   findMany,
   findTotal,
   findTop,
+  findOne,
 };

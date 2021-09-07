@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb');
 const { __getSort } = require('../utils');
 
 const findMany = async (recipesCollection, params) => {
@@ -26,7 +27,18 @@ const findTotal = async (recipesCollection, params) => {
   }
 };
 
+const findOne = async (recipesCollection, params) => {
+  try {
+    const result = await recipesCollection.findOne({ _id: ObjectId(params.id) });
+
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][RECIPES][FIND_ONE] Failed to fetch data. ERROR --> ${error}`);
+  }
+};
+
 module.exports = {
   findMany,
   findTotal,
+  findOne,
 };
