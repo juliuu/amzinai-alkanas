@@ -113,8 +113,6 @@ const ReviewPage = () => {
     if (data && sidebarData) setIsLoaded(true);
   }, [data, sidebarData]);
 
-  const youtueEmbedUrl = `https://www.youtube.com/embed/${embedId}?rel=0&modestbranding=1`;
-
   if (error) {
     return <div>Error: {error.message}</div>; // TODO: make a simple error page
   } else if (!isLoaded) {
@@ -129,25 +127,12 @@ const ReviewPage = () => {
               <h4>RESTORANO APŽVALGA</h4>
               <p>2021-08-11</p>
             </ReviewHeadingWrapper>
-            {/* https://dev.to/bravemaster619/simplest-way-to-embed-a-youtube-video-in-your-react-app-3bk2 */}
-            {/* <iframe
-              src={youtueEmbedUrl}
+            <iframe
+              src={`https://www.youtube.com/embed/${embedId}?rel=0&modestbranding=1`}
+              title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="Embedded youtube"
-              style={{
-                width: '50.7rem',
-                height: '26.2rem',
-                paddingBottom: '1.1rem',
-              }} // TODO: border-radius: 1.5rem not really working
-            /> */}
-            <iframe
-              src="https://www.youtube.com/embed/TZI1tG0RC3I"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
               style={{
                 width: '50.7rem',
                 height: '26.2rem',

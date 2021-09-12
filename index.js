@@ -11,7 +11,19 @@ const MongoDbService = require('./server/mongodb');
 
   const app = express();
 
-  app.use(helmet());
+  app.use(
+    helmet({
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          frameSrc: ['https://www.youtube.com/'],
+        },
+      },
+      referrerPolicy: {
+        policy: 'origin',
+      },
+    })
+  );
   app.use(express.static(path.resolve(__dirname, './client/build')));
 
   app.use('/api', router);
