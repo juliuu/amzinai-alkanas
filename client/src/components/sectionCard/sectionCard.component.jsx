@@ -4,6 +4,7 @@ import { CardContainer, SomePicture, CardHeading, CardIntroduction, CardLink, Ca
 
 import StarRating from '../starRating/starRating.component';
 
+// TODO: timestamp!!!!
 const SectionCard = (props) => {
   const { imgUrl, heading, intro, rating, to, linkText } = props;
   return (
