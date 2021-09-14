@@ -17,12 +17,27 @@ export const CommentWrapper = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const CommentPic = styled.div`
+const commonPic = css`
   flex-shrink: 0;
   width: 2.22rem;
   height: 2.22rem;
   background-color: #e3e3e3;
   border-radius: 50%;
+`;
+
+export const CommentPic = styled.img`
+  ${commonPic}
+`;
+
+export const BlankPic = styled.div`
+  ${commonPic}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff9b00;
+  font-size: 1.333rem;
+  font-weight: bold;
 `;
 
 export const CommentData = styled.div`
@@ -41,7 +56,10 @@ export const FirstComment = styled.div`
   align-items: space-bewteen;
 `;
 
-export const CommentReply = styled.p`
+export const CommentReply = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
   color: #ea2828;
   text-decoration: underline;
   font-weight: bold;

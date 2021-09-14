@@ -2,11 +2,13 @@ const { MongoClient } = require('mongodb');
 
 const reviews = require('./reviews');
 const recipes = require('./recipes');
+const comments = require('./comments');
 
 class MongoDb {
   static mongoClient = undefined;
   static reviewsCollection = undefined;
   static recipesCollection = undefined;
+  static commentsCollection = undefined;
 
   async init() {
     const uri = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@amzinai-alkanas.blanc.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
@@ -23,6 +25,7 @@ class MongoDb {
 
       this.reviewsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('reviews');
       this.recipesCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('recipes');
+      this.commentsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('comments');
 
       console.log('MONGO_DB initialized.');
     } catch (error) {
@@ -55,7 +58,7 @@ class MongoDb {
       },
       findOne: async (params) => {
         return reviews.findOne(this.reviewsCollection, params);
-      }
+      },
     };
   }
 
@@ -69,6 +72,17 @@ class MongoDb {
       },
       findOne: async (params) => {
         return recipes.findOne(this.recipesCollection, params);
+      },
+    };
+  }
+
+  get comments() {
+    return {
+      findMany: async (params) => {
+        return comments.findMany(this.commentsCollection, params);
+      },
+      insertOne: async (body) => {
+        return comments.insertOne(this.commentsCollection, body);
       }
     };
   }

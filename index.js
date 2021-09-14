@@ -11,6 +11,7 @@ const MongoDbService = require('./server/mongodb');
 
   const app = express();
 
+  app.use(express.json());
   app.use(
     helmet({
       contentSecurityPolicy: {

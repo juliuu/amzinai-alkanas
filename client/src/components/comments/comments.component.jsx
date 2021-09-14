@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useForm } from '../../hooks';
 
+// TODO: move fetch logic here
+// TODO: add full error handling
+// TODO: maybe add skeletons..
 import {
   CommentsContainer,
   CommentWrapper,
   CommentPic,
+  BlankPic,
   CommentSection,
   CommentData,
   CommentReply,
@@ -16,68 +21,79 @@ import {
   SubmitButton,
 } from './comments.styles';
 
-const Comments = ({ children }) => {
+const Comments = ({ children: { comments, commentCount }, id, refreshComments }) => {
   const [formStarted, setFormStarted] = useState(false);
-  const [userComment, setUserComment] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const [formData, setFormData, clearFormData] = useForm({
+    comment: '',
+    author: '',
+    email: '',
+  });
+
+  const commentFocus = useRef();
 
   useEffect(() => {
-    if (userComment && username && email) setDisabled(false);
-  }, [userComment, username, email]);
+    if (formData.comment && formData.author && formData.email) setDisabled(false);
+  }, [formData]);
 
   const handleCancel = () => {
-    setUserComment("");
-    setUsername(null);
-    setEmail(null);
+    clearFormData();
     setDisabled(true);
     setFormStarted(false);
-  }
+  };
 
-  const count = 3;
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    fetch('/api/comments', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ articleId: id, ...formData }),
+    }).then(() => {
+      // TODO: when button animation ends
+      refreshComments();
+      clearFormData();
+    });
+  };
+
   return (
     <CommentsContainer>
       <h1>KOMENTARAI</h1>
-      <span style={{ fontWeight: 'bold' }}>Komentarų: {count}</span>
-      {children.comments.map((comment) => (
-        <CommentWrapper key={comment.commentId}>
-          <CommentPic url={comment.imgUrl} />
+      {commentCount ? <span style={{ fontWeight: 'bold' }}>Komentarų: {commentCount}</span> : null}
+      {comments.map((comment) => (
+        <CommentWrapper key={comment._id}>
+          {comment.imgUrl ? <CommentPic src={comment.imgUrl} alt="user" /> : <BlankPic>{comment.author[0].toUpperCase()}</BlankPic>}
           <CommentSection>
             <FirstComment>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <CommentData>
                   <p style={{ fontSize: '0.8rem', fontWeight: 'bold', marginRight: '0.3rem' }}>{comment.author}</p>
-                  <p style={{ color: 'grey', fontSize: '0.7rem' }}>
-                    {new Date(comment.timestamp * 1000).toLocaleString('lt-LT', {
-                      year: 'numeric',
-                      month: 'numeric',
-                      day: 'numeric',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                    })}
-                  </p>
+                  <p style={{ color: 'grey', fontSize: '0.7rem' }}>{comment.timestamp}</p>
                 </CommentData>
                 {comment.comment}
               </div>
-              <CommentReply>Atsakyti</CommentReply>
+              <CommentReply
+                id="commentId"
+                value={comment.commentId}
+                onClick={(e) => {
+                  setFormStarted(true);
+                  setFormData(e);
+                  commentFocus.current.focus();
+                  commentFocus.current.scrollIntoView();
+                }}
+              >
+                Atsakyti
+              </CommentReply>
             </FirstComment>
             {comment.replies.length > 0
               ? comment.replies.map((reply) => (
-                  <CommentWrapper key={reply.commentId}>
-                    <CommentPic url={reply.imgUrl} />{' '}
+                  <CommentWrapper key={reply._id}>
+                    {reply.imgUrl ? <CommentPic src={reply.imgUrl} alt="user" /> : <BlankPic>{reply.author[0].toUpperCase()}</BlankPic>}
                     <CommentSection>
                       <CommentData>
                         <p style={{ fontSize: '0.8rem', fontWeight: 'bold', marginRight: '0.3rem' }}>{reply.author}</p>
-                        <p style={{ color: 'grey', fontSize: '0.7rem' }}>
-                          {new Date(reply.timestamp * 1000).toLocaleString('lt-LT', {
-                            year: 'numeric',
-                            month: 'numeric',
-                            day: 'numeric',
-                            hour: '2-digit',
-                            minute: '2-digit',
-                          })}
-                        </p>
+                        <p style={{ color: 'grey', fontSize: '0.7rem' }}>{reply.timestamp}</p>
                       </CommentData>
                       {reply.comment}
                     </CommentSection>
@@ -87,26 +103,25 @@ const Comments = ({ children }) => {
           </CommentSection>
         </CommentWrapper>
       ))}
-      <Form>
+      <Form onSubmit={handleFormSubmit}>
         <Label htmlFor="comment">Parašyk komentarą</Label>
         <TextArea
-          id="comment"
+          ref={commentFocus}
           type="textArea"
+          id="comment"
           placeholder="Savo komentarą įrašyk čia..."
+          value={formData.comment}
+          onChange={setFormData}
           onClick={() => setFormStarted(true)}
-          onChange={(e) => setUserComment(e.target.value)}
-          value={userComment}
           required
         />
         {formStarted ? (
           <>
             <Label htmlFor="author">Įvesk savo duomenis</Label>
-            <Input type="text" placeholder="Vardas" onChange={(e) => setUsername(e.target.value)} required />
-            <Input type="email" placeholder="El. pašto adresas" onChange={(e) => setEmail(e.target.value)} required />
+            <Input type="text" id="author" placeholder="Vardas" value={formData.author} onChange={setFormData} required />
+            <Input type="email" id="email" placeholder="El. pašto adresas" value={formData.email} onChange={setFormData} required />
             <div>
-              <CancelButton type="reset" value="Atšaukti" 
-              onClick={handleCancel}
-              />
+              <CancelButton type="reset" value="Atšaukti" onClick={handleCancel} />
               <SubmitButton disabled={disabled} type="submit" value="Įrašyti komentarą" />
             </div>
           </>

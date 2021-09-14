@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { reviews, recipes } = require('../controllers');
+const { reviews, recipes, comments } = require('../controllers');
 
 router.get('/apzvalgos', reviews.findMany);
 router.get('/apzvalgos/total', reviews.findTotal);
@@ -11,5 +11,8 @@ router.get('/apzvalgos/:id', reviews.findOne);
 router.get('/receptai', recipes.findMany);
 router.get('/receptai/total', reviews.findTotal);
 router.get('/receptai/:id', recipes.findOne);
+
+router.get('/comments/:id', comments.findMany);
+router.post('/comments', comments.insertOne);
 
 module.exports = router;
