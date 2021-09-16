@@ -126,25 +126,3 @@ export const CancelButton = styled.input`
     cursor: pointer;
   }
 `;
-
-export const SubmitButton = styled.input`
-  font-size: inherit;
-  font-weight: bold;
-  color: white;
-  padding: 0 0.8rem;
-  margin-right: 1rem;
-  background-color: #ea2828;
-  height: 2.5rem;
-  border: 0;
-  border-radius: 2.5rem;
-
-  :hover {
-    cursor: pointer;
-  }
-
-  :disabled {
-    background-color: #e3e3e3;
-    cursor: default;
-    pointer-events: none;
-  }
-`;

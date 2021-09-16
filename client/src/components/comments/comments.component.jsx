@@ -18,8 +18,9 @@ import {
   TextArea,
   Input,
   CancelButton,
-  SubmitButton,
 } from './comments.styles';
+
+import LoadingButton from '../loadingButton/loadingButton.component';
 
 const Comments = ({ children: { comments, commentCount }, id, refreshComments }) => {
   const [formStarted, setFormStarted] = useState(false);
@@ -29,11 +30,16 @@ const Comments = ({ children: { comments, commentCount }, id, refreshComments })
     author: '',
     email: '',
   });
+  const [formSent, setFormSent] = useState('pending');
 
   const commentFocus = useRef();
 
   useEffect(() => {
     if (formData.comment && formData.author && formData.email) setDisabled(false);
+    else {
+      setDisabled(true);
+      setFormSent('pending');
+    }
   }, [formData]);
 
   const handleCancel = () => {
@@ -44,6 +50,8 @@ const Comments = ({ children: { comments, commentCount }, id, refreshComments })
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    setFormSent('loading');
+
     fetch('/api/comments', {
       method: 'POST',
       headers: {
@@ -51,9 +59,12 @@ const Comments = ({ children: { comments, commentCount }, id, refreshComments })
       },
       body: JSON.stringify({ articleId: id, ...formData }),
     }).then(() => {
-      // TODO: when button animation ends
+      setFormSent('confirmed'); // TODO: best to set confirmed after data has been refreshed (hard way OR use implement Redux for easy state management)
       refreshComments();
-      clearFormData();
+      setTimeout(() => {
+        setFormStarted(false);
+        clearFormData();
+      }, 2000);
     });
   };
 
@@ -122,7 +133,7 @@ const Comments = ({ children: { comments, commentCount }, id, refreshComments })
             <Input type="email" id="email" placeholder="El. pašto adresas" value={formData.email} onChange={setFormData} required />
             <div>
               <CancelButton type="reset" value="Atšaukti" onClick={handleCancel} />
-              <SubmitButton disabled={disabled} type="submit" value="Įrašyti komentarą" />
+              <LoadingButton disabled={disabled} type="submit" formSent={formSent} value="Įrašyti komentarą" valueConfirmed="Įrašyta" />
             </div>
           </>
         ) : null}
