@@ -18,9 +18,6 @@ const ReviewPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const [comments, setComments] = useState(null);
-  const [commentCount, setCommentCount] = useState(0);
-  const [refreshComments, setRefreshComments] = useState(false);
   const [sidebarData, setSidebarData] = useState(null);
   const [averageRating, setAverageRating] = useState(null);
 
@@ -56,25 +53,8 @@ const ReviewPage = () => {
   }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await fetch(`/api/comments/${id}`).then((res) => res.json());
-
-        setComments(result.data);
-        setCommentCount(result.count);
-        setRefreshComments(false);
-      } catch (error) {
-        setIsLoaded(true);
-        setError(error);
-      }
-    };
-
-    fetchData();
-  }, [id, refreshComments]);
-
-  useEffect(() => {
-    if (data && sidebarData && comments && commentCount >= 0) setIsLoaded(true);
-  }, [data, sidebarData, comments, commentCount]);
+    if (data && sidebarData) setIsLoaded(true);
+  }, [data, sidebarData]);
 
   if (error) {
     return <div>Error: {error.message}</div>; // TODO: make a simple error page
@@ -122,9 +102,7 @@ const ReviewPage = () => {
             <br />
             <h3>GALUTINIS ĮVERTINIMAS</h3>
             <ReviewScore rating={averageRating} comment={data.finalRemarks} />
-            <Comments refreshComments={() => setRefreshComments(true)} id={id}>
-              {{ comments, commentCount }}
-            </Comments>
+            <Comments id={id} />
           </ReviewMainSection>
           <SideBar title="Populiariausi receptai" linkTo="/receptai" linkText="Skaityti receptą">
             {sidebarData}
