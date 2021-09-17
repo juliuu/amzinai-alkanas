@@ -18,6 +18,7 @@ const MongoDbService = require('./server/mongodb');
         useDefaults: true,
         directives: {
           frameSrc: ['https://www.youtube.com/'],
+          imgSrc: ['https: data'],
         },
       },
       referrerPolicy: {

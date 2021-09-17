@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useForm } from '../../hooks';
 
-// TODO: move fetch logic here
-// TODO: add full error handling
-// TODO: maybe add skeletons..
 import {
   CommentsContainer,
   CommentWrapper,
@@ -46,6 +43,10 @@ const Comments = ({ id }) => {
       try {
         const result = await fetch(`/api/comments/${id}`).then((res) => res.json());
 
+        if (refreshComments) {
+          setFormSent('confirmed');
+        }
+
         setComments(result.data);
         setCommentCount(result.count);
         setRefreshComments(false);
@@ -57,8 +58,6 @@ const Comments = ({ id }) => {
 
     fetchData();
   }, [id, refreshComments]); // TODO: check if refresh comments is actually needed
-
-  // TODO: probably useCallback
 
   useEffect(() => {
     if (comments && commentCount >= 0) setIsLoaded(true);
@@ -90,8 +89,7 @@ const Comments = ({ id }) => {
       },
       body: JSON.stringify({ articleId: id, ...formData }),
     }).then(() => {
-      setFormSent('confirmed'); // TODO: best to set confirmed after data has been refreshed (hard way OR use implement Redux for easy state management)
-      setRefreshComments();
+      setRefreshComments(true);
       setTimeout(() => {
         setFormStarted(false);
         clearFormData();
