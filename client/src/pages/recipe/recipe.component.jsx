@@ -16,6 +16,7 @@ import {
 import SideBar from '../../components/sidebar/sidebar.component';
 import Footer from '../../components/footer/footer.component';
 import Instruction from '../../components/instruction/instruction.component';
+import Comments from '../../components/comments/comments.component';
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -95,6 +96,7 @@ const RecipePage = () => {
               <Instruction key={index} {...instruction} />
             ))}
             <h1 style={{ color: '#FF9B00' }}>SKANAUS!</h1>
+            <Comments id={id} />
           </RecipeMainSection>
           <SideBar title="Populiariausios apžvalgos" linkTo="/apzvalgos" linkText="Skaityti apžvalgą">
             {sidebarData}

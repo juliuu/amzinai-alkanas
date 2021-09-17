@@ -3,6 +3,7 @@ const { MongoClient } = require('mongodb');
 const reviews = require('./reviews');
 const recipes = require('./recipes');
 const comments = require('./comments');
+const auth = require('./auth');
 
 class MongoDb {
   static mongoClient = undefined;
@@ -26,6 +27,7 @@ class MongoDb {
       this.reviewsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('reviews');
       this.recipesCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('recipes');
       this.commentsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('comments');
+      this.authCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('auth');
 
       console.log('MONGO_DB initialized.');
     } catch (error) {
@@ -83,7 +85,15 @@ class MongoDb {
       },
       insertOne: async (body) => {
         return comments.insertOne(this.commentsCollection, body);
-      }
+      },
+    };
+  }
+
+  get users() {
+    return {
+      findOne: async (username) => {
+        return auth.findOne(this.authCollection, username);
+      },
     };
   }
 }

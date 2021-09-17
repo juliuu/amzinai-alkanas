@@ -10,6 +10,7 @@ const HomePage = React.lazy(() => import('./pages/home/home.component'));
 const PreviewPage = React.lazy(() => import('./pages/previews/previews.component'));
 const ReviewPage = React.lazy(() => import('./pages/review/review.component'));
 const RecipePage = React.lazy(() => import('./pages/recipe/recipe.component'));
+const AdminPage = React.lazy(() => import('./pages/admin/admin.component'));
 
 const App = () => {
   const [refs, setRefs] = useState({
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path="/apzvalgos/:id" component={ReviewPage} />
           <Route exact path="/receptai" component={PreviewPage} />
           <Route exact path="/receptai/:id" component={RecipePage} />
+          <Route exact path="/admin" component={AdminPage} />
         </Suspense>
       </Switch>
     </div>

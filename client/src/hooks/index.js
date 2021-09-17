@@ -1,5 +1,4 @@
 import useForm from './useForm';
+import { useLocalStorage, useSessionStorage } from './useStorage';
 
-export {
-  useForm,
-};
+export { useForm, useLocalStorage, useSessionStorage };
