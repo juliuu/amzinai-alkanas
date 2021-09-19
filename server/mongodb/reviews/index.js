@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongodb');
-const { __getSort } = require('../utils');
+const { __getSort, __parseTimestamp } = require('../utils');
 
 const findMany = async (reviewsCollection, params) => {
   try {
@@ -7,9 +7,12 @@ const findMany = async (reviewsCollection, params) => {
     const result = await reviewsCollection
       .find(query)
       .sort(__getSort(params.sort))
-      .skip(Number(params.offset))
-      .limit(Number(params.size))
+      .skip(params.offset ? Number(params.offset) : 0)
+      .limit(params.size ? Number(params.size): 0)
       .toArray();
+
+      result.map((item) => (item.timestamp = __parseTimestamp(item.timestamp)));
+      console.log("REVIEWS --> ", result.length);
 
     return result;
   } catch (error) {

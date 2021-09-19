@@ -66,8 +66,9 @@ const ReviewPage = () => {
         <ReviewWrapper>
           <ReviewMainSection>
             <ReviewHeadingWrapper>
-              <h2>test heading</h2>
+              <h1>{data.heading.toUpperCase()}</h1>
               <h4>RESTORANO APŽVALGA</h4>
+              {/* TODO: Hardcoded... */}
               <p>2021-08-11</p>
             </ReviewHeadingWrapper>
             <iframe

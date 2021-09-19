@@ -5,7 +5,7 @@ import { ReactComponent as ReactLogo } from '../../assets/svg/amzinai-alkanas.sv
 export const HeaderContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 66px;
+  height: 3.6rem;
   justify-content: center;
   align-items: center;
   background: ${(props) => (props.isHeaderTransparent ? 'transparent' : '#000000')};
