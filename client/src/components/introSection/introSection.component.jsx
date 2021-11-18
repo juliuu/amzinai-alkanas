@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { IntroWrapper, IntroContainer, Heading, SubHeading } from './introSection.styles';
-
-import Button from '../button/button.component';
+import { Button } from '..';
 
 const IntroSection = (props) => {
   return (
@@ -10,7 +9,9 @@ const IntroSection = (props) => {
       <IntroWrapper>
         <Heading>{props.heading}</Heading>
         <SubHeading>{props.subheading}</SubHeading>
-        <Button to={props.linkTo}>{props.buttonText}</Button>
+        <Button to={props.linkTo} data-type="link">
+          {props.buttonText}
+        </Button>
       </IntroWrapper>
     </IntroContainer>
   );

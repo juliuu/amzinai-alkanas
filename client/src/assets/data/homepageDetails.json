@@ -3,7 +3,7 @@
     "heading": "Labas! Nori išbandyti naujus, patikimus restoranus ar atrasti naujų receptų?",
     "subheading": "Sveikas atvykęs į mano tinklaraštį!",
     "buttonText": "Apie mane",
-    "linkTo": "/apie"
+    "linkTo": "/#apie"
   },
   "reviewSection": {
     "title": "restoranų apžvalgos",
@@ -25,7 +25,6 @@
   },
   "topSection": {
     "title": "restoranų top 10",
-    "linkTo": "/apzvalgos",
     "dropdown": [
       { "_id": "pizza", "title": "Picerijos" },
       { "_id": "asian", "title": "Azijietiška virtuvė" },

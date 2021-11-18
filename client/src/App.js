@@ -1,42 +1,35 @@
-import React, { Suspense, useState, useRef, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import { GlobalStyle } from './global.styles';
-
-import Spinner from './components/spinner/spinner.component';
-import Header from './components/header/header.component';
+import { Spinner, Header } from './components';
+// TODO: maybe remove this spinner together with suspense
 
 const HomePage = React.lazy(() => import('./pages/home/home.component'));
-const PreviewPage = React.lazy(() => import('./pages/previews/previews.component'));
+const PreviewsPage = React.lazy(() => import('./pages/previews/previews.component'));
 const ReviewPage = React.lazy(() => import('./pages/review/review.component'));
 const RecipePage = React.lazy(() => import('./pages/recipe/recipe.component'));
 const AdminPage = React.lazy(() => import('./pages/admin/admin.component'));
+const ReviewEditor = React.lazy(() => import('./pages/reviewEditor/reviewEditor.component'));
 
 const App = () => {
-  const [refs, setRefs] = useState({
-    aboutRef: useRef(),
-    contactRef: useRef(),
-    topRef: useRef(),
-  });
-
-  useEffect(() => {
-    setRefs(refs);
-  }, [refs]);
-
   return (
     <div>
       <GlobalStyle />
-      <Header refs={refs} />
-      <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/" component={() => <HomePage refs={refs} />} />
-          <Route exact path="/apzvalgos" component={PreviewPage} />
-          <Route exact path="/apzvalgos/:id" component={ReviewPage} />
-          <Route exact path="/receptai" component={PreviewPage} />
-          <Route exact path="/receptai/:id" component={RecipePage} />
-          <Route exact path="/admin" component={AdminPage} />
-        </Suspense>
-      </Switch>
+      <Header />
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/*" element={<HomePage />} />
+          <Route path="/apzvalgos" element={<PreviewsPage />} />
+          <Route path="/apzvalgos/:id" element={<ReviewPage />} />
+          <Route path="/receptai" element={<PreviewsPage />} />
+          <Route path="/receptai/:id" element={<RecipePage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/review" element={<ReviewEditor />} />
+          <Route path="/admin/recipe" element={<ReviewEditor />} />
+          {/* TODO: replace review editor with recipe editor */}
+        </Routes>
+      </Suspense>
     </div>
   );
 };

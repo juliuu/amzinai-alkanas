@@ -4,8 +4,16 @@ export const useSessionStorage = (key, defaultValue) => {
   return useStorage(key, defaultValue, window.sessionStorage);
 };
 
+export const getSessionStorage = (key) => {
+  return window.sessionStorage.getItem(key);
+};
+
 export const useLocalStorage = (key, defaultValue) => {
   return useStorage(key, defaultValue, window.localStorage);
+};
+
+export const getLocalStorage = (key) => {
+  return window.localStorage.getItem(key);
 };
 
 const useStorage = (key, defaultValue, storage) => {

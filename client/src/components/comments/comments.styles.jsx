@@ -112,17 +112,3 @@ export const Input = styled.input`
 
   ${commonInput}
 `;
-
-export const CancelButton = styled.input`
-  font-size: inherit;
-  font-weight: bold;
-  color: #e3e3e3;
-  margin-right: 1rem;
-  height: 2.5rem;
-  background-color: transparent;
-  border: 0;
-
-  :hover {
-    cursor: pointer;
-  }
-`;

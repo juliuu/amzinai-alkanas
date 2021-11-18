@@ -24,9 +24,25 @@ const findOne = async (req, res) => {
   return res.json(result);
 };
 
+const findAll = async (req, res) => {
+  const params = req.params;
+  const result = await MongoDbService.reviews.findAll(params);
+  return res.json(result);
+};
+
+const insertOne = async (req, res) => {
+  const body = req.body;
+  const result = await MongoDbService.reviews.insertOne(body);
+
+  if (result.error) return res.status(500).json({});
+  return res.status(200).json(result);
+};
+
 module.exports = {
   findMany,
+  findAll,
   findTotal,
   findTop,
   findOne,
+  insertOne
 };

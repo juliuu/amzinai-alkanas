@@ -12,11 +12,85 @@ const findMany = async (recipesCollection, params) => {
       .toArray();
 
     result.map((item) => (item.timestamp = __parseTimestamp(item.timestamp)));
-    console.log('RECIPES --> ', result.length);
 
     return result;
   } catch (error) {
     console.error(`[MONGO_DB][RECIPES][FIND_MANY] Failed to fetch recipe data. ERROR --> ${error}`);
+  }
+};
+
+const findAll = async (recipesCollection, params) => {
+  try {
+    const result = await recipesCollection
+      .aggregate([
+        {
+          $lookup: {
+            from: 'comments',
+            let: { join_on: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ['$articleId', '$$join_on'],
+                  },
+                },
+              },
+              {
+                $count: 'count',
+              },
+            ],
+            as: 'comments',
+          },
+        },
+        {
+          $lookup: {
+            from: 'ratings',
+            let: { join_on: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ['$articleId', '$$join_on'],
+                  },
+                },
+              },
+              {
+                $group: {
+                  _id: '$articleId',
+                  rating: { $avg: '$rating' },
+                },
+              },
+              {
+                $project: {
+                  _id: 0,
+                },
+              },
+            ],
+            as: 'rating',
+          },
+        },
+        {
+          $project: {
+            heading: 1,
+            timestamp: 1,
+            comments: 1,
+            rating: 1,
+          },
+        },
+        {
+          $sort: __getSort(params.sort),
+        },
+      ])
+      .toArray();
+
+    result.map((item) => {
+      item.timestamp = __parseTimestamp(item.timestamp);
+      if (item.comments.length === 0) item.comments.push({ count: 0 });
+    });
+
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][RECIPES][FIND_ALL] Failed to fetch data. ERROR --> ${error}`);
   }
 };
 
@@ -42,6 +116,7 @@ const findOne = async (recipesCollection, params) => {
 
 module.exports = {
   findMany,
+  findAll,
   findTotal,
   findOne,
 };

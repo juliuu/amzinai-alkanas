@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { PreviewContainer, PreviewWrapper } from './previewSection.styles';
-import SectionHeading from '../sectionHeading/sectionHeading.component';
-import SectionCardCarousel from '../sectionCardCarousel/sectionCardCarousel.component';
-import Button from '../button/button.component';
+import { Button, SectionHeading, SectionCardCarousel } from '..';
 
 const PreviewSection = ({ title, linkTo, linkText, dropdown, data, onChange }) => {
   const heading = { title, dropdown };
@@ -18,7 +16,9 @@ const PreviewSection = ({ title, linkTo, linkText, dropdown, data, onChange }) =
       <PreviewWrapper>
         <SectionHeading {...heading} onFilterChange={handleFilterChange} />
         <SectionCardCarousel {...carousel} />
-        <Button to={linkTo}>Daugiau</Button>
+        <Button to={linkTo} data-type="link">
+          Daugiau
+        </Button>
       </PreviewWrapper>
     </PreviewContainer>
   );

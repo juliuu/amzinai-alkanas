@@ -8,15 +8,62 @@ const findMany = async (reviewsCollection, params) => {
       .find(query)
       .sort(__getSort(params.sort))
       .skip(params.offset ? Number(params.offset) : 0)
-      .limit(params.size ? Number(params.size): 0)
+      .limit(params.size ? Number(params.size) : 0)
       .toArray();
 
-      result.map((item) => (item.timestamp = __parseTimestamp(item.timestamp)));
-      console.log("REVIEWS --> ", result.length);
+    result.map((item) => (item.timestamp = __parseTimestamp(item.timestamp)));
 
     return result;
   } catch (error) {
     console.error(`[MONGO_DB][REVIEWS][FIND_MANY] Failed to fetch data. ERROR --> ${error}`);
+  }
+};
+
+const findAll = async (reviewsCollection, params) => {
+  try {
+    const result = await reviewsCollection
+      .aggregate([
+        {
+          $lookup: {
+            from: 'comments',
+            let: { join_on: '$_id' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $eq: ['$articleId', '$$join_on'],
+                  },
+                },
+              },
+              {
+                $count: 'count',
+              },
+            ],
+            as: 'comments',
+          },
+        },
+        {
+          $project: {
+            heading: 1,
+            timestamp: 1,
+            comments: 1,
+          },
+        },
+        {
+          $sort: __getSort(params.sort),
+        },
+      ])
+      .toArray();
+
+    result.map((item) => {
+      item.timestamp = __parseTimestamp(item.timestamp);
+      if (item.comments.length === 0) item.comments.push({ count: 0 });
+    });
+
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][FIND_ALL] Failed to fetch data. ERROR --> ${error}`);
+    return { error };
   }
 };
 
@@ -43,8 +90,8 @@ const findOne = async (reviewsCollection, params) => {
   try {
     const data = await reviewsCollection.findOne({ _id: ObjectId(params.id) });
 
-    const averageFoodScore = data.foodScore.reduce((acc, curr) => acc + curr.rating, 0) / data.foodScore.length;
-    const averageRestaurantScore = data.restaurantScore.reduce((acc, curr) => acc + curr.rating, 0) / data.restaurantScore.length;
+    const averageFoodScore = data.foodScores.reduce((acc, curr) => acc + curr.rating, 0) / data.foodScores.length;
+    const averageRestaurantScore = data.restaurantScores.reduce((acc, curr) => acc + curr.rating, 0) / data.restaurantScores.length;
     const averageRating = Math.round((averageFoodScore + averageRestaurantScore) / 2);
 
     return { data, averageRating };
@@ -53,9 +100,37 @@ const findOne = async (reviewsCollection, params) => {
   }
 };
 
+const insertOne = async (reviewsCollection, body) => {
+  try {
+    if (!body.heading || !body.dishes || !body.foodScores || !body.restaurantScores) return { error: 'Bad Request' };
+
+    const document = {
+      heading: body.heading,
+      videoUrl: body.videoUrl || '',
+      imgUrl: body.imgUrl || '',
+      intro: body.intro || '',
+      dishes: body.dishes,
+      foodScores: body.foodScores,
+      restaurantScores: body.restaurantScores,
+      review: body.review || '',
+      finalRemarks: body.finalRemarks || '',
+      timestamp: Date.now(),
+    };
+
+    const result = await reviewsCollection.insertOne(document);
+
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][INSERT_ONE] Failed to insert data. ERROR --> ${error}`);
+    return { error };
+  }
+};
+
 module.exports = {
   findMany,
+  findAll,
   findTotal,
   findTop,
   findOne,
+  insertOne,
 };

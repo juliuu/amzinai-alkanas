@@ -14,10 +14,9 @@ import {
   Label,
   TextArea,
   Input,
-  CancelButton,
 } from './comments.styles';
 
-import LoadingButton from '../loadingButton/loadingButton.component';
+import { Button } from '..';
 
 const Comments = ({ id }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,15 +24,15 @@ const Comments = ({ id }) => {
   const [comments, setComments] = useState(null);
   const [commentCount, setCommentCount] = useState(0);
   const [refreshComments, setRefreshComments] = useState(false);
-
   const [formStarted, setFormStarted] = useState(false);
   const [disabled, setDisabled] = useState(true);
-  const [formData, setFormData, clearFormData] = useForm({
+  const [formSent, setFormSent] = useState('pending');
+
+  const { formData, setFormData, clearFormData } = useForm({
     comment: '',
     author: '',
     email: '',
   });
-  const [formSent, setFormSent] = useState('pending');
 
   const commentFocus = useRef();
 
@@ -160,17 +159,26 @@ const Comments = ({ id }) => {
             onClick={() => setFormStarted(true)}
             required
           />
-          {formStarted ? (
+          {formStarted && (
             <>
               <Label htmlFor="author">Įvesk savo duomenis</Label>
               <Input type="text" id="author" placeholder="Vardas" value={formData.author} onChange={setFormData} required />
               <Input type="email" id="email" placeholder="El. pašto adresas" value={formData.email} onChange={setFormData} required />
               <div>
-                <CancelButton type="reset" value="Atšaukti" onClick={handleCancel} />
-                <LoadingButton disabled={disabled} type="submit" formSent={formSent} value="Įrašyti komentarą" valueConfirmed="Įrašyta" />
+                <Button data-type="cancel" type="reset" onClick={handleCancel}>
+                  Atšaukti
+                </Button>
+                <Button
+                  data-type="loading"
+                  disabled={disabled}
+                  type="submit"
+                  formSent={formSent}
+                  value="Įrašyti komentarą"
+                  valueConfirmed="Įrašyta"
+                />
               </div>
             </>
-          ) : null}
+          )}
         </Form>
       </CommentsContainer>
     );

@@ -1,30 +1,22 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink as ReactNavLink } from 'react-router-dom';
 import { ReactComponent as ReactLogo } from '../../assets/svg/amzinai-alkanas.svg';
 
-export const HeaderContainer = styled.div`
+export const NavContainer = styled.nav`
   display: flex;
   width: 100%;
   height: 3.6rem;
+  padding: 0 clamp(1rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   background: ${(props) => (props.isHeaderTransparent ? 'transparent' : '#000000')};
   transition: all 0.5s ease;
   position: fixed;
-  z-index: 9999;
+  z-index: 100;
 `;
 
-export const HeaderWrapper = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  max-width: var(--page-layout-width);
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 1rem;
-`;
-
-export const LogoContainer = styled(Link)`
+export const NavLogo = styled(ReactNavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,17 +26,17 @@ export const LogoContainer = styled(Link)`
 
 export const Logo = styled(ReactLogo)`
   width: auto;
-  height: 38px;
+  height: 80%;
   fill: red;
 `;
 
-export const TitleContainer = styled.div`
+export const NavBar = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
   justify-content: space-between;
 
-  > span {
+  > div {
     display: flex;
     justify-content: space-between;
 
@@ -54,14 +46,18 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const TitleLink = styled(Link)`
+export const NavLink = styled(ReactNavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${(props) => (props.selected ? '#FF9B00' : '#FFFFFF')};
+  color: #ffffff;
   height: 100%;
   padding: 0 0.833rem;
   text-decoration: none;
+
+  &.active {
+    color: ${(props) => (props['data-active'] === undefined || props['data-active'] ? '#ff9b00' : '#FFFFFF')};
+  }
 
   &:hover {
     color: #ff9b00;

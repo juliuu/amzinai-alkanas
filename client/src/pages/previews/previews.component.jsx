@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { PreviewPageContainer, PreviewWrapper, PreviewMainSection, PreviewHeadingWrapper, CardWrapper } from './previews.styles';
-
-import Dropdown from '../../components/dropdown/dropdown.component';
-import Card from '../../components/sectionCard/sectionCard.component';
-import SideBar from '../../components/sidebar/sidebar.component';
-import PageSelector from '../../components/pageSelector/pageSelector.component';
-import Footer from '../../components/footer/footer.component';
-
+import { Dropdown, SectionCard, SideBar, PageSelector, Footer } from '../../components';
 import previewPageDetails from '../../assets/data/previewPage.json';
 
-const PreviewsPage = (props) => {
-  const {
-    location: { pathname },
-  } = props;
+const PreviewsPage = () => {
+  const { pathname } = useLocation();
 
   const pageDetails = previewPageDetails[pathname];
   const pageSize = 9;
@@ -95,7 +88,7 @@ const PreviewsPage = (props) => {
             </PreviewHeadingWrapper>
             <CardWrapper>
               {data.map((article) => (
-                <Card
+                <SectionCard
                   key={article._id}
                   imgUrl={article.imgUrl}
                   heading={article.heading}

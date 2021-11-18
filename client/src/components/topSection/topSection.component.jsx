@@ -1,12 +1,9 @@
 import React from 'react';
 
 import { TopContainer, TopWrapper, ListWrapper, TopList, ListItem, ItemNumber, ItemName } from './topSection.styles';
+import { SectionHeading, StarRating } from '..';
 
-import SectionHeading from '../sectionHeading/sectionHeading.component';
-import StarRating from '../starRating/starRating.component';
-import Button from '../button/button.component';
-
-const TopSection = ({ refs, title, dropdown, data, onChange }) => {
+const TopSection = ({ title, dropdown, data, onChange }) => {
   const heading = { title, dropdown };
 
   const firstPart = data.slice(0, 5);
@@ -17,7 +14,7 @@ const TopSection = ({ refs, title, dropdown, data, onChange }) => {
   };
 
   return (
-    <TopContainer ref={refs.topRef}>
+    <TopContainer id="#top">
       <TopWrapper>
         <SectionHeading {...heading} onFilterChange={handleFilterChange} />
         <ListWrapper>
@@ -40,7 +37,6 @@ const TopSection = ({ refs, title, dropdown, data, onChange }) => {
             ))}
           </TopList>
         </ListWrapper>
-        <Button to="/apzvalgos">Daugiau</Button>
       </TopWrapper>
     </TopContainer>
   );

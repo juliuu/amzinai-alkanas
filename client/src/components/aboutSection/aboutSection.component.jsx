@@ -17,10 +17,10 @@ import {
 
 import SocialIcon from '../socialIcon/socialIcon.component';
 
-const AboutSection = ({ refs }) => (
+const AboutSection = () => (
   <AboutContainer>
     <AboutWrapper>
-      <AuthorContainer ref={refs.aboutRef}>
+      <AuthorContainer id="#apie">
         <AboutTitle>APIE MANE</AboutTitle>
         <AuthorPortrait />
         <p>
@@ -29,7 +29,7 @@ const AboutSection = ({ refs }) => (
           pavalgyti. Jeigu maisto ragavimas ar gaminimas yra ir TAVO aistra - tuomet Sveikas, naujasis bičiuli!
         </p>
       </AuthorContainer>
-      <SocialsContainer ref={refs.contactRef}>
+      <SocialsContainer id="#susisiekime">
         <AboutTitle>SUSISIEKIME</AboutTitle>
         <SocialIconWrapper>
           <div>

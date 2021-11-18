@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import { HomePageContainer } from './home.styles';
-
-import IntroSection from '../../components/introSection/introSection.component';
-import PeviewSection from '../../components/previewSection/previewSection.component';
-import TopSection from '../../components/topSection/topSection.component';
-import AboutSection from '../../components/aboutSection/aboutSection.component';
-
+import { IntroSection, PreviewSection, TopSection, AboutSection } from '../../components';
 import homepageDetails from '../../assets/data/homepageDetails.json';
 
-const HomePage = ({ refs }) => {
+const HomePage = () => {
   // TODO: think on better approach to get home page details
   const reviewSection = homepageDetails['reviewSection'];
   const recipeSection = homepageDetails['recipeSection'];
@@ -24,6 +20,8 @@ const HomePage = ({ refs }) => {
   const [tops, setTops] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
+
+  const { hash } = useLocation();
 
   // Fetch reviews
   useEffect(() => {
@@ -77,6 +75,17 @@ const HomePage = ({ refs }) => {
     if (reviews && recipes && tops) setIsLoaded(true);
   }, [reviews, recipes, tops]);
 
+  useEffect(() => {
+    if (isLoaded && hash) {
+      let elem = document.getElementById(hash);
+      if (elem) {
+        elem.scrollIntoView();
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [isLoaded, hash]);
+
   const onChange = (e, type) => {
     switch (type) {
       case 'reviewSection':
@@ -103,10 +112,10 @@ const HomePage = ({ refs }) => {
     return (
       <HomePageContainer>
         <IntroSection {...introSection} />
-        <PeviewSection onChange={(e) => onChange(e, 'reviewSection')} data={reviews} {...reviewSection} />
-        <TopSection onChange={(e) => onChange(e, 'topSection')} refs={refs} data={tops} {...topSection} />
-        <PeviewSection onChange={(e) => onChange(e, 'recipeSection')} data={recipes} {...recipeSection} />
-        <AboutSection refs={refs} />
+        <PreviewSection onChange={(e) => onChange(e, 'reviewSection')} data={reviews} {...reviewSection} />
+        <TopSection onChange={(e) => onChange(e, 'topSection')} data={tops} {...topSection} />
+        <PreviewSection onChange={(e) => onChange(e, 'recipeSection')} data={recipes} {...recipeSection} />
+        <AboutSection />
       </HomePageContainer>
     );
   }

@@ -4,11 +4,14 @@ const router = express.Router();
 const { reviews, recipes, comments } = require('../controllers');
 
 router.get('/apzvalgos', reviews.findMany);
+router.get('/apzvalgos/lookup', reviews.findAll);
 router.get('/apzvalgos/total', reviews.findTotal);
 router.get('/apzvalgos/top', reviews.findTop);
 router.get('/apzvalgos/:id', reviews.findOne);
+router.post('/apzvalgos', reviews.insertOne);
 
 router.get('/receptai', recipes.findMany);
+router.get('/receptai/lookup', recipes.findAll);
 router.get('/receptai/total', reviews.findTotal);
 router.get('/receptai/:id', recipes.findOne);
 

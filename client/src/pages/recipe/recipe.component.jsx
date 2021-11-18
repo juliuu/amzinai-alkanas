@@ -12,11 +12,7 @@ import {
   IngredientWrapper,
   RecipeHeadingWrapper,
 } from './recipe.styles';
-
-import SideBar from '../../components/sidebar/sidebar.component';
-import Footer from '../../components/footer/footer.component';
-import Instruction from '../../components/instruction/instruction.component';
-import Comments from '../../components/comments/comments.component';
+import { SideBar, Footer, Instruction, Comments, Button } from '../../components';
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -86,8 +82,8 @@ const RecipePage = () => {
                   ))}
                 </IngredientList>
                 <span>
-                  <button>Spausdinti</button>
-                  <button>Pasidalinti</button>
+                  <Button data-type="general">Spausdinti</Button>
+                  <Button data-type="general">Pasidalinti</Button>
                 </span>
               </IngredientWrapper>
             </IngredientContainer>

@@ -14,7 +14,7 @@ REVIEWS
        url: '{{lorem(1, "words")}}-img-url'
       }
     ],
-    foodScore: [
+    foodScores: [
       '{{repeat(integer(2, 5))}}',
       {
         category: '{{lorem(integer(1, 3), "words")}}',

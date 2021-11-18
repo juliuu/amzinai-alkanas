@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ReviewContainer, ReviewWrapper, ReviewMainSection, ReviewHeadingWrapper, ImageCardWrapper } from './review.styles';
-
-import Footer from '../../components/footer/footer.component';
-import ImageCard from '../../components/imageCard/imageCard.component';
-import SideBar from '../../components/sidebar/sidebar.component';
-import ReviewScore from '../../components/reviewScore/reviewScore.component';
-import Comments from '../../components/comments/comments.component';
+import { Footer, ImageCard, SideBar, ReviewScore, Comments } from '../../components';
 
 const ReviewPage = () => {
   const { id } = useParams();
@@ -93,11 +88,11 @@ const ReviewPage = () => {
             </ImageCardWrapper>
             {data.review}
             <h3>MAISTO ĮVERTINIMAS</h3>
-            {data.foodScore.map((score, index) => (
+            {data.foodScores.map((score, index) => (
               <ReviewScore key={index} {...score} />
             ))}
             <h3>RESTORANO ĮVERTINIMAS</h3>
-            {data.restaurantScore.map((score, index) => (
+            {data.restaurantScores.map((score, index) => (
               <ReviewScore key={index} {...score} />
             ))}
             <br />

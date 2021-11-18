@@ -52,6 +52,9 @@ class MongoDb {
       findMany: async (params) => {
         return reviews.findMany(this.reviewsCollection, params);
       },
+      findAll: async (params) => {
+        return reviews.findAll(this.reviewsCollection, params);
+      },
       findTotal: async (params) => {
         return reviews.findTotal(this.reviewsCollection, params);
       },
@@ -61,6 +64,9 @@ class MongoDb {
       findOne: async (params) => {
         return reviews.findOne(this.reviewsCollection, params);
       },
+      insertOne: async (body) => {
+        return reviews.insertOne(this.reviewsCollection, body);
+      }
     };
   }
 
@@ -68,6 +74,9 @@ class MongoDb {
     return {
       findMany: async (params) => {
         return recipes.findMany(this.recipesCollection, params);
+      },
+      findAll: async (params) => {
+        return recipes.findAll(this.recipesCollection, params);
       },
       findTotal: async (params) => {
         return recipes.findTotal(this.recipesCollection, params);

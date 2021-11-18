@@ -18,8 +18,15 @@ const findOne = async (req, res) => {
   return res.json(result);
 };
 
+const findAll = async (req, res) => {
+  const params = req.params;
+  const result = await MongoDbService.recipes.findAll(params);
+  return res.json(result);
+};
+
 module.exports = {
   findMany,
+  findAll,
   findTotal,
   findOne,
 };
