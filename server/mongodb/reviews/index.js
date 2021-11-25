@@ -126,6 +126,16 @@ const insertOne = async (reviewsCollection, body) => {
   }
 };
 
+const deleteOne = async (reviewsCollection, params) => {
+  try {
+    const result = await reviewsCollection.deleteOne({ _id: ObjectId(params.id) });
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][DELETE_ONE] Failed to delete data. ERROR --> ${error}`);
+    return { error };
+  }
+};
+
 module.exports = {
   findMany,
   findAll,
@@ -133,4 +143,5 @@ module.exports = {
   findTop,
   findOne,
   insertOne,
+  deleteOne,
 };

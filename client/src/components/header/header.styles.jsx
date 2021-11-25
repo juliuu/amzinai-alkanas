@@ -13,7 +13,7 @@ export const NavContainer = styled.nav`
   background: ${(props) => (props.isHeaderTransparent ? 'transparent' : '#000000')};
   transition: all 0.5s ease;
   position: fixed;
-  z-index: 100;
+  z-index: 9000;
 `;
 
 export const NavLogo = styled(ReactNavLink)`

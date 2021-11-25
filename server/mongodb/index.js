@@ -66,7 +66,10 @@ class MongoDb {
       },
       insertOne: async (body) => {
         return reviews.insertOne(this.reviewsCollection, body);
-      }
+      },
+      deleteOne: async (params) => {
+        return reviews.deleteOne(this.reviewsCollection, params);
+      },
     };
   }
 
@@ -83,6 +86,9 @@ class MongoDb {
       },
       findOne: async (params) => {
         return recipes.findOne(this.recipesCollection, params);
+      },
+      deleteOne: async (params) => {
+        return reviews.deleteOne(this.recipesCollection, params);
       },
     };
   }

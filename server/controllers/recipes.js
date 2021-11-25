@@ -24,9 +24,18 @@ const findAll = async (req, res) => {
   return res.json(result);
 };
 
+const deleteOne = async (req, res) => {
+  const params = req.params;
+  const result = await MongoDbService.recipes.deleteOne(params);
+
+  if (result.error) return res.status(500).json({});
+  return res.status(200).json(result);
+}
+
 module.exports = {
   findMany,
   findAll,
   findTotal,
   findOne,
+  deleteOne
 };

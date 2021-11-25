@@ -3,7 +3,7 @@ import { AnimateSharedLayout, motion } from 'framer-motion';
 
 import { MotionButton, LoadingWrapper, LoadingBall } from './button.styles';
 
-const LoadingButton = ({ value, valueConfirmed, type, disabled, formSent = 'pending' }) => {
+const LoadingButton = ({ value, valueConfirmed, type, onClick, disabled, formSent = 'pending' }) => {
   const transitionDuration = 0.2;
 
   const loadingWrapperVariants = {
@@ -53,7 +53,7 @@ const LoadingButton = ({ value, valueConfirmed, type, disabled, formSent = 'pend
 
   return (
     <AnimateSharedLayout>
-      <MotionButton layout disabled={disabled} type={type} transition={{ duration: transitionDuration }}>
+      <MotionButton layout disabled={disabled} type={type} onClick={onClick} transition={{ duration: transitionDuration }}>
         {formSent === 'pending' && (
           <motion.p variants={textVariants} initial={false} animate="animate">
             {value}

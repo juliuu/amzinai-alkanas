@@ -46,7 +46,7 @@ export const StyledIconButton = styled.button`
 export const StyledCancelButton = styled.button`
   font-size: inherit;
   font-weight: bold;
-  color: #e3e3e3;
+  color: ${(props) => (props.color ? props.color : '#e3e3e3')};
   margin-right: 1rem;
   height: 2.5rem;
   background-color: transparent;
@@ -66,6 +66,7 @@ export const MotionButton = styled(motion.button)`
   border-radius: 2.5rem;
   padding: 0 1rem;
   border: none;
+  ${hoverStyle};
 
   :disabled {
     background-color: #e3e3e3;

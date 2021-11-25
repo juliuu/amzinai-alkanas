@@ -114,9 +114,20 @@ const findOne = async (recipesCollection, params) => {
   }
 };
 
+const deleteOne = async (recipesCollection, params) => {
+  try {
+    const result = await recipesCollection.deleteOne({ _id: ObjectId(params.id) });
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][RECIPES][DELETE_ONE] Failed to delete data. ERROR --> ${error}`);
+    return { error };
+  }
+};
+
 module.exports = {
   findMany,
   findAll,
   findTotal,
   findOne,
+  deleteOne,
 };

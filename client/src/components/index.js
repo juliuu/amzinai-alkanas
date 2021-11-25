@@ -20,3 +20,4 @@ export { default as SocialIcon } from './socialIcon/socialIcon.component';
 export { default as Spinner } from './spinner/spinner.component';
 export { default as StarRating } from './starRating/starRating.component';
 export { default as TopSection } from './topSection/topSection.component';
+export { default as Modal } from './modal/modal.component';
