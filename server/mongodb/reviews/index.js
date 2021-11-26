@@ -47,6 +47,7 @@ const findAll = async (reviewsCollection, params) => {
             heading: 1,
             timestamp: 1,
             comments: 1,
+            published: 1,
           },
         },
         {
@@ -136,6 +137,16 @@ const deleteOne = async (reviewsCollection, params) => {
   }
 };
 
+const updateOne = async (reviewsCollection, params, body) => {
+  try {
+    const result = await reviewsCollection.updateOne({ _id: ObjectId(params.id) }, { $set: body });
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][REVIEWS][UPDATE_ONE] Failed to update data. Error --> ${error}`);
+    return { error };
+  }
+};
+
 module.exports = {
   findMany,
   findAll,
@@ -144,4 +155,5 @@ module.exports = {
   findOne,
   insertOne,
   deleteOne,
+  updateOne,
 };

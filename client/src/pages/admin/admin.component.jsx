@@ -16,7 +16,8 @@ const AdminPage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteId, setDeleteId] = useState(null);
+  const [showPublishModal, setShowPublishModal] = useState(false);
+  const [itemDetails, setItemDetails] = useState(null);
   const [actionCompleted, setActionCompleted] = useState('pending');
 
   const fetchData = async () => {
@@ -52,7 +53,31 @@ const AdminPage = () => {
       setTimeout(() => {
         setShowDeleteModal(false);
         setActionCompleted('pending');
-      }, 1000);
+      }, 500);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  const handlePublish = async (params) => {
+    try {
+      setActionCompleted('loading');
+
+      await fetch(`/api${tab === 'review' ? '/apzvalgos' : '/receptai'}/${params.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ published: params.published }),
+      }).then(async () => {
+        await fetchData();
+        setActionCompleted('confirmed');
+      });
+
+      setTimeout(() => {
+        setShowPublishModal(false);
+        setActionCompleted('pending');
+      }, 500);
     } catch (error) {
       setError(error);
     }
@@ -91,12 +116,30 @@ const AdminPage = () => {
               {tab === 'recipe' && <TD style={{ fontWeight: 'bold' }}>{item.rating ? item.rating[0].rating : '-'}</TD>}
               <TD>
                 <Flattened>
-                  <Button data-type="icon" color="green">
-                    <span className="material-icons-outlined">check_circle</span>
-                  </Button>
-                  <Button data-type="icon" color="#ff9b00">
-                    <span className="material-icons-outlined">unpublished</span>
-                  </Button>
+                  {item.published && (
+                    <Button
+                      data-type="icon"
+                      color="green"
+                      onClick={() => {
+                        setShowPublishModal(true);
+                        setItemDetails({ id: item._id, published: !item.published });
+                      }}
+                    >
+                      <span className="material-icons-outlined">check_circle</span>
+                    </Button>
+                  )}
+                  {!item.published && (
+                    <Button
+                      data-type="icon"
+                      color="#ff9b00"
+                      onClick={() => {
+                        setShowPublishModal(true);
+                        setItemDetails({ id: item._id, published: !item.published });
+                      }}
+                    >
+                      <span className="material-icons-outlined">unpublished</span>
+                    </Button>
+                  )}
                   <Button data-type="icon" color="#ff9b00">
                     <span className="material-icons-outlined">edit</span>
                   </Button>
@@ -105,7 +148,7 @@ const AdminPage = () => {
                     color="red"
                     onClick={() => {
                       setShowDeleteModal(true);
-                      setDeleteId(item._id);
+                      setItemDetails(item._id);
                     }}
                   >
                     <span className="material-icons-outlined">delete</span>
@@ -117,8 +160,13 @@ const AdminPage = () => {
         </TBody>
       </Table>
       {showDeleteModal && (
-        <Modal onCancel={() => setShowDeleteModal(false)} onConfirm={() => handleDelete(deleteId)} actionCompleted={actionCompleted}>
+        <Modal onCancel={() => setShowDeleteModal(false)} onConfirm={() => handleDelete(itemDetails)} actionCompleted={actionCompleted}>
           <h4>Are you sure about this, mate?</h4>
+        </Modal>
+      )}
+      {showPublishModal && (
+        <Modal onCancel={() => setShowPublishModal(false)} onConfirm={() => handlePublish(itemDetails)} actionCompleted={actionCompleted}>
+          <h4>Do you wish to {itemDetails.published ? '' : 'UN'}PUBLISH this post?</h4>
         </Modal>
       )}
     </AdminPageContainer>

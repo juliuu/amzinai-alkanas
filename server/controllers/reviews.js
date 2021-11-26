@@ -44,7 +44,16 @@ const deleteOne = async (req, res) => {
 
   if (result.error) return res.status(500).json({});
   return res.status(200).json(result);
-}
+};
+
+const updateOne = async (req, res) => {
+  const params = req.params;
+  const body = req.body;
+  const result = await MongoDbService.reviews.updateOne(params, body);
+
+  if (result.error) return res.statue(500).json({});
+  return res.status(200).json(result);
+};
 
 module.exports = {
   findMany,
@@ -53,5 +62,6 @@ module.exports = {
   findTop,
   findOne,
   insertOne,
-  deleteOne
+  deleteOne,
+  updateOne,
 };

@@ -70,6 +70,9 @@ class MongoDb {
       deleteOne: async (params) => {
         return reviews.deleteOne(this.reviewsCollection, params);
       },
+      updateOne: async (params, body) => {
+        return reviews.updateOne(this.reviewsCollection, params, body);
+      },
     };
   }
 
@@ -88,7 +91,10 @@ class MongoDb {
         return recipes.findOne(this.recipesCollection, params);
       },
       deleteOne: async (params) => {
-        return reviews.deleteOne(this.recipesCollection, params);
+        return recipes.deleteOne(this.recipesCollection, params);
+      },
+      updateOne: async (params, body) => {
+        return recipes.updateOne(this.recipesCollection, params, body);
       },
     };
   }

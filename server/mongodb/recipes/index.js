@@ -75,6 +75,7 @@ const findAll = async (recipesCollection, params) => {
             timestamp: 1,
             comments: 1,
             rating: 1,
+            published: 1,
           },
         },
         {
@@ -124,10 +125,21 @@ const deleteOne = async (recipesCollection, params) => {
   }
 };
 
+const updateOne = async (recipesCollection, params, body) => {
+  try {
+    const result = await recipesCollection.updateOne({ _id: ObjectId(params.id) }, { $set: body });
+    return result;
+  } catch (error) {
+    console.error(`[MONGO_DB][RECIPES][UPDATE_ONE] Failed to update data. Error --> ${error}`);
+    return { error };
+  }
+};
+
 module.exports = {
   findMany,
   findAll,
   findTotal,
   findOne,
   deleteOne,
+  updateOne,
 };
