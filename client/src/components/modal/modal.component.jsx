@@ -17,7 +17,13 @@ const Modal = ({ children, onConfirm, onCancel, actionCompleted }) => {
           <Button data-type="cancel" onClick={onCancel} color="#ff9b00">
             Atšaukti
           </Button>
-          <Button data-type="loading" onClick={onConfirm} formSent={actionCompleted} value="Patvirtinti" valueConfirmed="Atlikta" />
+          <Button
+            data-type="loading"
+            onClick={onConfirm}
+            formSent={actionCompleted}
+            value="Patvirtinti"
+            valueConfirmed="Atlikta"
+          />
         </ModalActions>
       </ModalWrapper>
     </ModalContainer>

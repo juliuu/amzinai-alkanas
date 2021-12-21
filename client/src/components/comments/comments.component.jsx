@@ -107,12 +107,24 @@ const Comments = ({ id }) => {
         {commentCount ? <span style={{ fontWeight: 'bold' }}>Komentarų: {commentCount}</span> : null}
         {comments.map((comment) => (
           <CommentWrapper key={comment._id}>
-            {comment.imgUrl ? <CommentPic src={comment.imgUrl} alt="user" /> : <BlankPic>{comment.author[0].toUpperCase()}</BlankPic>}
+            {comment.imgUrl ? (
+              <CommentPic src={comment.imgUrl} alt="user" />
+            ) : (
+              <BlankPic>{comment.author[0].toUpperCase()}</BlankPic>
+            )}
             <CommentSection>
               <FirstComment>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <CommentData>
-                    <p style={{ fontSize: '0.8rem', fontWeight: 'bold', marginRight: '0.3rem' }}>{comment.author}</p>
+                    <p
+                      style={{
+                        fontSize: '0.8rem',
+                        fontWeight: 'bold',
+                        marginRight: '0.3rem',
+                      }}
+                    >
+                      {comment.author}
+                    </p>
                     <p style={{ color: 'grey', fontSize: '0.7rem' }}>{comment.timestamp}</p>
                   </CommentData>
                   {comment.comment}
@@ -133,10 +145,22 @@ const Comments = ({ id }) => {
               {comment.replies.length > 0
                 ? comment.replies.map((reply) => (
                     <CommentWrapper key={reply._id}>
-                      {reply.imgUrl ? <CommentPic src={reply.imgUrl} alt="user" /> : <BlankPic>{reply.author[0].toUpperCase()}</BlankPic>}
+                      {reply.imgUrl ? (
+                        <CommentPic src={reply.imgUrl} alt="user" />
+                      ) : (
+                        <BlankPic>{reply.author[0].toUpperCase()}</BlankPic>
+                      )}
                       <CommentSection>
                         <CommentData>
-                          <p style={{ fontSize: '0.8rem', fontWeight: 'bold', marginRight: '0.3rem' }}>{reply.author}</p>
+                          <p
+                            style={{
+                              fontSize: '0.8rem',
+                              fontWeight: 'bold',
+                              marginRight: '0.3rem',
+                            }}
+                          >
+                            {reply.author}
+                          </p>
                           <p style={{ color: 'grey', fontSize: '0.7rem' }}>{reply.timestamp}</p>
                         </CommentData>
                         {reply.comment}
@@ -162,8 +186,22 @@ const Comments = ({ id }) => {
           {formStarted && (
             <>
               <Label htmlFor="author">Įvesk savo duomenis</Label>
-              <Input type="text" id="author" placeholder="Vardas" value={formData.author} onChange={setFormData} required />
-              <Input type="email" id="email" placeholder="El. pašto adresas" value={formData.email} onChange={setFormData} required />
+              <Input
+                type="text"
+                id="author"
+                placeholder="Vardas"
+                value={formData.author}
+                onChange={setFormData}
+                required
+              />
+              <Input
+                type="email"
+                id="email"
+                placeholder="El. pašto adresas"
+                value={formData.email}
+                onChange={setFormData}
+                required
+              />
               <div>
                 <Button data-type="cancel" type="reset" onClick={handleCancel}>
                   Atšaukti

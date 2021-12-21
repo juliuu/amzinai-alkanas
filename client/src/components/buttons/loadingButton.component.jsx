@@ -53,7 +53,13 @@ const LoadingButton = ({ value, valueConfirmed, type, onClick, disabled, formSen
 
   return (
     <AnimateSharedLayout>
-      <MotionButton layout disabled={disabled} type={type} onClick={onClick} transition={{ duration: transitionDuration }}>
+      <MotionButton
+        layout
+        disabled={disabled}
+        type={type}
+        onClick={onClick}
+        transition={{ duration: transitionDuration }}
+      >
         {formSent === 'pending' && (
           <motion.p variants={textVariants} initial={false} animate="animate">
             {value}

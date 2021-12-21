@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { PreviewPageContainer, PreviewWrapper, PreviewMainSection, PreviewHeadingWrapper, CardWrapper } from './previews.styles';
+import {
+  PreviewPageContainer,
+  PreviewWrapper,
+  PreviewMainSection,
+  PreviewHeadingWrapper,
+  CardWrapper,
+} from './previews.styles';
 import { Dropdown, SectionCard, SideBar, PageSelector, Footer } from '../../components';
 import previewPageDetails from '../../assets/data/previewPage.json';
 
@@ -28,7 +34,9 @@ const PreviewsPage = () => {
         const offset = selectedPage * pageSize - pageSize;
 
         const [data, count] = await Promise.all([
-          fetch(`/api${pathname}/?sort=${sort}&offset=${offset}&size=${pageSize}${type ? '&type=' + type : ''}`).then((res) => res.json()), // TODO: rename filter
+          fetch(
+            `/api${pathname}/?sort=${sort}&offset=${offset}&size=${pageSize}${type ? '&type=' + type : ''}`
+          ).then((res) => res.json()), // TODO: rename filter
           fetch(`/api${pathname}/total/${type ? '?type=' + type : ''}`).then((res) => res.json()),
         ]);
 
@@ -48,7 +56,9 @@ const PreviewsPage = () => {
       try {
         const sidebarPathname = pathname === '/apzvalgos' ? '/receptai' : '/apzvalgos';
 
-        const data = await fetch(`/api${sidebarPathname}/?sort=rating&offset=0&size=${sidebarSize}`).then((res) => res.json());
+        const data = await fetch(`/api${sidebarPathname}/?sort=rating&offset=0&size=${sidebarSize}`).then(
+          (res) => res.json()
+        );
 
         setSidebarData(data);
       } catch (error) {
@@ -99,9 +109,17 @@ const PreviewsPage = () => {
                 />
               ))}
             </CardWrapper>
-            <PageSelector onPageChange={(value) => setSelectedPage(value)} selectedPage={selectedPage} pageCount={pageCount} />
+            <PageSelector
+              onPageChange={(value) => setSelectedPage(value)}
+              selectedPage={selectedPage}
+              pageCount={pageCount}
+            />
           </PreviewMainSection>
-          <SideBar title={pageDetails.sidebar.title} linkTo={pageDetails.sidebar.linkTo} linkText={pageDetails.sidebar.linkText}>
+          <SideBar
+            title={pageDetails.sidebar.title}
+            linkTo={pageDetails.sidebar.linkTo}
+            linkText={pageDetails.sidebar.linkText}
+          >
             {sidebarData}
           </SideBar>
         </PreviewWrapper>

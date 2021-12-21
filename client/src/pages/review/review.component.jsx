@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { ReviewContainer, ReviewWrapper, ReviewMainSection, ReviewHeadingWrapper, ImageCardWrapper } from './review.styles';
+import {
+  ReviewContainer,
+  ReviewWrapper,
+  ReviewMainSection,
+  ReviewHeadingWrapper,
+  ImageCardWrapper,
+} from './review.styles';
 import { Footer, ImageCard, SideBar, ReviewScore, Comments } from '../../components';
 
 const ReviewPage = () => {
@@ -35,7 +41,9 @@ const ReviewPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch(`/api/receptai/?sort=rating&offset=0&size=${sidebarSize}`).then((res) => res.json());
+        const data = await fetch(`/api/receptai/?sort=rating&offset=0&size=${sidebarSize}`).then((res) =>
+          res.json()
+        );
 
         setSidebarData(data);
       } catch (error) {

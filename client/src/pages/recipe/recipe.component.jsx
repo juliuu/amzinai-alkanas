@@ -42,7 +42,9 @@ const RecipePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetch(`/api/apzvalgos/?sort=rating&offset=0&size=${sidebarSize}`).then((res) => res.json());
+        const data = await fetch(`/api/apzvalgos/?sort=rating&offset=0&size=${sidebarSize}`).then((res) =>
+          res.json()
+        );
 
         setSidebarData(data);
       } catch (error) {

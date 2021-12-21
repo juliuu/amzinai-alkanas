@@ -80,7 +80,11 @@ const findTotal = async (reviewsCollection, params) => {
 
 const findTop = async (reviewsCollection, params) => {
   try {
-    const result = await reviewsCollection.find({ type: params.type }).sort({ rating: -1 }).limit(10).toArray();
+    const result = await reviewsCollection
+      .find({ type: params.type })
+      .sort({ rating: -1 })
+      .limit(10)
+      .toArray();
     return result;
   } catch (error) {
     console.error(`[MONGO_DB][REVIEWS][FIND_TOP] Failed to fetch data. ERROR --> ${error}`);
@@ -91,8 +95,10 @@ const findOne = async (reviewsCollection, params) => {
   try {
     const data = await reviewsCollection.findOne({ _id: ObjectId(params.id) });
 
-    const averageFoodScore = data.foodScores.reduce((acc, curr) => acc + curr.rating, 0) / data.foodScores.length;
-    const averageRestaurantScore = data.restaurantScores.reduce((acc, curr) => acc + curr.rating, 0) / data.restaurantScores.length;
+    const averageFoodScore =
+      data.foodScores.reduce((acc, curr) => acc + curr.rating, 0) / data.foodScores.length;
+    const averageRestaurantScore =
+      data.restaurantScores.reduce((acc, curr) => acc + curr.rating, 0) / data.restaurantScores.length;
     const averageRating = Math.round((averageFoodScore + averageRestaurantScore) / 2);
 
     return { data, averageRating };
@@ -103,7 +109,8 @@ const findOne = async (reviewsCollection, params) => {
 
 const insertOne = async (reviewsCollection, body) => {
   try {
-    if (!body.heading || !body.dishes || !body.foodScores || !body.restaurantScores) return { error: 'Bad Request' };
+    if (!body.heading || !body.dishes || !body.foodScores || !body.restaurantScores)
+      return { error: 'Bad Request' };
 
     const document = {
       heading: body.heading,
@@ -129,7 +136,9 @@ const insertOne = async (reviewsCollection, body) => {
 
 const deleteOne = async (reviewsCollection, params) => {
   try {
-    const result = await reviewsCollection.deleteOne({ _id: ObjectId(params.id) });
+    const result = await reviewsCollection.deleteOne({
+      _id: ObjectId(params.id),
+    });
     return result;
   } catch (error) {
     console.error(`[MONGO_DB][REVIEWS][DELETE_ONE] Failed to delete data. ERROR --> ${error}`);

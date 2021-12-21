@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { FooterContainer, FooterLogo, NavContainer, NavWrapper, NavItem, SocialContainer, SocialIconWrapper } from './footer.styles';
+import {
+  FooterContainer,
+  FooterLogo,
+  NavContainer,
+  NavWrapper,
+  NavItem,
+  SocialContainer,
+  SocialIconWrapper,
+} from './footer.styles';
 
 import SocialIcon from '../socialIcon/socialIcon.component';
 

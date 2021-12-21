@@ -1,6 +1,13 @@
 import React from 'react';
 
-import { CardContainer, SomePicture, CardHeading, CardIntroduction, CardLink, CardRating } from './sectionCard.styles';
+import {
+  CardContainer,
+  SomePicture,
+  CardHeading,
+  CardIntroduction,
+  CardLink,
+  CardRating,
+} from './sectionCard.styles';
 
 import StarRating from '../starRating/starRating.component';
 

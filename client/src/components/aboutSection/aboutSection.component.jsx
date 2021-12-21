@@ -24,9 +24,10 @@ const AboutSection = () => (
         <AboutTitle>APIE MANE</AboutTitle>
         <AuthorPortrait />
         <p>
-          Jeigu mes dar nesusipažinome - LABAS! Aš esu Robertas. Maistas man yra aistra - mėgstu skaniai ir kokybiškai pasigaminti maistą,
-          tačiau taip pat mėgstu aplankyti įvairius restoranus, paragauti neragautų skonių, atrasti naujų patiekalų bei kokybiškai
-          pavalgyti. Jeigu maisto ragavimas ar gaminimas yra ir TAVO aistra - tuomet Sveikas, naujasis bičiuli!
+          Jeigu mes dar nesusipažinome - LABAS! Aš esu Robertas. Maistas man yra aistra - mėgstu skaniai ir
+          kokybiškai pasigaminti maistą, tačiau taip pat mėgstu aplankyti įvairius restoranus, paragauti
+          neragautų skonių, atrasti naujų patiekalų bei kokybiškai pavalgyti. Jeigu maisto ragavimas ar
+          gaminimas yra ir TAVO aistra - tuomet Sveikas, naujasis bičiuli!
         </p>
       </AuthorContainer>
       <SocialsContainer id="#susisiekime">

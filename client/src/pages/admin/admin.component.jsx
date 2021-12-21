@@ -22,7 +22,9 @@ const AdminPage = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(`/api${tab === 'review' ? '/apzvalgos' : '/receptai'}/lookup/?sort=timestamp`).then((res) => res.json()); // TODO: add normal sort mechanism
+      const data = await fetch(
+        `/api${tab === 'review' ? '/apzvalgos' : '/receptai'}/lookup/?sort=timestamp`
+      ).then((res) => res.json()); // TODO: add normal sort mechanism
 
       setData(data);
       setIsLoaded(true);
@@ -113,7 +115,9 @@ const AdminPage = () => {
               <TD>{item.heading.toUpperCase()}</TD>
               <TD>{item.timestamp}</TD>
               <TD style={{ fontWeight: 'bold' }}>{item.comments[0].count}</TD>
-              {tab === 'recipe' && <TD style={{ fontWeight: 'bold' }}>{item.rating ? item.rating[0].rating : '-'}</TD>}
+              {tab === 'recipe' && (
+                <TD style={{ fontWeight: 'bold' }}>{item.rating ? item.rating[0].rating : '-'}</TD>
+              )}
               <TD>
                 <Flattened>
                   {item.published && (
@@ -122,7 +126,10 @@ const AdminPage = () => {
                       color="green"
                       onClick={() => {
                         setShowPublishModal(true);
-                        setItemDetails({ id: item._id, published: !item.published });
+                        setItemDetails({
+                          id: item._id,
+                          published: !item.published,
+                        });
                       }}
                     >
                       <span className="material-icons-outlined">check_circle</span>
@@ -134,7 +141,10 @@ const AdminPage = () => {
                       color="#ff9b00"
                       onClick={() => {
                         setShowPublishModal(true);
-                        setItemDetails({ id: item._id, published: !item.published });
+                        setItemDetails({
+                          id: item._id,
+                          published: !item.published,
+                        });
                       }}
                     >
                       <span className="material-icons-outlined">unpublished</span>
@@ -160,12 +170,20 @@ const AdminPage = () => {
         </TBody>
       </Table>
       {showDeleteModal && (
-        <Modal onCancel={() => setShowDeleteModal(false)} onConfirm={() => handleDelete(itemDetails)} actionCompleted={actionCompleted}>
+        <Modal
+          onCancel={() => setShowDeleteModal(false)}
+          onConfirm={() => handleDelete(itemDetails)}
+          actionCompleted={actionCompleted}
+        >
           <h4>Are you sure about this, mate?</h4>
         </Modal>
       )}
       {showPublishModal && (
-        <Modal onCancel={() => setShowPublishModal(false)} onConfirm={() => handlePublish(itemDetails)} actionCompleted={actionCompleted}>
+        <Modal
+          onCancel={() => setShowPublishModal(false)}
+          onConfirm={() => handlePublish(itemDetails)}
+          actionCompleted={actionCompleted}
+        >
           <h4>Do you wish to {itemDetails.published ? '' : 'UN'}PUBLISH this post?</h4>
         </Modal>
       )}

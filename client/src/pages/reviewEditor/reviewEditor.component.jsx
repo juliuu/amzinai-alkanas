@@ -23,7 +23,9 @@ const EditorPage = () => {
   useEffect(() => {
     const dishes = formData.dishes.some((item) => (item.name ? true : false));
     const foodScores = formData.foodScores.some((item) => (item.rating >= 0 && item.category ? true : false));
-    const restaurantScores = formData.restaurantScores.some((item) => (item.rating >= 0 && item.category ? true : false));
+    const restaurantScores = formData.restaurantScores.some((item) =>
+      item.rating >= 0 && item.category ? true : false
+    );
     if (formData.heading && dishes && foodScores && restaurantScores) return setDisabled(false);
     setDisabled(true);
     setFormSent('pending');
@@ -56,7 +58,14 @@ const EditorPage = () => {
   return (
     <EditorContainer>
       <Form onSubmit={handleFormSubmit}>
-        <Input id="heading" type="text" placeholder="Restorano pavadinimas" value={formData.heading} onChange={setFormData} required />
+        <Input
+          id="heading"
+          type="text"
+          placeholder="Restorano pavadinimas"
+          value={formData.heading}
+          onChange={setFormData}
+          required
+        />
         <Input
           id="videoUrl"
           type="url"
@@ -77,10 +86,20 @@ const EditorPage = () => {
           value={formData.imgUrl}
           onChange={setFormData}
         />
-        <TextArea id="intro" type="textArea" placeholder="Įžanginis tekstas" value={formData.intro} onChange={setFormData} />
+        <TextArea
+          id="intro"
+          type="textArea"
+          placeholder="Įžanginis tekstas"
+          value={formData.intro}
+          onChange={setFormData}
+        />
         <div>
           <Label htmlFor="dishes">Valgyti patiekalai</Label>
-          <Button data-type="icon" color="#ff9b00" onClick={() => setFormList('dishes', { name: '', url: '' })}>
+          <Button
+            data-type="icon"
+            color="#ff9b00"
+            onClick={() => setFormList('dishes', { name: '', url: '' })}
+          >
             <span className="material-icons-outlined">add_circle_outline</span>
           </Button>
         </div>
@@ -112,10 +131,26 @@ const EditorPage = () => {
               </div>
             );
           })}
-        <TextArea id="review" type="textArea" placeholder="Apžvalga" value={formData.review} onChange={setFormData} />
+        <TextArea
+          id="review"
+          type="textArea"
+          placeholder="Apžvalga"
+          value={formData.review}
+          onChange={setFormData}
+        />
         <div>
           <Label htmlFor="foodScore">Maisto įvertinimas</Label>
-          <Button data-type="icon" color="#ff9b00" onClick={() => setFormList('foodScores', { category: '', comment: '', rating: 0 })}>
+          <Button
+            data-type="icon"
+            color="#ff9b00"
+            onClick={() =>
+              setFormList('foodScores', {
+                category: '',
+                comment: '',
+                rating: 0,
+              })
+            }
+          >
             <span className="material-icons-outlined">add_circle_outline</span>
           </Button>
         </div>
@@ -159,7 +194,13 @@ const EditorPage = () => {
           <Button
             data-type="icon"
             color="#ff9b00"
-            onClick={() => setFormList('restaurantScores', { category: '', comment: '', rating: 0 })}
+            onClick={() =>
+              setFormList('restaurantScores', {
+                category: '',
+                comment: '',
+                rating: 0,
+              })
+            }
           >
             <span className="material-icons-outlined">add_circle_outline</span>
           </Button>
@@ -193,7 +234,11 @@ const EditorPage = () => {
                   value={restaurantScore.comment}
                   onChange={(e) => setFormListData('restaurantScores', e, index)}
                 />
-                <Button data-type="icon" color="red" onClick={() => spliceFormList('restaurantScores', index)}>
+                <Button
+                  data-type="icon"
+                  color="red"
+                  onClick={() => spliceFormList('restaurantScores', index)}
+                >
                   <span className="material-icons-outlined">remove_circle_outline</span>
                 </Button>
               </div>
@@ -210,7 +255,14 @@ const EditorPage = () => {
           <Button data-type="cancel" type="reset" onClick={handleCancel}>
             Atšaukti
           </Button>
-          <Button data-type="loading" disabled={disabled} type="submit" formSent={formSent} value="Išsaugoti" valueConfirmed="Išsaugota" />
+          <Button
+            data-type="loading"
+            disabled={disabled}
+            type="submit"
+            formSent={formSent}
+            value="Išsaugoti"
+            valueConfirmed="Išsaugota"
+          />
         </div>
       </Form>
     </EditorContainer>

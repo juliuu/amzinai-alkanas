@@ -38,8 +38,18 @@ const Login = ({ setToken }) => {
     <Container>
       <h1>Įveskite prisijungimo duomenis</h1>
       <Form onSubmit={handleSubmit}>
-        <Input required type="text" placeholder="vartotojo vardas..." onChange={(e) => setUsername(e.target.value)} />
-        <Input required type="password" placeholder="slaptažodis..." onChange={(e) => setPassword(e.target.value)} />
+        <Input
+          required
+          type="text"
+          placeholder="vartotojo vardas..."
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <Input
+          required
+          type="password"
+          placeholder="slaptažodis..."
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <Submit type="submit" value="Prisijungti" />
       </Form>
     </Container>
