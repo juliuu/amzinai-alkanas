@@ -6,7 +6,7 @@ export const NavContainer = styled.nav`
   display: flex;
   width: 100%;
   height: 3.6rem;
-  padding: 0 clamp(1rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+  padding: 0 clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
   box-sizing: border-box;
   justify-content: center;
   align-items: center;

@@ -31,7 +31,7 @@ class MongoDb {
 
       console.log('MONGO_DB initialized.');
     } catch (error) {
-      this.mongoClient.close();
+      if (this.mongoClient) this.mongoClient.close();
       console.log('MONGO_DB failed to initialize --> ', { error });
     }
   }

@@ -42,6 +42,10 @@ export const GlobalStyle = createGlobalStyle`
             url('./assets/fonts/roboto-v20-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
     }
 
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
     html, body {
         font-family: 'Roboto', Helvetica, san-serif;
         font-size: 18px;
@@ -54,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         /* General params */
-        --page-layout-width: 1300px;
+        --page-layout-width: 1920px;
         --button-font-size: 16px;
         --button-padding: 12px 20px;
 
@@ -79,9 +83,9 @@ export const GlobalStyle = createGlobalStyle`
 
         :root {
             /* General params */
+            --page-layout-width: 100%;
             --button-font-size: 12px;
             --button-padding: 11px 15px;
-            --page-layout-width: 100%;
 
             /* Home Page --> Intro Section params */
             --introSection-height: 21.875rem;

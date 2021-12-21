@@ -4,9 +4,9 @@ export const TopContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  align-items: center;
   color: white;
   background: black;
+  padding: 0rem clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
 `;
 
 export const TopWrapper = styled.div`
@@ -17,13 +17,13 @@ export const TopWrapper = styled.div`
   width: 100%;
   max-width: var(--page-layout-width);
   height: fit-content;
-  margin: 0 1rem;
+  margin: 0rem clamp(0rem, calc(100vw, var(--page-layout-width) / 2), 17.2rem);
 `;
 
 export const ListWrapper = styled.div`
   display: flex;
   flex-direction: var(--topSection-flex-direction);
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 8rem 0;
   width: 100%;

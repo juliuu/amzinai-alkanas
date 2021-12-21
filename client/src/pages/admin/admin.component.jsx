@@ -34,7 +34,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     fetchData();
-  }, [tab]);
+  }, [tab, fetchData]);
 
   const handleDelete = async (id) => {
     try {

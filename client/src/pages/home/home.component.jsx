@@ -102,7 +102,7 @@ const HomePage = () => {
     }
   };
 
-  // TODO: review.rating is passe in, not calculated - should be calculated!!
+  // TODO: review.rating is passed in, not calculated - should be calculated!!
 
   if (error) {
     return <div>Error: {error.message}</div>; // TODO: make a simple error page

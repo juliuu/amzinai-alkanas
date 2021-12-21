@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import image from '../../assets/img/intro-image.jpg';
 
 export const IntroContainer = styled.div`
+  width: 100%;
   height: var(--introSection-height);
   background-image: url(${image});
   background-size: cover;

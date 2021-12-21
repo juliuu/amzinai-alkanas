@@ -1,6 +1,14 @@
 import React from 'react';
 
-import { TopContainer, TopWrapper, ListWrapper, TopList, ListItem, ItemNumber, ItemName } from './topSection.styles';
+import {
+  TopContainer,
+  TopWrapper,
+  ListWrapper,
+  TopList,
+  ListItem,
+  ItemNumber,
+  ItemName,
+} from './topSection.styles';
 import { SectionHeading, StarRating } from '..';
 
 const TopSection = ({ title, dropdown, data, onChange }) => {
@@ -18,24 +26,28 @@ const TopSection = ({ title, dropdown, data, onChange }) => {
       <TopWrapper>
         <SectionHeading {...heading} onFilterChange={handleFilterChange} />
         <ListWrapper>
-          <TopList>
-            {firstPart.map((item, index) => (
-              <ListItem key={item._id}>
-                <ItemNumber>{index + 1}.</ItemNumber>
-                <ItemName>{item.heading.toUpperCase()}</ItemName>
-                <StarRating>{item.rating}</StarRating>
-              </ListItem>
-            ))}
-          </TopList>
-          <TopList>
-            {secondPart.map((item, index) => (
-              <ListItem key={item._id}>
-                <ItemNumber>{index + 6}.</ItemNumber>
-                <ItemName>{item.heading.toUpperCase()}</ItemName>
-                <StarRating>{item.rating}</StarRating>
-              </ListItem>
-            ))}
-          </TopList>
+          {firstPart.length > 0 && (
+            <TopList>
+              {firstPart.map((item, index) => (
+                <ListItem key={item._id}>
+                  <ItemNumber>{index + 1}.</ItemNumber>
+                  <ItemName>{item.heading.toUpperCase()}</ItemName>
+                  <StarRating>{item.rating}</StarRating>
+                </ListItem>
+              ))}
+            </TopList>
+          )}
+          {secondPart.length > 0 && (
+            <TopList>
+              {secondPart.map((item, index) => (
+                <ListItem key={item._id}>
+                  <ItemNumber>{index + 6}.</ItemNumber>
+                  <ItemName>{item.heading.toUpperCase()}</ItemName>
+                  <StarRating>{item.rating}</StarRating>
+                </ListItem>
+              ))}
+            </TopList>
+          )}
         </ListWrapper>
       </TopWrapper>
     </TopContainer>

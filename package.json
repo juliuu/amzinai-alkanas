@@ -21,10 +21,11 @@
     "mongodb": "^4.1.4"
   },
   "engines": {
-    "node": "12.18.4"
+    "node": "12.*"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
   }
 }

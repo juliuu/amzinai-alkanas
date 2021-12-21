@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const AboutContainer = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   color: white;
   background: black;
+  padding: 0rem clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
 `;
 
 export const AboutWrapper = styled.div`
@@ -12,10 +14,9 @@ export const AboutWrapper = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   padding: 7rem 0;
-  width: 100%;
   max-width: var(--page-layout-width);
   height: fit-content;
-  margin: 0 1rem;
+  margin: 0rem clamp(0rem, calc(100vw, var(--page-layout-width) / 2), 17.2rem);
 `;
 
 export const AboutTitle = styled.h1`
