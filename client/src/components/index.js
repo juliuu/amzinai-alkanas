@@ -1,7 +1,6 @@
 export { default as AboutSection } from './aboutSection/aboutSection.component';
 export { default as Button } from './buttons/buttons.component';
 export { default as Comments } from './comments/comments.component';
-export { default as Dropdown } from './dropdown/dropdown.component';
 export { default as Footer } from './footer/footer.component';
 export { default as Header } from './header/header.component';
 export { default as ImageCard } from './imageCard/imageCard.component';
