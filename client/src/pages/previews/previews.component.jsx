@@ -8,7 +8,7 @@ import {
   PreviewHeadingWrapper,
   CardWrapper,
 } from './previews.styles';
-import { Dropdown, SectionCard, SideBar, PageSelector, Footer } from '../../components';
+import { Button, SectionCard, SideBar, PageSelector, Footer } from '../../components';
 import previewPageDetails from '../../assets/data/previewPage.json';
 
 const PreviewsPage = () => {
@@ -84,10 +84,15 @@ const PreviewsPage = () => {
         <PreviewWrapper>
           <PreviewMainSection>
             <PreviewHeadingWrapper>
-              <Dropdown options={pageDetails.dropdowns.sorting} onFilterChange={(value) => setSort(value)} />
+              <Button
+                data-type="dropdown"
+                options={pageDetails.dropdowns.sorting}
+                onFilterChange={(value) => setSort(value)}
+              />
               <h2>{pageDetails.title.toUpperCase()}</h2>
               {pathname === '/apzvalgos' ? (
-                <Dropdown
+                <Button
+                  data-type="dropdown"
                   options={pageDetails.dropdowns.filtering}
                   onFilterChange={(value) => {
                     setType(value);

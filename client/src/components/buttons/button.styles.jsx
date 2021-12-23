@@ -86,3 +86,54 @@ export const LoadingBall = styled(motion.div)`
   background-color: white;
   margin: 0 2px;
 `;
+
+export const DropdownContainer = styled.div`
+  position: relative;
+  width: ${(props) => `${props.width + 6}ch`};
+`;
+
+export const DropdownHeader = styled.div`
+  ${buttonStyle}
+  justify-content: space-between;
+  border-radius: ${(props) => (props.isOpen ? '1.2rem 1.2rem 0 0' : '1.2rem')};
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  > :last-child {
+    margin-left: 1em;
+  }
+`;
+
+export const DropdownListContainer = styled.div`
+  position: absolute;
+  z-index: 100;
+  width: inherit;
+`;
+
+export const DropdownList = styled.ul`
+  width: inherit;
+  background: red;
+  font-size: var(--button-font-size);
+  padding: var(--button-padding);
+  color: white;
+  border-radius: 0 0 1.2rem 1.2rem;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+export const ListItem = styled.li`
+  list-style: none;
+  margin-bottom: 1em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  :hover {
+    font-weight: 900;
+  }
+`;

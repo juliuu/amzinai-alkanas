@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { AdminPageContainer, AdminTitle, Table, THead, TBody, TH, TR, TD, Flattened } from './admin.styles';
-import { Login, Button, Dropdown, Modal } from '../../components';
+import { Login, Button, Modal } from '../../components';
 import { useSessionStorage } from '../../hooks';
 
 const AdminPage = () => {
@@ -94,7 +94,7 @@ const AdminPage = () => {
     <AdminPageContainer>
       <AdminTitle>ADMINISTRATIVE DASHBOARD</AdminTitle>
       <Flattened justifyContent="space-between" style={{ padding: '0.5rem 0' }}>
-        <Dropdown options={adminTabs} onFilterChange={(value) => setTab(value)} />
+        <Button data-type="dropdown" options={adminTabs} onFilterChange={(value) => setTab(value)} />
         <Button to={`/admin/${tab}`} data-type="link">
           Create {tab === 'review' ? 'Review' : 'Recipe'}
         </Button>
