@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
   justify-content: center;
   color: white;
   background: black;
-  padding: 0rem clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+  padding: var(--page-layout-padding);
 `;
 
 export const AboutWrapper = styled.div`
@@ -16,7 +16,7 @@ export const AboutWrapper = styled.div`
   padding: 7rem 0;
   max-width: var(--page-layout-width);
   height: fit-content;
-  margin: 0rem clamp(0rem, calc(100vw, var(--page-layout-width) / 2), 17.2rem);
+  max-width: var(--main-page-content-width);
 `;
 
 export const AboutTitle = styled.h1`

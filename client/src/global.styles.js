@@ -59,15 +59,17 @@ export const GlobalStyle = createGlobalStyle`
     :root {
         /* General params */
         --page-layout-width: 1920px;
+        --page-layout-padding: 0rem clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+        --main-page-content-width: 1237px;
         --button-font-size: 16px;
         --button-padding: 12px 20px;
 
         /* Home Page --> Intro Section params */
         --introSection-height: 40rem;
         --heading-font-size: 2.333rem;
-        --heading-margins: 0 1.667rem 1.111rem;
+        --heading-margins: 0 0 1.111rem 0;
         --subheading-font-size: 1.222rem;
-        --subheading-margins: 0 1.667rem 2.222rem;
+        --subheading-margins: 0 0 2.222rem 0;
 
         /* Home Page --> Top Section params */
         --topSection-flex-direction: row;
@@ -84,15 +86,16 @@ export const GlobalStyle = createGlobalStyle`
         :root {
             /* General params */
             --page-layout-width: 100%;
+            --main-page-content-width: 100%;
             --button-font-size: 12px;
             --button-padding: 11px 15px;
 
             /* Home Page --> Intro Section params */
             --introSection-height: 21.875rem;
             --heading-font-size: 1.125rem;
-            --heading-margins: 0 1.667rem 0.75rem;
+            --heading-margins: 0 0 0.75rem 0;
             --subheading-font-size: 0.5rem;
-            --subheading-margins: 0 1.667rem 1.063rem;
+            --subheading-margins: 0 0 1.063rem 0;
 
             /* Home Page --> Top Section params */
             --topSection-flex-direction: column;
