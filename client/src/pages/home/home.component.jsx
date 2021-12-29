@@ -27,7 +27,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const reviews = await fetch(`/api/apzvalgos/?sort=${reviewFilter}&offset=0&size=3`).then((res) =>
+        const reviews = await fetch(`/api/apzvalgos/?sort=${reviewFilter}&offset=0&size=6`).then((res) =>
           res.json()
         );
 
@@ -61,7 +61,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const recipes = await fetch(`/api/receptai/?sort=${recipeFilter}&offset=0&size=3`).then((res) =>
+        const recipes = await fetch(`/api/receptai/?sort=${recipeFilter}&offset=0&size=6`).then((res) =>
           res.json()
         );
 

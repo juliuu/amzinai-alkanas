@@ -70,6 +70,15 @@ export const GlobalStyle = createGlobalStyle`
         --heading-margins: 0 0 1.111rem 0;
         --subheading-font-size: 1.222rem;
         --subheading-margins: 0 0 2.222rem 0;
+        
+        /* Home Page --> Preview section params */
+        --card-padding: 1.944rem;
+        --card-content-margin-bottom: 0.555rem;
+        --card-width: 21.5rem;
+        --card-height: 25rem;
+        --card-picture-min-height: 11.111rem;
+        --card-heading-font-size: 20px;
+        --card-font-size: 16px;
 
         /* Home Page --> Top Section params */
         --topSection-flex-direction: row;
@@ -96,6 +105,15 @@ export const GlobalStyle = createGlobalStyle`
             --heading-margins: 0 0 0.75rem 0;
             --subheading-font-size: 0.5rem;
             --subheading-margins: 0 0 1.063rem 0;
+
+            /* Home Page --> Preview section params */
+            --card-padding: 2.187rem;
+            --card-content-margin-bottom: 0.625rem;
+            --card-width: 17.375rem;
+            --card-height: 25.31rem;
+            --card-picture-min-height: 12.625rem;
+            --card-heading-font-size: 14px;
+            --card-font-size: 12px;
 
             /* Home Page --> Top Section params */
             --topSection-flex-direction: column;
