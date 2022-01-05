@@ -6,7 +6,7 @@ export const TopContainer = styled.div`
   justify-content: center;
   color: white;
   background: black;
-  padding: var(--page-layout-padding);
+  padding: 0rem var(--page-layout-padding);
 `;
 
 export const TopWrapper = styled.div`

@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
   justify-content: center;
   color: white;
   background: black;
-  padding: var(--page-layout-padding);
+  padding: 0rem var(--page-layout-padding);
 `;
 
 export const AboutWrapper = styled.div`

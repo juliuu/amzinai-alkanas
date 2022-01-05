@@ -48,7 +48,7 @@ export const GlobalStyle = createGlobalStyle`
 
     html, body {
         font-family: 'Roboto', Helvetica, san-serif;
-        font-size: 18px;
+        font-size: 16px;
         margin: 0;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -58,67 +58,69 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         /* General params */
-        --page-layout-width: 1920px;
-        --page-layout-padding: 0rem clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
-        --main-page-content-width: 1237px;
-        --button-font-size: 16px;
-        --button-padding: 12px 20px;
+        --page-layout-width: 100%;
+        --page-layout-padding: clamp(1.25rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+        --main-page-content-width: 100%;
+        --button-font-size: 12px;
+        --button-padding: 11px 15px;
 
         /* Home Page --> Intro Section params */
-        --introSection-height: 40rem;
-        --heading-font-size: 2.333rem;
-        --heading-margins: 0 0 1.111rem 0;
-        --subheading-font-size: 1.222rem;
-        --subheading-margins: 0 0 2.222rem 0;
-        
+        --introSection-height: 21.875rem;
+        --heading-font-size: 1.125rem;
+        --heading-margins: 0 0 0.75rem 0;
+        --subheading-font-size: 0.5rem;
+        --subheading-margins: 0 0 1.063rem 0;
+
         /* Home Page --> Preview section params */
-        --card-padding: 1.944rem;
-        --card-content-margin-bottom: 0.555rem;
-        --card-width: 21.5rem;
-        --card-height: 25rem;
-        --card-picture-min-height: 11.111rem;
-        --card-heading-font-size: 20px;
-        --card-font-size: 16px;
+        --card-padding: 2.187rem;
+        --card-content-margin-bottom: 0.625rem;
+        --card-width: 17.375rem;
+        --card-height: 25.31rem;
+        --card-picture-min-height: 12.625rem;
+        --card-heading-font-size: 14px;
+        --card-font-size: 12px;
 
         /* Home Page --> Top Section params */
-        --topSection-flex-direction: row;
-        --topSection-justify: space-between;
-        --firstChild-margin-right: 3rem;
+        --topSection-flex-direction: column;
+        --topSection-justify: center;
+        --firstChild-margin-right: 0;
     }
 
     /* Support only for mobile/tablet sizes */
-    @media screen and (max-width: 700px) {
+    @media screen and (min-width: 700px) {
         html, body {
-            font-size: 16px;
+            font-size: 18px;
         }
 
         :root {
             /* General params */
-            --page-layout-width: 100%;
-            --main-page-content-width: 100%;
-            --button-font-size: 12px;
-            --button-padding: 11px 15px;
+            --page-layout-width: 1920px;
+            --page-change-width: 700px;
+            --page-layout-padding: clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
+            --main-page-content-width: 1237px;
+            --button-font-size: 16px;
+            --button-padding: 12px 20px;
 
             /* Home Page --> Intro Section params */
-            --introSection-height: 21.875rem;
-            --heading-font-size: 1.125rem;
-            --heading-margins: 0 0 0.75rem 0;
-            --subheading-font-size: 0.5rem;
-            --subheading-margins: 0 0 1.063rem 0;
+            --introSection-height: 40rem;
+            --heading-font-size: 2.333rem;
+            --heading-margins: 0 0 1.111rem 0;
+            --subheading-font-size: 1.222rem;
+            --subheading-margins: 0 0 2.222rem 0;
 
             /* Home Page --> Preview section params */
-            --card-padding: 2.187rem;
-            --card-content-margin-bottom: 0.625rem;
-            --card-width: 17.375rem;
-            --card-height: 25.31rem;
-            --card-picture-min-height: 12.625rem;
-            --card-heading-font-size: 14px;
-            --card-font-size: 12px;
+            --card-padding: 1.944rem;
+            --card-content-margin-bottom: 0.555rem;
+            --card-width: 21.5rem;
+            --card-height: 25rem;
+            --card-picture-min-height: 11.111rem;
+            --card-heading-font-size: 20px;
+            --card-font-size: 16px;
 
             /* Home Page --> Top Section params */
-            --topSection-flex-direction: column;
-            --topSection-justify: center;
-            --firstChild-margin-right: 0;
+            --topSection-flex-direction: row;
+            --topSection-justify: space-between;
+            --firstChild-margin-right: 3rem;
         }
     }
 
@@ -158,3 +160,12 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 0.778rem;
     }
 `;
+
+export const breakpoints = {
+  _700: 700,
+  _800: 800,
+};
+
+export const MediaQuery = (key) => {
+  return (style) => `@media (min-width: ${breakpoints[key]}px) { ${style} }`;
+};

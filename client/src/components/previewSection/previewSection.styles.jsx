@@ -6,7 +6,7 @@ export const PreviewContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: white;
-  padding: var(--page-layout-padding);
+  padding: 0rem var(--page-layout-padding);
 `;
 
 export const PreviewWrapper = styled.div`

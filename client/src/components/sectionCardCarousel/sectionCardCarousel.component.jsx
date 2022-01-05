@@ -47,6 +47,10 @@ const SectionCardCarousel = (props) => {
       __calcSwiperWidth(ref, setSlideCount, setSwiperWidth, setNavigation, setSpaceBetween);
       window.addEventListener('resize', resizeHandler);
     }
+
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
   }, []);
 
   return (
