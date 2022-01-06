@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { SectionHeadingContainer, ButtonWrapper } from './sectionHeading.styles';
+import { SectionHeadingContainer } from './sectionHeading.styles';
 import { Button } from '..';
 
 const SectionHeading = ({ title, dropdown, onFilterChange }) => {
   return (
     <SectionHeadingContainer>
-      <ButtonWrapper>
+      <div>
         <Button data-type="dropdown" options={dropdown} onFilterChange={onFilterChange} />
-      </ButtonWrapper>
+      </div>
       <h1>{title.toUpperCase()}</h1>
     </SectionHeadingContainer>
   );

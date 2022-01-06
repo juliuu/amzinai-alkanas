@@ -13,11 +13,10 @@ export const TopWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3.5rem 0;
-  width: 100%;
-  max-width: var(--page-layout-width);
+  padding: 3.472rem 0;
   height: fit-content;
-  margin: 0rem clamp(0rem, calc(100vw, var(--page-layout-width) / 2), 17.2rem);
+  max-width: var(--main-page-content-width);
+  width: 100%;
 `;
 
 export const ListWrapper = styled.div`

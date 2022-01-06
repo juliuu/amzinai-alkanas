@@ -89,27 +89,30 @@ export const LoadingBall = styled(motion.div)`
 
 export const DropdownContainer = styled.div`
   position: relative;
-  width: ${(props) => `${props.width + 6}ch`};
+  width: fit-content;
+  min-width: ${({ width }) => `${width}ch`};
+  max-width: ${({ width }) => `${width + 6}ch`};
 `;
 
 export const DropdownHeader = styled.div`
   ${buttonStyle}
   justify-content: space-between;
   border-radius: ${(props) => (props.isOpen ? '1.2rem 1.2rem 0 0' : '1.2rem')};
+  white-space: nowrap;
 
   &:hover {
     cursor: pointer;
   }
 
   > :last-child {
-    margin-left: 1em;
+    margin-left: 0.5em;
   }
 `;
 
 export const DropdownListContainer = styled.div`
   position: absolute;
   z-index: 100;
-  width: inherit;
+  width: 100%;
 `;
 
 export const DropdownList = styled.ul`
@@ -128,6 +131,8 @@ export const DropdownList = styled.ul`
 export const ListItem = styled.li`
   list-style: none;
   margin-bottom: 1em;
+  white-space: nowrap;
+  padding-right: 1em;
 
   &:last-child {
     margin-bottom: 0;
