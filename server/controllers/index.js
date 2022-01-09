@@ -9,5 +9,5 @@ module.exports = {
   recipes,
   comments,
   login,
-  messages
+  messages,
 };

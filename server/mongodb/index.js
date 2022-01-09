@@ -117,8 +117,8 @@ class MongoDb {
     return {
       insertOne: async (body) => {
         return messages.insertOne(this.messagesCollection, body);
-      }
-    }
+      },
+    };
   }
 
   get users() {
