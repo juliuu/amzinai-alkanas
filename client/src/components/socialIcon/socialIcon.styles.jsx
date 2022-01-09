@@ -4,9 +4,8 @@ export const IconBackground = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.07rem;
-  height: 2.07rem;
-  padding: 0.75rem;
+  width: 2.77rem;
+  height: 2.77rem;
   background: white;
   border: 3px solid red;
   border-radius: 50%;
@@ -14,8 +13,8 @@ export const IconBackground = styled.a`
   margin: 0 1.5rem 1.5rem;
 
   > * {
-    width: 100%;
-    height: 100%;
+    width: 55%;
+    height: 55%;
     fill: black;
   }
 `;

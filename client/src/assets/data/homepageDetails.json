@@ -16,7 +16,7 @@
   },
   "recipeSection": {
     "title": "receptai",
-    "linkTo": "/recipes",
+    "linkTo": "/receptai",
     "linkText": "Skaityti receptą",
     "dropdown": [
       { "_id": "rating", "title": "Populiariausi" },

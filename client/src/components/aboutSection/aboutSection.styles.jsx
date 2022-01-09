@@ -63,6 +63,7 @@ export const SocialIconWrapper = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: space-between;
+  height: 100%;
 
   div {
     display: flex;
@@ -78,13 +79,11 @@ export const ContactContainer = styled.div`
 
 export const ContactForm = styled.form``;
 
-// TODO: fix this mess...
 export const ContactInputText = styled.input`
   width: 100%;
   height: ${(props) => (props.inputType === 'title' ? '60px' : '230px')};
   border: 3px solid white;
   border-radius: 15px;
-  box-sizing: border-box;
   background: none;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -108,7 +107,6 @@ export const ContactInputTextarea = styled.textarea`
   height: 230px;
   border: 3px solid white;
   border-radius: 15px;
-  box-sizing: border-box;
   background: none;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -127,27 +125,5 @@ export const ContactInputTextarea = styled.textarea`
 
   :focus {
     outline: none;
-  }
-`;
-
-// TODO: turn to button
-export const ContactInputSubmit = styled.input`
-  display: flex;
-  width: 132px;
-  height: 46px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 23px;
-  background: red;
-  font-size: 1.286rem;
-  color: white;
-  border: 0;
-
-  :focus {
-    outline: none;
-  }
-
-  :hover {
-    cursor: pointer;
   }
 `;

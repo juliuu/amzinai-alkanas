@@ -4,12 +4,14 @@ const reviews = require('./reviews');
 const recipes = require('./recipes');
 const comments = require('./comments');
 const auth = require('./auth');
+const messages = require('./messages');
 
 class MongoDb {
   static mongoClient = undefined;
   static reviewsCollection = undefined;
   static recipesCollection = undefined;
   static commentsCollection = undefined;
+  static messagesCollection = undefined;
 
   async init() {
     const uri = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@amzinai-alkanas.blanc.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
@@ -27,6 +29,7 @@ class MongoDb {
       this.reviewsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('reviews');
       this.recipesCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('recipes');
       this.commentsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('comments');
+      this.messagesCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('messages');
       this.authCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('auth');
 
       console.log('MONGO_DB initialized.');
@@ -108,6 +111,14 @@ class MongoDb {
         return comments.insertOne(this.commentsCollection, body);
       },
     };
+  }
+
+  get messages() {
+    return {
+      insertOne: async (body) => {
+        return messages.insertOne(this.messagesCollection, body);
+      }
+    }
   }
 
   get users() {

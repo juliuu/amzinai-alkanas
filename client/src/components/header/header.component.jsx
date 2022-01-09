@@ -28,7 +28,8 @@ const Header = () => {
     return setIsHeaderTransparent(false);
   };
 
-  const handleMenuToggle = () => setIsMenuActive((previousState) => !previousState);
+  const deactivateMenu = () => setIsMenuActive(false);
+  const activateMenu = () => setIsMenuActive(true);
 
   useEffect(() => {
     const checkIfOutside = (event) => {
@@ -39,7 +40,7 @@ const Header = () => {
         !ref.current.contains(event.target) &&
         !buttonRef.current.contains(event.target)
       ) {
-        setIsMenuActive((previousState) => !previousState);
+        deactivateMenu();
       }
     };
 
@@ -64,7 +65,7 @@ const Header = () => {
 
   useEffect(() => {
     if (size.width > breakpoints['_800'] && isMenuActive) {
-      setIsMenuActive(false);
+      deactivateMenu();
     }
   }, [size.width, isMenuActive]);
 
@@ -77,40 +78,40 @@ const Header = () => {
         </NavLogo>
         <NavBar ref={ref} isMenuActive={isMenuActive}>
           <div>
-            <NavLink to="/" onClick={handleMenuToggle}>
+            <NavLink to="/" onClick={deactivateMenu}>
               <h5>PAGRINDINIS</h5>
             </NavLink>
-            <NavLink to="/apzvalgos" onClick={handleMenuToggle}>
+            <NavLink to="/apzvalgos" onClick={deactivateMenu}>
               <h5>RESTORANŲ APŽVALGOS</h5>
             </NavLink>
-            <NavLink to="/#top" data-active={hash === '#top'} onClick={handleMenuToggle}>
+            <NavLink to="/#top" data-active={hash === '#top'} onClick={deactivateMenu}>
               <h5>RESTORANŲ TOP 10</h5>
             </NavLink>
-            <NavLink to="/receptai" onClick={handleMenuToggle}>
+            <NavLink to="/receptai" onClick={deactivateMenu}>
               <h5>RECEPTAI</h5>
             </NavLink>
             {getSessionStorage('token') && (
-              <NavLink to="/admin" onClick={handleMenuToggle}>
+              <NavLink to="/admin" onClick={deactivateMenu}>
                 <h5>ADMIN</h5>
               </NavLink>
             )}
           </div>
           <div>
-            <NavLink to="/#apie" data-active={hash === '#apie'} onClick={handleMenuToggle}>
+            <NavLink to="/#apie" data-active={hash === '#apie'} onClick={deactivateMenu}>
               <h5>APIE MANE</h5>
             </NavLink>
-            <NavLink to="/#susisiekime" data-active={hash === '#susisiekime'} onClick={handleMenuToggle}>
+            <NavLink to="/#susisiekime" data-active={hash === '#susisiekime'} onClick={deactivateMenu}>
               <h5>SUSISIEKIME</h5>
             </NavLink>
           </div>
         </NavBar>
         <ButtonWrapper ref={buttonRef}>
           {isMenuActive ? (
-            <Button data-type="icon" color="white" onClick={handleMenuToggle} style={{ padding: '0' }}>
+            <Button data-type="icon" color="white" onClick={deactivateMenu} style={{ padding: '0' }}>
               <span className="material-icons-outlined">close</span>
             </Button>
           ) : (
-            <Button data-type="icon" color="white" onClick={handleMenuToggle} style={{ padding: '0' }}>
+            <Button data-type="icon" color="white" onClick={activateMenu} style={{ padding: '0' }}>
               <span className="material-icons-outlined">menu</span>
             </Button>
           )}
