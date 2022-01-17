@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IconBackground } from './socialIcon.styles';
+import { IconContainer, IconBackground } from './socialIcon.styles';
 
 import { ReactComponent as FbIcon } from '../../assets/svg/facebook.svg';
 import { ReactComponent as YoutubeIcon } from '../../assets/svg/youtube.svg';
@@ -22,11 +22,14 @@ const Icon = ({ icon }) => {
   }
 };
 
-const SocialIcon = ({ icon, link }) => {
+const SocialIcon = ({ icon, link, children }) => {
   return (
-    <IconBackground href={link} target="_blank">
-      <Icon icon={icon} />
-    </IconBackground>
+    <IconContainer>
+      <IconBackground href={link} target="_blank" withChildren={children ? true : false}>
+        <Icon icon={icon} />
+      </IconBackground>
+      {children}
+    </IconContainer>
   );
 };
 

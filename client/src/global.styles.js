@@ -57,10 +57,13 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     :root {
+        /* Fixed params */
+        --navbar-height: 3.6rem;
+
         /* General params */
         --page-layout-width: 100%;
         --page-layout-padding: clamp(1.25rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
-        --main-page-content-width: 100%;
+        --home-page-content-width: 100%;
         --button-font-size: 12px;
         --button-padding: 11px 15px;
 
@@ -95,9 +98,8 @@ export const GlobalStyle = createGlobalStyle`
         :root {
             /* General params */
             --page-layout-width: 1920px;
-            --page-change-width: 700px;
             --page-layout-padding: clamp(1.8rem, calc((100vw - var(--page-layout-width)) / 2), 20vw);
-            --main-page-content-width: 1237px;
+            --home-page-content-width: 1237px;
             --button-font-size: 16px;
             --button-padding: 12px 20px;
 
@@ -164,6 +166,7 @@ export const GlobalStyle = createGlobalStyle`
 export const breakpoints = {
   _700: 700,
   _800: 800,
+  _900: 900,
 };
 
 export const MediaQuery = (key) => {

@@ -6,7 +6,7 @@ import { MediaQuery } from '../../global.styles';
 export const NavContainer = styled.nav`
   display: flex;
   width: 100%;
-  height: 3.6rem;
+  height: var(--navbar-height);
   padding: 0rem var(--page-layout-padding);
   place-content: center space-between;
   background: ${({ isHeaderTransparent }) => (isHeaderTransparent ? 'transparent' : '#000000')};

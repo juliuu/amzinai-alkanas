@@ -15,7 +15,7 @@ export const TopWrapper = styled.div`
   align-items: center;
   padding: 3.472rem 0;
   height: fit-content;
-  max-width: var(--main-page-content-width);
+  max-width: var(--home-page-content-width);
   width: 100%;
 `;
 

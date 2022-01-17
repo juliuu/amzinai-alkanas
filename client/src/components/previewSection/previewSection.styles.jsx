@@ -16,6 +16,6 @@ export const PreviewWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 5.418rem;
-  max-width: var(--main-page-content-width);
+  max-width: var(--home-page-content-width);
   width: 100%;
 `;

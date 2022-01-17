@@ -16,7 +16,7 @@ export const AboutWrapper = styled.div`
   padding: 7rem 0;
   max-width: var(--page-layout-width);
   height: fit-content;
-  max-width: var(--main-page-content-width);
+  max-width: var(--home-page-content-width);
 `;
 
 export const AboutTitle = styled.h1`

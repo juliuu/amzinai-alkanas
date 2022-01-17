@@ -31,7 +31,7 @@ export const IntroWrapper = styled.div`
   align-items: center;
   text-align: center;
   color: white;
-  max-width: var(--main-page-content-width);
+  max-width: var(--home-page-content-width);
 `;
 
 export const Heading = styled.div`

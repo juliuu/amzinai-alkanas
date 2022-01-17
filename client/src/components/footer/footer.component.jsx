@@ -4,46 +4,58 @@ import {
   FooterContainer,
   FooterLogo,
   NavContainer,
-  NavWrapper,
   NavItem,
+  NavLink,
   SocialContainer,
-  SocialIconWrapper,
 } from './footer.styles';
 
 import SocialIcon from '../socialIcon/socialIcon.component';
 
-//TODO: finish with the styles
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterLogo />
       <NavContainer>
-        <NavWrapper>
-          <NavItem>PAGRINDINIS</NavItem>
-          <NavItem>RESTORANŲ APŽVALGOS</NavItem>
-          <NavItem>RESTORANŲ TOP 10</NavItem>
-        </NavWrapper>
-        <NavWrapper>
-          <NavItem>RECEPTAI</NavItem>
-          <NavItem>APIE MANE</NavItem>
-          <NavItem>SUSISIEKIME</NavItem>
-        </NavWrapper>
+        <div>
+          <NavLink to="/">
+            <h2>PAGRINDINIS</h2>
+          </NavLink>
+          <NavLink to="/apzvalgos">
+            <h2>RESTORANŲ APŽVALGOS</h2>
+          </NavLink>
+          <NavLink to="/#top">
+            <h2>RESTORANŲ TOP 10</h2>
+          </NavLink>
+        </div>
+        <div>
+          <NavLink to="/receptai">
+            <h2>RECEPTAI</h2>
+          </NavLink>
+          <NavLink to="/#apie">
+            <h2>APIE MANE</h2>
+          </NavLink>
+          <NavLink to="/#susisiekime">
+            <h2>SUSISIEKITE</h2>
+          </NavLink>
+        </div>
       </NavContainer>
       <SocialContainer>
-        <SocialIconWrapper>
-          <div>
-            <SocialIcon icon="facebook" link="https://facebook.com" />
+        <div>
+          <SocialIcon icon="facebook" link="https://facebook.com">
             @amzinai.alkanas
-            <SocialIcon icon="gmail" link="https://gmail.com" />
+          </SocialIcon>
+          <SocialIcon icon="gmail" link="https://gmail.com">
             amzinai.alkanas@gmail.com
-          </div>
-          <div>
-            <SocialIcon icon="instagram" link="https://instagram.com" />
+          </SocialIcon>
+        </div>
+        <div>
+          <SocialIcon icon="instagram" link="https://instagram.com">
             @amzinai.alkanas
-            <SocialIcon icon="youtube" link="https://youtube.com" />
+          </SocialIcon>
+          <SocialIcon icon="youtube" link="https://youtube.com">
             @amzinai.alkanas
-          </div>
-        </SocialIconWrapper>
+          </SocialIcon>
+        </div>
       </SocialContainer>
     </FooterContainer>
   );

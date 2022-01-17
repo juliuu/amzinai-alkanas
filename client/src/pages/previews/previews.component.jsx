@@ -9,13 +9,14 @@ import {
   CardWrapper,
 } from './previews.styles';
 import { Button, SectionCard, SideBar, PageSelector, Footer } from '../../components';
+// import { breakpoints } from '../../global.styles';
 import previewPageDetails from '../../assets/data/previewPage.json';
 
 const PreviewsPage = () => {
   const { pathname } = useLocation();
 
   const pageDetails = previewPageDetails[pathname];
-  const pageSize = 9;
+  const maxCardCount = 9; // TODO: make interchangeable
   const sidebarSize = 3; // TODO: calculate based on screen height maybe?
 
   const [data, setData] = useState(null);
@@ -28,19 +29,33 @@ const PreviewsPage = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setSize({
+  //       width: window.innerWidth,
+  //       height: window.innerHeight,
+  //     });
+  //   };
+  //   window.addEventListener('resize', handleResize);
+
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const offset = selectedPage * pageSize - pageSize;
+        const offset = selectedPage * maxCardCount - maxCardCount;
 
         const [data, count] = await Promise.all([
           fetch(
-            `/api${pathname}/?sort=${sort}&offset=${offset}&size=${pageSize}${type ? '&type=' + type : ''}`
-          ).then((res) => res.json()), // TODO: rename filter
+            `/api${pathname}/?sort=${sort}&offset=${offset}&size=${maxCardCount}${
+              type ? '&type=' + type : ''
+            }`
+          ).then((res) => res.json()),
           fetch(`/api${pathname}/total/${type ? '?type=' + type : ''}`).then((res) => res.json()),
         ]);
 
-        setPageCount(Math.ceil(count / pageSize));
+        setPageCount(Math.ceil(count / maxCardCount));
         setData(data);
       } catch (error) {
         setIsLoaded(true);
@@ -80,16 +95,72 @@ const PreviewsPage = () => {
     return <div>Loading...</div>; // TODO: make a cool loading component
   } else {
     return (
-      <PreviewPageContainer>
-        <PreviewWrapper>
-          <PreviewMainSection>
-            <PreviewHeadingWrapper>
+      // <PreviewPageContainer>
+      //   <PreviewWrapper>
+      //     <PreviewMainSection>
+      //       <PreviewHeadingWrapper>
+      //         <Button
+      //           data-type="dropdown"
+      //           options={pageDetails.dropdowns.sorting}
+      //           onFilterChange={(value) => setSort(value)}
+      //         />
+      //         <h2>{pageDetails.title.toUpperCase()}</h2>
+      //         {pathname === '/apzvalgos' ? (
+      //           <Button
+      //             data-type="dropdown"
+      //             options={pageDetails.dropdowns.filtering}
+      //             onFilterChange={(value) => {
+      //               setType(value);
+      //               setSelectedPage(1);
+      //             }}
+      //           />
+      //         ) : null}
+      //       </PreviewHeadingWrapper>
+      //       <CardWrapper>
+      //         {data.map((article) => (
+      //           <SectionCard
+      //             key={article._id}
+      //             imgUrl={article.imgUrl}
+      //             heading={article.heading}
+      //             intro={article.intro}
+      //             rating={article.rating}
+      //             to={`${pageDetails.to}/${article._id}`}
+      //             linkText={pageDetails.linkText}
+      //           />
+      //         ))}
+      //       </CardWrapper>
+      //       <PageSelector
+      //         onPageChange={(value) => setSelectedPage(value)}
+      //         selectedPage={selectedPage}
+      //         pageCount={pageCount}
+      //       />
+      //     </PreviewMainSection>
+      //     <SideBar
+      //       title={pageDetails.sidebar.title}
+      //       linkTo={pageDetails.sidebar.linkTo}
+      //       linkText={pageDetails.sidebar.linkText}
+      //     >
+      //       {sidebarData}
+      //     </SideBar>
+      //   </PreviewWrapper>
+      //   <Footer />
+      // </PreviewPageContainer>
+      <>
+        <PreviewPageContainer>
+          {/* <PreviewWrapper> */}
+          {/* <PreviewMainSection> */}
+          <PreviewHeadingWrapper>
+            <div>
+              <h2>{pageDetails.title.toUpperCase()}</h2>
+            </div>
+            <div>
               <Button
                 data-type="dropdown"
                 options={pageDetails.dropdowns.sorting}
                 onFilterChange={(value) => setSort(value)}
               />
-              <h2>{pageDetails.title.toUpperCase()}</h2>
+            </div>
+            <div>
               {pathname === '/apzvalgos' ? (
                 <Button
                   data-type="dropdown"
@@ -100,36 +171,38 @@ const PreviewsPage = () => {
                   }}
                 />
               ) : null}
-            </PreviewHeadingWrapper>
-            <CardWrapper>
-              {data.map((article) => (
-                <SectionCard
-                  key={article._id}
-                  imgUrl={article.imgUrl}
-                  heading={article.heading}
-                  intro={article.intro}
-                  rating={article.rating}
-                  to={`${pageDetails.to}/${article._id}`}
-                  linkText={pageDetails.linkText}
-                />
-              ))}
-            </CardWrapper>
-            <PageSelector
-              onPageChange={(value) => setSelectedPage(value)}
-              selectedPage={selectedPage}
-              pageCount={pageCount}
-            />
-          </PreviewMainSection>
-          <SideBar
-            title={pageDetails.sidebar.title}
-            linkTo={pageDetails.sidebar.linkTo}
-            linkText={pageDetails.sidebar.linkText}
-          >
-            {sidebarData}
-          </SideBar>
-        </PreviewWrapper>
+            </div>
+          </PreviewHeadingWrapper>
+          <CardWrapper>
+            {data.map((article) => (
+              <SectionCard
+                key={article._id}
+                imgUrl={article.imgUrl}
+                heading={article.heading}
+                intro={article.intro}
+                rating={article.rating}
+                to={`${pageDetails.to}/${article._id}`}
+                linkText={pageDetails.linkText}
+              />
+            ))}
+          </CardWrapper>
+          <PageSelector
+            onPageChange={(value) => setSelectedPage(value)}
+            selectedPage={selectedPage}
+            pageCount={pageCount}
+          />
+          {/* </PreviewMainSection> */}
+          {/* <SideBar
+          title={pageDetails.sidebar.title}
+          linkTo={pageDetails.sidebar.linkTo}
+          linkText={pageDetails.sidebar.linkText}
+        >
+          {sidebarData}
+        </SideBar> */}
+          {/* </PreviewWrapper> */}
+        </PreviewPageContainer>
         <Footer />
-      </PreviewPageContainer>
+      </>
     );
   }
 };

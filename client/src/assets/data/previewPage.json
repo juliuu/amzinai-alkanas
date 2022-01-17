@@ -18,7 +18,8 @@
         { "_id": "asian", "title": "Azijietiška virtuvė" },
         { "_id": "kebab", "title": "Kebabinės" },
         { "_id": "lithuanian", "title": "Lietuviška virtuvė" },
-        { "_id": "fastFood", "title": "Greitas maistas" }
+        { "_id": "fastFood", "title": "Greitas maistas" },
+        { "_id": "", "title": "Visos" }
       ]
     }
   },
