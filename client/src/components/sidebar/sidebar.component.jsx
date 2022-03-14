@@ -3,10 +3,12 @@ import React from 'react';
 import { SidebarContainer } from './sidebar.styles';
 import SidebarCard from '../sectionCard/sectionCard.component';
 
+import { toDate } from '../../utils';
+
 const SideBar = ({ children, title, linkTo, linkText }) => {
   return (
     <SidebarContainer>
-      <h2>{title.toUpperCase()}</h2>
+      <h3>{title.toUpperCase()}</h3>
       {children.map((item) => (
         <SidebarCard
           key={item._id}
@@ -16,6 +18,7 @@ const SideBar = ({ children, title, linkTo, linkText }) => {
           rating={item.rating}
           to={`${linkTo}/${item._id}`}
           linkText={linkText}
+          timestamp={toDate(item.timestamp)}
         />
       ))}
     </SidebarContainer>

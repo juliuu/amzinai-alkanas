@@ -52,6 +52,7 @@ export const CardHeading = styled.div`
   }
 
   > :last-child {
+    font-size: 14px;
     flex-shrink: 0;
     color: hsl(0, 0%, 50%);
     font-weight: 100;
@@ -67,6 +68,7 @@ export const CardIntroduction = styled.div`
 `;
 
 export const CardLink = styled.div`
+  font-size: 14px;
   text-align: start;
   width: 100%;
   font-weight: 900;

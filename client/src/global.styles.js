@@ -167,6 +167,7 @@ export const breakpoints = {
   _700: 700,
   _800: 800,
   _900: 900,
+  _1200: 1200,
 };
 
 export const MediaQuery = (key) => {

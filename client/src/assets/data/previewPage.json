@@ -28,7 +28,7 @@
     "linkText": "Skaityti receptą",
     "to": "/receptai",
     "sidebar": {
-      "title": "Populiariausios apžvalgos",
+      "title": "Populiariausios apžvalgos:",
       "linkTo": "/apzvalgos",
       "linkText": "Skaityti apžvalgą"
     },

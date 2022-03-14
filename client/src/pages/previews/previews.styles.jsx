@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { MediaQuery } from '../../global.styles';
 
 export const PreviewPageContainer = styled.div`
-  background: brown;
-  padding: 0rem var(--page-layout-padding);
+  display: flex;
   padding-top: calc(var(--navbar-height) + 1.25rem);
   padding-bottom: 1.75rem;
+  width: 100%;
 
   ${MediaQuery('_900')`
     padding-top: calc(var(--navbar-height) + 3.944rem);
@@ -13,19 +13,10 @@ export const PreviewPageContainer = styled.div`
   `}
 `;
 
-// export const PreviewWrapper = styled.div`
-//   display: flex;
-//   width: 100%;
-//   margin-bottom: 2.8rem;
-// `;
-
-// export const PreviewMainSection = styled.div`
-//   display: flex;
-//   width: auto;
-//   flex-direction: column;
-//   align-items: center;
-//   /* padding: 0 3.8rem; */
-// `;
+export const PreviewWrapper = styled.div`
+  height: 100%;
+  padding: 0rem var(--page-layout-padding);
+`;
 
 export const PreviewHeadingWrapper = styled.span`
   display: flex;
@@ -39,13 +30,13 @@ export const PreviewHeadingWrapper = styled.span`
     justify-content: center;
     margin-bottom: 0.875rem;
 
-    h2 {
+    h1 {
       text-align: center;
       white-space: nowrap;
     }
   }
 
-  ${MediaQuery('_900')`
+  ${MediaQuery('_1200')`
     flex-direction: row;
     margin-bottom: 4.388rem;
 

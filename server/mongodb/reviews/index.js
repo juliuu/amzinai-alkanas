@@ -15,7 +15,7 @@ const findMany = async (reviewsCollection, params) => {
 
     return result;
   } catch (error) {
-    console.error(`[MONGO_DB][REVIEWS][FIND_MANY] Failed to fetch data. ERROR --> ${error}`);
+    console.error(`[MONGO_DB][REVIEWS][FIND_MANY] Failed to fetch review data. ERROR --> ${error}`);
   }
 };
 
