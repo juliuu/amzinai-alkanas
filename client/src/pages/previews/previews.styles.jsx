@@ -8,7 +8,7 @@ export const PreviewPageContainer = styled.div`
   width: 100%;
 
   ${MediaQuery('_900')`
-    padding-top: calc(var(--navbar-height) + 3.944rem);
+    padding-top: calc(var(--navbar-height) + 3.66rem);
     padding-bottom: 3.11rem;
   `}
 `;

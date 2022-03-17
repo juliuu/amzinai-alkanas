@@ -5,7 +5,7 @@ import { CardWrapper, Image } from './imageCard.styles';
 const ImageCard = ({ name, url }) => {
   return (
     <CardWrapper>
-      <h4>{name}</h4>
+      <p>{name}</p>
       <Image>{url}</Image>
     </CardWrapper>
   );

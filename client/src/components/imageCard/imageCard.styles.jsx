@@ -1,11 +1,17 @@
 import styled from 'styled-components';
+import { MediaQuery } from '../../global.styles';
 
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 447px; // TODO: change to more responsive unit
+  font-style: italic;
+  min-width: 11.75rem;
+  aspect-ratio: 1.64;
+  ${MediaQuery('_700')`
+    min-width: 24.83rem;
+  `}
 `;
 
 export const Image = styled.div`
@@ -15,7 +21,7 @@ export const Image = styled.div`
   align-items: center;
   background: grey;
   width: 100%;
-  min-height: 200px;
-  height: 272px;
+  height: 100%;
   border-radius: 30px;
+  margin-top: 0.3rem;
 `;
