@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { MediaQuery } from '../../global.styles';
 
 export const CommentsContainer = styled.div`
   display: flex;
@@ -8,13 +9,21 @@ export const CommentsContainer = styled.div`
 
   h1 {
     align-self: center;
+    font-size: 18px;
+    margin-bottom: 0.625rem;
   }
+
+  ${MediaQuery('_700')`
+    h1 {
+      font-size: 24px;
+      margin-bottom: 1.16rem;
+    }
+  `}
 `;
 
 export const CommentWrapper = styled.div`
   display: flex;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 `;
 
 const commonPic = css`
@@ -60,12 +69,12 @@ export const CommentReply = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  color: #ea2828;
-  text-decoration: underline;
+  color: lightGrey;
   font-weight: bold;
-  font-size: 1rem;
-  align-self: center;
-  margin-left: 2.7rem;
+  font-size: 0.7rem;
+  align-self: start;
+  padding: 0;
+  padding-top: 0.2rem;
 `;
 
 export const Form = styled.form`

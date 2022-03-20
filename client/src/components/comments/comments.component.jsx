@@ -27,6 +27,8 @@ const Comments = ({ id }) => {
   const [formStarted, setFormStarted] = useState(false);
   const [disabled, setDisabled] = useState(true);
   const [formSent, setFormSent] = useState('pending');
+  const [limit, setLimit] = useState(3);
+  const [showReplies, setShowReplies] = useState([]);
 
   const { formData, setFormData, clearFormData } = useForm({
     comment: '',
@@ -40,7 +42,7 @@ const Comments = ({ id }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch(`/api/comments/${id}`).then((res) => res.json());
+        const result = await fetch(`/api/comments/${id}?limit=${limit}`).then((res) => res.json());
 
         if (refreshComments) {
           setFormSent('confirmed');
@@ -56,7 +58,7 @@ const Comments = ({ id }) => {
     };
 
     fetchData();
-  }, [id, refreshComments]); // TODO: check if refresh comments is actually needed
+  }, [id, refreshComments, limit]);
 
   useEffect(() => {
     if (comments && commentCount >= 0) setIsLoaded(true);
@@ -96,6 +98,18 @@ const Comments = ({ id }) => {
     });
   };
 
+  const expandComments = () => {
+    setLimit((current) => (current += 3));
+  };
+
+  const expandReplies = (commentId) => {
+    setShowReplies((showReplies) => {
+      showReplies.push(commentId);
+      return showReplies;
+    });
+    setRefreshComments(true);
+  };
+
   if (error) {
     return <div>Error: {error.message}</div>; // TODO: make a simple error page
   } else if (!isLoaded) {
@@ -127,24 +141,35 @@ const Comments = ({ id }) => {
                     </p>
                     <p style={{ color: 'grey', fontSize: '0.7rem' }}>{comment.timestamp}</p>
                   </CommentData>
-                  {comment.comment}
+                  <p>{comment.comment}</p>
+                  <CommentReply
+                    id="commentId"
+                    value={comment.commentId}
+                    onClick={(e) => {
+                      setFormStarted(true);
+                      setFormData(e);
+                      commentFocus.current.focus();
+                      commentFocus.current.scrollIntoView();
+                    }}
+                  >
+                    Atsakyti
+                  </CommentReply>
                 </div>
-                <CommentReply
-                  id="commentId"
-                  value={comment.commentId}
-                  onClick={(e) => {
-                    setFormStarted(true);
-                    setFormData(e);
-                    commentFocus.current.focus();
-                    commentFocus.current.scrollIntoView();
-                  }}
-                >
-                  Atsakyti
-                </CommentReply>
               </FirstComment>
-              {comment.replies.length > 0
-                ? comment.replies.map((reply) => (
-                    <CommentWrapper key={reply._id}>
+              {comment.replies.length > 0 ? (
+                !showReplies.includes(comment.commentId) ? (
+                  <Button
+                    data-type="icon"
+                    color="red"
+                    onClick={() => expandReplies(comment.commentId)}
+                    style={{ display: 'flex', alignItems: 'center', padding: 0, paddingTop: '0.5rem' }}
+                  >
+                    <span className="material-icons-outlined">expand_more</span>
+                    Rodyti ({comment.replies.length}) ataskymų
+                  </Button>
+                ) : (
+                  comment.replies.map((reply) => (
+                    <CommentWrapper key={reply._id} style={{ marginBottom: 0 }}>
                       {reply.imgUrl ? (
                         <CommentPic src={reply.imgUrl} alt="user" />
                       ) : (
@@ -167,11 +192,23 @@ const Comments = ({ id }) => {
                       </CommentSection>
                     </CommentWrapper>
                   ))
-                : null}
+                )
+              ) : null}
             </CommentSection>
           </CommentWrapper>
         ))}
-        <Form onSubmit={handleFormSubmit}>
+        {limit < commentCount && (
+          <Button
+            data-type="icon"
+            color="red"
+            onClick={expandComments}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            <span className="material-icons-outlined">expand_more</span>
+            Rodyti senesnius komentarus
+          </Button>
+        )}
+        <Form onSubmit={handleFormSubmit} style={{ paddingTop: '1rem' }}>
           <Label htmlFor="comment">Parašyk komentarą</Label>
           <TextArea
             ref={commentFocus}

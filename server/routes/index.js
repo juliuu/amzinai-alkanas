@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { reviews, recipes, comments, messages } = require('../controllers');
+const { reviews, recipes, comments, messages, ratings } = require('../controllers');
 
 router.get('/apzvalgos', reviews.findMany);
 router.get('/apzvalgos/lookup', reviews.findAll);
@@ -23,5 +23,9 @@ router.get('/comments/:id', comments.findMany);
 router.post('/comments', comments.insertOne);
 
 router.post('/message', messages.insertOne);
+
+router.get('/rating/avg/:id', ratings.findMany);
+router.get('/rating/:id', ratings.findOne);
+router.put('/rating', ratings.updateOne);
 
 module.exports = router;

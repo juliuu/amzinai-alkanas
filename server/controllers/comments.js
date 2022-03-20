@@ -2,7 +2,8 @@ const MongoDbService = require('../mongodb');
 
 const findMany = async (req, res) => {
   const params = req.params;
-  const result = await MongoDbService.comments.findMany(params);
+  const query = req.query;
+  const result = await MongoDbService.comments.findMany({ ...params, ...query });
 
   if (result.error) return res.status(500).json({});
   return res.status(200).json(result);

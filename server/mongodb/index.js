@@ -5,6 +5,7 @@ const recipes = require('./recipes');
 const comments = require('./comments');
 const auth = require('./auth');
 const messages = require('./messages');
+const ratings = require('./ratings');
 
 class MongoDb {
   static mongoClient = undefined;
@@ -12,6 +13,8 @@ class MongoDb {
   static recipesCollection = undefined;
   static commentsCollection = undefined;
   static messagesCollection = undefined;
+  static authCollection = undefined;
+  static ratingsCollection = undefined;
 
   async init() {
     const uri = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@amzinai-alkanas.blanc.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
@@ -31,6 +34,7 @@ class MongoDb {
       this.commentsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('comments');
       this.messagesCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('messages');
       this.authCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('auth');
+      this.ratingsCollection = this.mongoClient.db(process.env.MONGO_DB_NAME).collection('ratings');
 
       console.log('MONGO_DB initialized.');
     } catch (error) {
@@ -125,6 +129,20 @@ class MongoDb {
     return {
       findOne: async (username) => {
         return auth.findOne(this.authCollection, username);
+      },
+    };
+  }
+
+  get ratings() {
+    return {
+      findMany: async (params) => {
+        return ratings.findMany(this.ratingsCollection, params);
+      },
+      findOne: async (params) => {
+        return ratings.findOne(this.ratingsCollection, params);
+      },
+      updateOne: async (body) => {
+        return ratings.updateOne(this.ratingsCollection, body);
       },
     };
   }

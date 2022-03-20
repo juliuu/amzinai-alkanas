@@ -10,7 +10,7 @@ import {
   ReviewHeadingWrapper,
   ImageCardWrapper,
 } from './review.styles';
-import { Footer, ImageCard, SideBar, ReviewScore, Comments } from '../../components';
+import { Footer, ImageCard, SideBar, ReviewScore, Comments, RatingBlock } from '../../components';
 import { breakpoints } from '../../global.styles';
 
 const ReviewPage = () => {
@@ -132,6 +132,7 @@ const ReviewPage = () => {
                 <h3>GALUTINIS ĮVERTINIMAS</h3>
                 <ReviewScore rating={averageRating} comment={data.finalRemarks} />
               </ScoreWrapper>
+              <RatingBlock id={id} type="review" />
               <Comments id={id} />
             </ReviewMainSection>
           </ReviewWrapper>

@@ -31,6 +31,9 @@ const findMany = async (commentsCollection, params) => {
           {
             $sort: { timestamp: -1 },
           },
+          {
+            $limit: Number(params.limit),
+          },
         ])
         .toArray(),
       commentsCollection.count({
