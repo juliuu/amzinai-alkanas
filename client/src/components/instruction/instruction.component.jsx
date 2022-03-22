@@ -5,9 +5,11 @@ import { InstructionWrapper, InstructionPicture, InstructionStep } from './instr
 const Instruction = (props) => {
   return (
     <InstructionWrapper>
-      <InstructionPicture>{props.imgUrl}</InstructionPicture>
-      <InstructionStep>{props.step}.</InstructionStep>
-      <p>{props.instruction}</p>
+      {props.imgUrl && <InstructionPicture>{props.imgUrl}</InstructionPicture>}
+      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
+        <InstructionStep>{props.step}.</InstructionStep>
+        <p>{props.instruction}</p>
+      </div>
     </InstructionWrapper>
   );
 };

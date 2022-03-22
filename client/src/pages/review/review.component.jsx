@@ -95,6 +95,7 @@ const ReviewPage = () => {
               <ReviewHeadingWrapper>
                 <h4>{data.heading.toUpperCase()}</h4>
                 <h5>RESTORANO APŽVALGA</h5>
+                {/* TODO: change date to dynamic */}
                 <p>2021-08-11</p>
               </ReviewHeadingWrapper>
               <iframe

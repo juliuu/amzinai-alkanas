@@ -73,6 +73,7 @@ export const ReviewHeadingWrapper = styled.span`
   display: flex;
   flex-direction: column;
   width: 100%;
+  text-align: center;
   align-items: center;
   > h4 {
     font-size: 18px;

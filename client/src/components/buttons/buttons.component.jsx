@@ -6,6 +6,7 @@ import GeneralButton from './generalButton.component';
 import IconButton from './iconButton.component';
 import CancelButton from './cancelButton.component';
 import Dropdown from './dropdown.component';
+import TextIconButton from './textIconButton.component';
 
 const Button = (props) => {
   switch (props['data-type']) {
@@ -19,6 +20,8 @@ const Button = (props) => {
       return <CancelButton {...props} />;
     case 'icon':
       return <IconButton {...props} />;
+    case 'text-icon':
+      return <TextIconButton {...props} />;
     case 'dropdown':
       return <Dropdown {...props} />;
     default:

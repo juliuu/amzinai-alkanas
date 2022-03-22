@@ -12,7 +12,8 @@ import {
   IngredientWrapper,
   RecipeHeadingWrapper,
 } from './recipe.styles';
-import { SideBar, Footer, Instruction, Comments, Button } from '../../components';
+import { SideBar, Footer, Instruction, Comments, Button, RatingBlock } from '../../components';
+import { breakpoints } from '../../global.styles';
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -23,6 +24,26 @@ const RecipePage = () => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const [sidebarData, setSidebarData] = useState(null);
+  const [size, setSize] = useState({ width: window.innerWidth });
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const handleResize = () => {
+    setSize({ width: window.innerWidth });
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (size.width > breakpoints['_1200']) {
+      setShowSidebar(true);
+    } else {
+      setShowSidebar(false);
+    }
+  }, [size.width]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,42 +87,54 @@ const RecipePage = () => {
     return <div>Loading...</div>; // TODO: make a cool loading component
   } else {
     return (
-      <RecipeContainer>
-        <RecipeWrapper>
-          <RecipeMainSection>
-            <RecipeHeadingWrapper>
-              <h1>{data.heading.toUpperCase()}</h1>
-              <h3>RECEPTAS</h3>
-              <p>2021-08-11</p>
-            </RecipeHeadingWrapper>
-            <IngredientContainer>
-              <DishPicture>{data.imgUrl}</DishPicture>
-              <IngredientWrapper>
-                <p>Tau reikės:</p>
-                <IngredientList>
-                  {data.ingredients.map((ingredient, index) => (
-                    <IngredientItem key={index}>{ingredient}</IngredientItem>
-                  ))}
-                </IngredientList>
-                <span>
-                  <Button data-type="general">Spausdinti</Button>
-                  <Button data-type="general">Pasidalinti</Button>
-                </span>
-              </IngredientWrapper>
-            </IngredientContainer>
-            <h1>GAMINIMO EIGA</h1>
-            {data.instructions.map((instruction, index) => (
-              <Instruction key={index} {...instruction} />
-            ))}
-            <h1 style={{ color: '#FF9B00' }}>SKANAUS!</h1>
-            <Comments id={id} />
-          </RecipeMainSection>
-          <SideBar title="Populiariausios apžvalgos" linkTo="/apzvalgos" linkText="Skaityti apžvalgą">
-            {sidebarData}
-          </SideBar>
-        </RecipeWrapper>
+      <>
+        <RecipeContainer>
+          <RecipeWrapper>
+            <RecipeMainSection>
+              <RecipeHeadingWrapper>
+                <h4>{data.heading.toUpperCase()}</h4>
+                <h5>RECEPTAS</h5>
+                {/* TODO: change date to dynamic */}
+                <p>2021-08-11</p>
+              </RecipeHeadingWrapper>
+              <IngredientContainer>
+                <DishPicture>{data.imgUrl}</DishPicture>
+                <IngredientWrapper>
+                  <p>Tau reikės:</p>
+                  <IngredientList>
+                    {data.ingredients.map((ingredient, index) => (
+                      <IngredientItem key={index}>{ingredient}</IngredientItem>
+                    ))}
+                  </IngredientList>
+                  <span>
+                    <Button data-type="text-icon">
+                      <p>SPAUSDINTI</p>
+                      <span className="material-icons-outlined">print</span>
+                    </Button>
+                    <Button data-type="text-icon">
+                      <p>PASIDALINTI</p>
+                      <span className="material-icons">share</span>
+                    </Button>
+                  </span>
+                </IngredientWrapper>
+              </IngredientContainer>
+              <h1>GAMINIMO EIGA</h1>
+              {data.instructions.map((instruction, index) => (
+                <Instruction key={index} {...instruction} />
+              ))}
+              <h1 style={{ color: '#FF9B00', margin: '1.3rem' }}>SKANAUS!</h1>
+              <RatingBlock id={id} type="recipe" />
+              <Comments id={id} />
+            </RecipeMainSection>
+          </RecipeWrapper>
+          {showSidebar && (
+            <SideBar title="Populiariausi receptai:" linkTo="/receptai" linkText="Skaityti receptą">
+              {sidebarData}
+            </SideBar>
+          )}
+        </RecipeContainer>
         <Footer />
-      </RecipeContainer>
+      </>
     );
   }
 };

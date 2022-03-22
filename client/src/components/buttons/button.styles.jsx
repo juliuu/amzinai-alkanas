@@ -43,6 +43,25 @@ export const StyledIconButton = styled.button`
   ${hoverStyle}
 `;
 
+export const StyledTextIconButton = styled.button`
+  ${buttonStyle};
+  background: none;
+  border: 2px solid red;
+  color: red;
+  height: 2rem;
+
+  p {
+    font-size: var(--button-font-size) !important;
+    text-decoration: none !important;
+  }
+
+  > :first-child {
+    padding-right: 0.6rem;
+  }
+
+  ${hoverStyle};
+`;
+
 export const StyledCancelButton = styled.button`
   font-size: inherit;
   font-weight: bold;
